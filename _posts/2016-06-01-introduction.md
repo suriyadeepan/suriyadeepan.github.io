@@ -3,7 +3,7 @@ published: true
 title: Introduction
 layout: post
 tags: [general, intro]
-bigimg: /img/start.jpg
+bigimg: /img/start1.jpg
 ---
 Hi! This is Suriyadeepan from Puducherry, India. I've done this many times before. Start a new blog, introduce myself, write about what is going on currently and then forget about the blog altogether. I just need a place to log my activities. The problem is that there are too many solutions and being who I am, I tend to try a lot of different things and not stick to one platform. Well, this is me putting my roots down. Choosing one platform and sticking to it.
 
