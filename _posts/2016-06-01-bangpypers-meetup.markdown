@@ -1,6 +1,8 @@
 ---
 published: true
 title: BangPypers Meetup
+bigimg: /img/meshnet/meshcover.jpg
+subtitle: Talks on Mesh Networks
 layout: post
 tags: [mesh, network, community, network]
 ---
