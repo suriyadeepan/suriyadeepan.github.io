@@ -26,4 +26,4 @@ Finally, I had the stage to myself. I covered the software section, from Routing
 
 **Conluding remarks:**
 
-> Mesh network is an amalgamation of diverse fields. Everyone has something in it. For developing applications in a mesh network, one must change his way of thinking about application development. One must rethink the entire process, keeping in mind the ideas like Decentralization, Distribution, Security and Zero Configuration. This is a great opportunity for developers to port the existing applications or rewrite the applications for this breed of  network, which respects the user's freedom.
+> Mesh network is an amalgamation of diverse fields. Everyone has something in it. For developing applications in a mesh network, one must change his way of thinking about application development. One must rethink the entire process, keeping in mind the ideas like Decentralization, Distribution, Security and Zero Configuration. This is a great opportunity for developers to port the existing applications or rewrite the applications for this new breed of network that respects user's freedom.
