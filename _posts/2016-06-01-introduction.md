@@ -2,6 +2,7 @@
 published: true
 title: Introduction
 layout: post
+subtitle: Reintroduction
 tags: [general, intro]
 bigimg: /img/start1.jpg
 ---
