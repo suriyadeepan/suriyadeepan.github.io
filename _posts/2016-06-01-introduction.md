@@ -10,7 +10,7 @@ Hi! This is Suriyadeepan from Puducherry, India. I've done this many times befor
 
 What will I do differently this time? To keep the blog alive, I need to log an entry at least once a week. It's not like my life is boring. Lots of interesting events happen every week. This time the focus is on the frequency of logging instead of quality of content. 
 
-**What can you expect here? **
+**What can you expect here?**
 
 1. Transhumanism
 2. Artificial Intelligence
