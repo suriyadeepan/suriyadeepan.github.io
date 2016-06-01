@@ -4,7 +4,7 @@ title: About me
 subtitle: Why am I interesting?
 ---
 
-My name is Suriyadeepan Ramamoorthy. I am an independent researcher.
+My name is Suriyadeepan Ramamoorthy. Independent Researcher.
 
 I am interested in 
 
