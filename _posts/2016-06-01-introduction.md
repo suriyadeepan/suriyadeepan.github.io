@@ -1,5 +1,5 @@
 ---
-published: false
+published: true
 title: Introduction
 layout: post
 tags: [general, intro]
@@ -19,6 +19,3 @@ What will I do differently this time? To keep the blog alive, I need to log an e
 5. Mesh Networking and Community Networks
 6. Utopian Dream : Smart Cities, Solar Power
 7. Peer Production
-
-
-
