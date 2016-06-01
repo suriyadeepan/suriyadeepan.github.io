@@ -25,6 +25,8 @@ description: My personal blog!
 navbar-links:
   About Me: "aboutme"
   Resources:
+    - Mesh Network Slides: "http://pymeshnet.gitlab.io/slides/bangpypermeet/software/"
+  Links:
     - Neural Network Basics: "https://github.com/ChatAI/_nn_"
     - Recurrent Neural Network: "https://github.com/ChatAI/_rnn_"
     - ML Coursera Excercises: "https://github.com/ChatAI/CourseraExercises"
