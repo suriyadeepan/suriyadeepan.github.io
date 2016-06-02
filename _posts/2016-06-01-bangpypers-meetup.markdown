@@ -2,6 +2,8 @@
 published: true
 title: BangPypers Meetup
 layout: post
+bigimg: /img/meshnet/meshcover.jpg
+subtitle: Talks on Mesh Networks
 tags: [mesh, network, community, network]
 ---
 > On Saturday 21st May, we travelled to Bangalore to deliver talks on Mesh Networks at [BangPypers Meetup](http://bangalore.python.org.in/about.html). Our friend Ramaseshan, deserves most of the credit for arranging the meet and accommodating us.  Overall, it was a successful event. Participants were excited to interact with us and learn about our activities. 
