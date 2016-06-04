@@ -14,7 +14,13 @@ layout: base
 	      {{ content }}
 	    </article>
 
-        
+<br>
+ <!-- Tags -->
+<ul class="tags">
+  {% for tag in page.tags %}
+    <li><a href="/tags#{{ tag }}" class="tag">{{ tag }}</a></li>
+  {% endfor %}
+</ul>  
 
 	  	  
       <ul class="pager blog-pager">
@@ -32,12 +38,7 @@ layout: base
         {% endif %}
       </ul>
       
-      <!-- Tags -->
-<ul class="tags">
-  {% for tag in page.tags %}
-    <li><a href="/tags#{{ tag }}" class="tag">{{ tag }}</a></li>
-  {% endfor %}
-</ul>
+      
 
 	    {% if page.comments %}
         <div class="disqus-comments">
