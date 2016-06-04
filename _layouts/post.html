@@ -4,18 +4,17 @@ layout: base
 
 {% include header.html type="post" %}
 
-<!-- Tags -->
-<center>
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+    	<!-- Tags -->
 <ul class="tags">
   {% for tag in page.tags %}
     <li><a href="/tags#{{ tag }}" class="tag">{{ tag }}</a></li>
   {% endfor %}
 </ul>
-</center>
-
-<div class="container">
-  <div class="row">
-    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
       <article role="main" class="blog-post">
 	      {{ content }}
 	    </article>
