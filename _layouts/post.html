@@ -13,6 +13,14 @@ layout: base
       <article role="main" class="blog-post">
 	      {{ content }}
 	    </article>
+
+        <!-- Tags -->
+<ul class="tags">
+  {% for tag in page.tags %}
+    <li><a href="/tags#{{ tag }}" class="tag">{{ tag }}</a></li>
+  {% endfor %}
+</ul>
+
 	  	  
       <ul class="pager blog-pager">
         {% if page.previous.url %}
@@ -21,12 +29,6 @@ layout: base
         </li>
         {% endif %}
 
-        <!-- Tags -->
-<ul class="tags">
-  {% for tag in page.tags %}
-    <li><a href="/tags#{{ tag }}" class="tag">{{ tag }}</a></li>
-  {% endfor %}
-</ul>
 
         {% if page.next.url %}
         <li class="next">
