@@ -1,6 +1,6 @@
 ---
 published: false
-title: MIRI : Technical Agenda
+title: "MIRI : Technical Agenda"
 layout: post
 subtitle: Summary of Aligning Superintelligence with Human Interests 
 tags: [ai]
