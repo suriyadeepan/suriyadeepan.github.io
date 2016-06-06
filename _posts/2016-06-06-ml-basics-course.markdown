@@ -2,7 +2,7 @@
 layout: post
 title: Get Started with Machine Learning
 subtitle: An introductory course on Machine Learning
-tags: ["machine learning", "course 1"]
+tags: ["machine learning", "course"]
 published: true
 ---
 
@@ -156,7 +156,7 @@ $$
 
 What we have seen so far, is _Simple Linear Regression_, which models the relationsip between two scalar variables. In multivariable linear regression, we will deal with a vector of inputs. 
 
-**hypothesis**, $$H = \theta X\\$$
+**Hypothesis**, $$H = \theta^{T} X\\$$
 where $$X, \theta$$ are vectors
 
 
@@ -180,6 +180,16 @@ $$
 ## Logistic Regression
 
 Logistic Regression is a regression technique where the output variable is categorical (note that the output variable is continuous in the previous cases). Categorical means that the output variable can only take a limited set of values. Take the case of Binary Logistic Regression model where the output is either zero or one [0,1]. Similarly we can build a model such that the output is [0,1,2,3,4,5,6,7,8,9]. It is very useful for classification tasks, eg: classification of images of characters [A-Z] or digits [0-9].
+
+The hypothesis is defined as
+
+$$
+h = g(\theta^{T}X)
+$$
+
+where $$g$$ is a sigmoid function, which squashes the input $$\theta^{T}X$$ into the range (0,1). 
+
+Sigmoid, $$g(z) = \frac{1}{1 + e^{-z}}$$.
 
 
 
