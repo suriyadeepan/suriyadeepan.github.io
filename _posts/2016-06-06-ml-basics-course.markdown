@@ -34,9 +34,12 @@ ipython
 
 ```python
 import numpy as np
-a = np.zeros([3,3])
-b = np.eye(4)
-c = np.random.random([2,3])
+np.zeros([3,3])
+# should give zero matrix of shape [3x3]
+np.eye(4)
+# should give a [4x4] identity matrix
+np.random.random([2,3])
+# should give a [2x3] matrix of random numbers
 ```
 
 ### Addition
@@ -84,7 +87,19 @@ print a*i
 print i*a
 # Multiplication a.b
 b = np.array([[6, 5, 7],[2, 8, 8],[0, 3, 9]])
-print a*b
+print np.dot(a,b)
+```
+
+### More Operations
+
+```python
+# Transpose of matrix
+x = np.arange(1,10).reshape([3,3])
+print x
+print x.T
+# Inverse of a matrix
+y = np.linalg.inv(x)
+print y
 ```
 
 
