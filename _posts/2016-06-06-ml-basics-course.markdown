@@ -101,6 +101,7 @@ print x.T
 y = np.linalg.inv(x)
 print y
 ```
+<br>
 
 ## Linear Regression
 
