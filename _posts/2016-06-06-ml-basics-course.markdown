@@ -164,10 +164,11 @@ X is a vector of [$$x_1, x_2, x_3,...x_n$$] and $$\theta$$ is a vector of all th
 
 **Cost function**, 
 $$L = (1/2m)\sum (Y-H)$$<br><br>
-**Gradient Descent**,<br>
+**Gradient Descent**,
+
 $$
 \theta : \theta - (1/m)\alpha\nabla_{\theta}\\
-\nabla_{\theta} = X \cdot (H - Y)
+\nabla_{\theta} = X \cdot (H - Y)\\
 $$
 
 
