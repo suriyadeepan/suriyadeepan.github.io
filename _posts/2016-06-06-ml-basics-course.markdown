@@ -24,7 +24,7 @@ To study advanced machine learning, it is recommended to know a few concepts in 
 ### Addition
 
 $$
-A + B = C\\
+A + I = C\\
 \begin{bmatrix}1 & 2 & 3\\4 & 5 & 6 \\ 7 & 8 & 9\end{bmatrix} + \begin{bmatrix}1 & 0 & 0\\0 & 1 & 0 \\ 0 & 0 & 1\end{bmatrix} = \begin{bmatrix}2 & 2 & 3\\4 & 6 & 6 \\ 7 & 8 & 10\end{bmatrix}
 $$
 
@@ -32,7 +32,7 @@ $$
 ### Subtraction
 
 $$
-A - B = D\\
+A - I = D\\
 \begin{bmatrix}1 & 2 & 3\\4 & 5 & 6 \\ 7 & 8 & 9\end{bmatrix} - \begin{bmatrix}1 & 0 & 0\\0 & 1 & 0 \\ 0 & 0 & 1\end{bmatrix} = \begin{bmatrix}0 & 2 & 3\\4 & 4 & 6 \\ 7 & 8 & 8\end{bmatrix}
 $$
 
@@ -40,7 +40,7 @@ $$
 ### Multiplication
 
 $$
-A \cdot B = C\\
+A \cdot I = I \cdot A = A\\
 \begin{bmatrix}1 & 2 & 3\\4 & 5 & 6 \\ 7 & 8 & 9\end{bmatrix} \cdot \begin{bmatrix}1 & 0 & 0\\0 & 1 & 0 \\ 0 & 0 & 1\end{bmatrix} = \begin{bmatrix}1 & 2 & 3\\4 & 5 & 6 \\ 7 & 8 & 9\end{bmatrix}
 $$
 
