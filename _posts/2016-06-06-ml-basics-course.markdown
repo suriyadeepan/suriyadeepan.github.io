@@ -23,7 +23,7 @@ To study advanced machine learning, it is recommended to know a few concepts in 
 
 To practice these operations, instead of pen and paper approach, let us run the operations using [numpy](http://www.numpy.org/). Numpy is a python library that lets us create and operate on large matrices efficiently. Open up a terminal to get started.
 
-{% highlight bash %}
+{% highlight console %}
 # remove numpy 
 sudo apt-get remove python-numpy
 # install latest version through pip
@@ -105,6 +105,6 @@ print y
 
 ## Linear Regression
 
-Regression is a statistical method for modeling the relationship between a set of (independent) variables. Linear regression basically assumes a linear model. What is linear model? A model that is linear in parameters but can still use the independent variables in non-linear forms like $$x^{2} and \log x$$.
+Regression is a statistical method for modeling the relationship between a set of (independent) variables. Linear regression basically assumes a linear model. What is linear model? A model that is linear in parameters but can still use the independent variables in non-linear forms like $$x^{2}$$ and $$\log x$$.
 
 
