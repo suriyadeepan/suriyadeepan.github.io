@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Get Started with Machine Learning
-subtitle: A introductory course on Machine Learning
+subtitle: An introductory course on Machine Learning
 tags: ["machine learning", "course 1"]
 published: true
 ---
@@ -129,7 +129,7 @@ Download the whole table from [here]().
 |8.2934|0.14454|
 |13.394|9.0551|
 
-First we define a hypothesis, $$h=a + bx$$. Now our objective is to find the best values of a and b that closely fits the relationship between x and y, in other words find a,b such that h \approx y.
+First we define a hypothesis, $$h=a + bx$$. Now our objective is to find the best values of a and b that closely fits the relationship between x and y, in other words find a,b such that $$h \approx y$$.
 
 ## Cost Function
 
