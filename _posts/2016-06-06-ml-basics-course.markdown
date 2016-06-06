@@ -6,9 +6,9 @@ tags: ["machine learning", "course 1"]
 published: true
 ---
 
-## What are the contents?
+## Syllabus
 
-1. Linear Algebra basics
+1. [Linear Algebra basics](#linalg)
 1. Linear Regression
 2. Cost function
 3. Gradient Descent
@@ -17,7 +17,7 @@ published: true
 6. Neural Network 
 7. Backpropagation
 
-## Linear Algebra Revision
+## Linear Algebra Revision<a name="linalg"></a>
 
 To study advanced machine learning, it is recommended to know a few concepts in Linear Algebra like Matrix calculus, Eigen Decomposition, etc. But for this course, we just need to remember a few matrix operations like matrix addition, multiplication, inversion from high school. Let's start with how we represent a matrix. A matrix is typically of 2 dimensions, represented by [m,n]. A matrix with just one row or one column is called a vector. 
 
@@ -101,5 +101,8 @@ print x.T
 y = np.linalg.inv(x)
 print y
 ```
+
+## Linear Regression
+
 
 
