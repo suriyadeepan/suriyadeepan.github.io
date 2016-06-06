@@ -179,6 +179,8 @@ $$
 
 ## Logistic Regression
 
+Logistic Regression is a regression technique where the output variable is categorical (note that the output variable is continuous in the previous cases). Categorical means that the output variable can only take a limited set of values. Take the case of Binary Logistic Regression model where the output is either zero or one [0,1]. Similarly we can build a model such that the output is [0,1,2,3,4,5,6,7,8,9]. It is very useful for classification tasks, eg: classification of images of characters [A-Z] or digits [0-9].
+
 
 
 
