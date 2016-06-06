@@ -79,7 +79,7 @@ A \cdot B = E\\
 \begin{bmatrix}1 & 2 & 3\\4 & 5 & 6 \\ 7 & 8 & 9\end{bmatrix} \cdot \begin{bmatrix}6 & 5 & 7\\2 & 8 & 8 \\ 0 & 3 & 9\end{bmatrix} = \begin{bmatrix}6 & 10 & 21\\8 & 40 & 48 \\ 0 & 24 & 81\end{bmatrix}\\
 $$
 
-```python
+{% highlight python %}
 # Muliplication with identity
 a = np.array([[1,2,3],[4,5,6],[7,8,9]])
 i = np.eye(3)
@@ -88,7 +88,7 @@ print i*a
 # Multiplication a.b
 b = np.array([[6, 5, 7],[2, 8, 8],[0, 3, 9]])
 print np.dot(a,b)
-```
+{% endhighlight %}
 
 ### More Operations
 
