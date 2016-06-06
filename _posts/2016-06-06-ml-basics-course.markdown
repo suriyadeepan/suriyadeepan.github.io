@@ -136,7 +136,7 @@ First we define a hypothesis, $$h=a + bx$$. Now our objective is to find the bes
 The _cost_ function or _loss_ function calculates the difference between the hypothesis and the actual model (i.e) How wrong are the values of a and b? For linear regression, we define cost function as:
 
 $$
-L = (1/N)(h-y)^2
+L = \sum_{i=1}^{N}(1/N)\sigma(h-y)^2
 $$
 
 
