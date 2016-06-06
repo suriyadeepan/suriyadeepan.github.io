@@ -114,7 +114,7 @@ $$
 
 In the equation above, [a,b] is the set of parameters and x is the independent variable. Our objective in regression, is to find the parameters [a,b]. Usually we are given a table of values of variables(x) and outputs(y) and asked to build a model that approximates the relationship between x and y. 
 
-Download the whole table from [here](). 
+Download the whole table from [here](https://raw.githubusercontent.com/ChatAI/CourseraExercises/master/data/ex1data1.txt). 
 
 | x | y | 
 | :--------- |:--------- |
@@ -189,7 +189,7 @@ $$
 
 where $$g$$ is a sigmoid function, which squashes the input $$\theta^{T}X$$ into the range (0,1). 
 
-Sigmoid, $$g(z) = \frac{1}{1 + e^{-z}}$$.
+Sigmoid, $$g(z) = 1/(1 + e^{-z})$$.
 
 
 
