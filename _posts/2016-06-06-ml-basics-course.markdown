@@ -156,17 +156,17 @@ $$
 
 What we have seen so far, is _Simple Linear Regression_, which models the relationsip between two scalar variables. In multivariable linear regression, we will deal with a vector of inputs. 
 
-$$
-hypothesis, H = \theta X\\
-where X, \theta are vectors
-$$
+hypothesis, $$H = \theta X\\$$
+where $$X, \theta$$ are vectors
 
-X is a vector of [$$x_1, x_2, x_3,...x_n$$] and \theta is a vector of all the parameters [$$\theta_0, \theta_1,...\theta_n$$]. 
 
+X is a vector of [$$x_1, x_2, x_3,...x_n$$] and $$\theta$$ is a vector of all the parameters [$$\theta_0, \theta_1,...\theta_n$$]. 
+
+
+$$Cost function, L = (1/2m)\sum (Y-H)\\$$
+Gradient Descent,
 $$
-Cost function, L = (1/2m)\sum Y-H\\
-Gradient Descent,\\
-\theta : \theta - (1/m)\alpha\nabla_{\theta}
+\theta : \theta - (1/m)\alpha\nabla_{\theta}\\
 \nabla_{\theta} = X \cdot (H - Y)
 $$
 
