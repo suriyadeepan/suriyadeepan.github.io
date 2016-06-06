@@ -23,16 +23,16 @@ To study advanced machine learning, it is recommended to know a few concepts in 
 
 To practice these operations, instead of pen and paper approach, let us run the operations using [numpy](http://www.numpy.org/). Numpy is a python library that lets us create and operate on large matrices efficiently. Open up a terminal to get started.
 
-```bash
+{% highlight bash %}
 # remove numpy 
 sudo apt-get remove python-numpy
 # install latest version through pip
 sudo pip install numpy -U
 # open ipython 
 ipython
-```
+{% endhighlight %}
 
-```python
+{% highlight python %}
 import numpy as np
 np.zeros([3,3])
 # should give zero matrix of shape [3x3]
@@ -40,7 +40,7 @@ np.eye(4)
 # should give a [4x4] identity matrix
 np.random.random([2,3])
 # should give a [2x3] matrix of random numbers
-```
+{% endhighlight %}
 
 ### Addition
 
@@ -49,12 +49,12 @@ A + I = C\\
 \begin{bmatrix}1 & 2 & 3\\4 & 5 & 6 \\ 7 & 8 & 9\end{bmatrix} + \begin{bmatrix}1 & 0 & 0\\0 & 1 & 0 \\ 0 & 0 & 1\end{bmatrix} = \begin{bmatrix}2 & 2 & 3\\4 & 6 & 6 \\ 7 & 8 & 10\end{bmatrix}
 $$
 
-```python
+{% highlight python %}
 # Addition in numpy
 a = np.array([[1,2,3],[4,5,6],[7,8,9]])
 i = np.eye(3)
 a+i
-```
+{% endhighlight %}
 
 ### Subtraction
 
@@ -63,12 +63,12 @@ A - I = D\\
 \begin{bmatrix}1 & 2 & 3\\4 & 5 & 6 \\ 7 & 8 & 9\end{bmatrix} - \begin{bmatrix}1 & 0 & 0\\0 & 1 & 0 \\ 0 & 0 & 1\end{bmatrix} = \begin{bmatrix}0 & 2 & 3\\4 & 4 & 6 \\ 7 & 8 & 8\end{bmatrix}
 $$
 
-```python
+{% highlight python %}
 # Subtraction in numpy
 a = np.array([[1,2,3],[4,5,6],[7,8,9]])
 i = np.eye(3)
 a-i
-```
+{% endhighlight %}
 
 ### Multiplication
 
@@ -92,7 +92,7 @@ print np.dot(a,b)
 
 ### More Operations
 
-```python
+{% highlight python %}
 # Transpose of matrix
 x = np.arange(1,10).reshape([3,3])
 print x
@@ -100,7 +100,7 @@ print x.T
 # Inverse of a matrix
 y = np.linalg.inv(x)
 print y
-```
+{% endhighlight %}
 <br>
 
 ## Linear Regression
