@@ -28,6 +28,12 @@ A + I = C\\
 \begin{bmatrix}1 & 2 & 3\\4 & 5 & 6 \\ 7 & 8 & 9\end{bmatrix} + \begin{bmatrix}1 & 0 & 0\\0 & 1 & 0 \\ 0 & 0 & 1\end{bmatrix} = \begin{bmatrix}2 & 2 & 3\\4 & 6 & 6 \\ 7 & 8 & 10\end{bmatrix}
 $$
 
+```python
+# Addition in numpy
+a = np.array([[1,2,3],[4,5,6],[7,8,9]])
+i = np.eye(3)
+a+i
+```
 
 ### Subtraction
 
@@ -36,13 +42,31 @@ A - I = D\\
 \begin{bmatrix}1 & 2 & 3\\4 & 5 & 6 \\ 7 & 8 & 9\end{bmatrix} - \begin{bmatrix}1 & 0 & 0\\0 & 1 & 0 \\ 0 & 0 & 1\end{bmatrix} = \begin{bmatrix}0 & 2 & 3\\4 & 4 & 6 \\ 7 & 8 & 8\end{bmatrix}
 $$
 
+```python
+# Subtraction in numpy
+a = np.array([[1,2,3],[4,5,6],[7,8,9]])
+i = np.eye(3)
+a-i
+```
 
 ### Multiplication
 
 $$
 A \cdot I = I \cdot A = A\\
-\begin{bmatrix}1 & 2 & 3\\4 & 5 & 6 \\ 7 & 8 & 9\end{bmatrix} \cdot \begin{bmatrix}1 & 0 & 0\\0 & 1 & 0 \\ 0 & 0 & 1\end{bmatrix} = \begin{bmatrix}1 & 2 & 3\\4 & 5 & 6 \\ 7 & 8 & 9\end{bmatrix}
+\begin{bmatrix}1 & 2 & 3\\4 & 5 & 6 \\ 7 & 8 & 9\end{bmatrix} \cdot \begin{bmatrix}1 & 0 & 0\\0 & 1 & 0 \\ 0 & 0 & 1\end{bmatrix} = \begin{bmatrix}1 & 2 & 3\\4 & 5 & 6 \\ 7 & 8 & 9\end{bmatrix}\\\\
+A \cdot B = E\\
+\begin{bmatrix}1 & 2 & 3\\4 & 5 & 6 \\ 7 & 8 & 9\end{bmatrix} \cdot \begin{bmatrix}6 & 5 & 7\\2 & 8 & 8 \\ 0 & 3 & 9\end{bmatrix} = \begin{bmatrix}6 & 10 & 21\\8 & 40 & 48 \\ 0 & 24 & 81\end{bmatrix}\\
 $$
 
+```python
+# Muliplication with identity
+a = np.array([[1,2,3],[4,5,6],[7,8,9]])
+i = np.eye(3)
+print a*i
+print i*a
+# Multiplication a.b
+b = np.array([[6, 5, 7],[2, 8, 8],[0, 3, 9]])
+print a*b
+```
 
 
