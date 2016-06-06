@@ -147,9 +147,9 @@ Gradient Descent is an optimization technique that improves the parameters of th
 
 $$
 a : a - (1/m) \alpha \nabla_{a}\\
-b : b - (1/m) \alpha \nabla_{b}
-\nabla_{a} = \sum_{i=1}^{m} (h_{i} - y_{i})
-\nabla_{b} = \sum_{i=1}^{m} (h_{i} - y_{i})x_{i}
+b : b - (1/m) \alpha \nabla_{b}\\
+\nabla_{a} = \sum_{i=1}^{m} (h_{i} - y_{i})\\
+\nabla_{b} = \sum_{i=1}^{m} (h_{i} - y_{i})x_{i}\\
 $$
 
 
