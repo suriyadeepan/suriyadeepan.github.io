@@ -3,7 +3,7 @@ layout: post
 title: Get Started with Machine Learning
 subtitle: A introductory course on Machine Learning
 tags: ["machine learning", "course 1"]
-published: false
+published: true
 ---
 
 ## What are the contents?
