@@ -136,7 +136,7 @@ First we define a hypothesis, $$h=a + bx$$. Now our objective is to find the bes
 The _cost_ or _loss_ or _error_ function calculates the difference between the hypothesis and the actual model (i.e) How wrong are the values of a and b? For linear regression, we define cost function as:
 
 $$
-L = (1/N)\sum_{i=1}^{N}(h-y)^2
+L = (1/2m)\sum_{i=1}^{m}(h-y)^2
 $$
 
 By measuring the error in the hypothesis we can adjust the parameters a and b to decrease the error. Now this becomes the core function of regression. We adjust the parameters, check the error, adjust them again and on and on; eventually we get the best set of parameters and hence the best fitting model. We call this iterative process, _learning_. But how exactly do we adjust the parameters?
@@ -146,8 +146,10 @@ By measuring the error in the hypothesis we can adjust the parameters a and b to
 Gradient Descent is an optimization technique that improves the parameters of the model, step by step. In each iteration, a small step is taken in the direction of the local minima of the cost function. The distance of movement in each step, is called the learning rate. If the learning rate is too small, it takes a long time for the model to converge (to fit the data well) and if it is too big, the model might not converge. The value of learning rate($$\alpha$$) is thus, crucial to the learning process. 
 
 $$
-a : a - \alpha \nabla_{a}\\
-b : b - \alpha \nabla_{b}
+a : a - (1/m) \alpha \nabla_{a}\\
+b : b - (1/m) \alpha \nabla_{b}
+\nabla_{a} = \sum_{i=1}^{m} (h_{i} - y_{i})
+\nabla_{b} = \sum_{i=1}^{m} (h_{i} - y_{i})x_{i}
 $$
 
 
