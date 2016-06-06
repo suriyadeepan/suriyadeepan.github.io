@@ -12,7 +12,7 @@ published: true
 1. Linear Regression
 2. Cost function
 3. Gradient Descent
-4. Multivariate Linear Regression
+4. Multivariable Linear Regression
 5. Logistic Regression
 6. Neural Network 
 7. Backpropagation
@@ -152,6 +152,23 @@ b : b - (1/m) \alpha \nabla_{b}\\
 \nabla_{b} = \sum_{i=1}^{m} (h_{i} - y_{i})x_{i}\\
 $$
 
+## Multivariable Linear Regression
+
+What we have seen so far, is _Simple Linear Regression_, which models the relationsip between two scalar variables. In multivariable linear regression, we will deal with a vector of inputs. 
+
+$$
+hypothesis, H = \theta X\\
+where X, \theta are vectors
+$$
+
+X is a vector of [$$x_1, x_2, x_3,...x_n$$] and \theta is a vector of all the parameters [$$\theta_0, \theta_1,...\theta_n$$]. 
+
+$$
+Cost function, L = (1/2m)\sum Y-H\\
+Gradient Descent,\\
+\theta : \theta - (1/m)\alpha\nabla_{\theta}
+\nabla_{\theta} = X \cdot (H - Y)
+$$
 
 
 
