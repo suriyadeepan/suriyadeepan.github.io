@@ -105,5 +105,6 @@ print y
 
 ## Linear Regression
 
+Regression is a statistical method for modeling the relationship between a set of (independent) variables. Linear regression basically assumes a linear model. What is linear model? A model that is linear in parameters but can still use the independent variables in non-linear forms like $x^{2} and \log x$.
 
 
