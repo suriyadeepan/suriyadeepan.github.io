@@ -143,7 +143,7 @@ By measuring the error in the hypothesis we can adjust the parameters a and b to
 
 ## Gradient Descent
 
-Gradient Descent is an optimization technique that improves the parameters of the model, step by step. In each iteration, a small step is taken in the direction of the local minima of the cost function. The distance of movement in each step, is called the learning rate. If the learning rate is too small, it takes a long time for the model to converge (to fit the data well) and if it is too big, the model might not converge. The value of learning rate is thus, crucial to the learning process. 
+Gradient Descent is an optimization technique that improves the parameters of the model, step by step. In each iteration, a small step is taken in the direction of the local minima of the cost function. The distance of movement in each step, is called the learning rate. If the learning rate is too small, it takes a long time for the model to converge (to fit the data well) and if it is too big, the model might not converge. The value of learning rate($$\alpha$$) is thus, crucial to the learning process. 
 
 $$
 a : a - \alpha \nabla_{a}\\
