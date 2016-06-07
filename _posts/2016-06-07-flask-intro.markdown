@@ -138,7 +138,7 @@ The snippet above handles the url "/user/<username>", where "username" is a para
 
 Sometimes we need to authenticate a user before serving him. Follow the code below carefully. 
 
-{% highlight python %}
+```python
 from flask import Flask, render_template, request, Response
 from functools import wraps
 
@@ -174,7 +174,7 @@ if (__name__ == "__main__"):
 ## Reference
 # 1. http://flask.pocoo.org/snippets/8/
 ##
-{% endhighlight %}
+```
 
 *require_auth( )* is a decorator which takes the function *secret_page( )* as input and returns a replacement function. To put it simply, we check if the user is already authenticated. If he is, *index.html* is rendered. If not, we ask for user credentials (username and password). If username and password match ours (*check_auth( )* takes care of it), we render *index.html*, else we show a *401 response* (see *authenticate( )*). 
 
