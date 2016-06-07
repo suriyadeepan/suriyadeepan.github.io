@@ -76,8 +76,8 @@ google_analytics: "UA-78656027-1"
 
 # Output options (more information on Jekyll's site)
 timezone: "Asia/Kolkata"
-#markdown: kramdown
-markdown: redcarpet
+markdown: kramdown
+#markdown: redcarpet
 highlighter: rouge
 permalink: /:year-:month-:day-:title/
 paginate: 5
