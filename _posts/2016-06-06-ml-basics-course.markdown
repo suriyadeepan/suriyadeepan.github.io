@@ -118,7 +118,7 @@ In the equation above, [a,b] is the set of parameters and x is the independent v
 Download the whole table from [here](https://raw.githubusercontent.com/ChatAI/CourseraExercises/master/data/ex1data1.txt). 
 
 | x | y | 
-| :--------- |:--------- |
+| :--------- | :--------- |
 |6.1101|17.592|
 |5.5277|9.1302|
 |8.5186|13.662|
@@ -129,7 +129,9 @@ Download the whole table from [here](https://raw.githubusercontent.com/ChatAI/Co
 |5.3054|1.9869|
 |8.2934|0.14454|
 |13.394|9.0551|
+
 <a name="cost"></a>
+
 First we define a hypothesis, $$h=a + bx$$. Now our objective is to find the best values of a and b that closely fits the relationship between x and y, in other words find a,b such that $$h \approx y$$.
 
 ## Cost Function
@@ -205,7 +207,7 @@ In vector form, $$J(\theta) = (1/m) \sum [ Y \cdot log(H) - (1 - Y) \cdot log(1-
 Gradients, $$\frac{\partial J(\theta)}{\partial \theta} = (1/m) \sum [ (H - Y) \cdot X ] $$
 
 | Model | Hypothesis | Cost Function | Gradients | 
-| :-----------------------------|:----------------------------------------|:---------------------------------------------------------------|:------------------------------- |
+| :----------------------------- | :---------------------------------------- | :--------------------------------------------------------------- | :------------------------------- |
 |Simple Linear Regression| $$H = a + bx$$ | $$L = (1/2m)\sum_{i=1}^{m}(h-y)^2$$ | $$\nabla_{a} = \sum_{i=1}^{m} (h_{i} - y_{i})\\ \nabla_{b} = \sum_{i=1}^{m} (h_{i} - y_{i})x_{i} $$ |
 |Multivariable Linear Regression| $$H = \theta^{T} X$$ | $$J(\theta) = (1/2m)\sum (Y-H)$$ | $$ \frac{\partial J(\theta)}{\partial \theta} = (1/m) (X \cdot (H - Y))$$ |
 |Logistic Regression| $$ H = g(\theta^{T}X) $$ | $$J(\theta) = (1/m) \sum [ Y \cdot log(H) - (1 - Y) \cdot log(1-H) ] $$ | $$\frac{\partial J(\theta)}{\partial \theta} = (1/m) ( X \cdot  (H - Y) ) $$ |
