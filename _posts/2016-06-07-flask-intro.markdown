@@ -69,6 +69,9 @@ python helloworld.py
 # * Running on http://127.0.0.1:5001/ (Press CTRL+C to quit)
 {% endhighlight %}
 
+When you load _localhost:5001_ in your browser, we will see a page with "hello world" in it. 
+
+The code is fairly simple; the imports, main function, flask app intitialization and routing. _@app.route("/")_ runs the function _hello()_ whenever an user loads the root address, that is _localhost:5001/_. 
 
 
 
