@@ -191,6 +191,12 @@ where $$g$$ is a sigmoid function, which squashes the input $$\theta^{T}X$$ into
 
 Sigmoid, $$g(z) = 1/(1 + e^{-z})$$.
 
+Cost Function, $$J(\theta) = (1/m) \sum_{i=1}^{m} [-y^{(i)} log( h_{\theta}(x^{(i)})) - (1-y^{(i)}) log( 1 - h_{\theta}(x^{(i)})) ] $$
+
+In vector form, $$J(\theta) = (1/m) \sum [ Y \cdot log(H) - (1 - Y) \cdot log(1-H) ] $$
+
+Gradients, $$\frac{\partial J(\theta)}{\partial \theta} = (1/m) \sum [ (H - Y) \cdot X ] $$
+
 
 
 
