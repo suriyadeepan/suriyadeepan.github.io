@@ -25,7 +25,7 @@ I would like to add the installation procedure that I had to go through before g
 
 ## Setting up Flask in Virtual Environment
 
-{ %highlight bash% }
+{% highlight bash %}
 # instructions for debian system
 # install virtualenv 
 sudo apt-get install python-virtualenv
@@ -39,7 +39,8 @@ virtualenv flask-env
 source flask-env/bin/activate
 # now we are in the virtual environment, lets install flask
 pip install Flask
-{ %endhighlight% }
+{% endhighlight %}
+
 
 We have successfully installed flask in a virtual environment. Now lets jump to the _hello world_ applications.
 
