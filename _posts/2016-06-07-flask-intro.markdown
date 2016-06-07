@@ -176,6 +176,8 @@ if (__name__ == "__main__"):
 ##
 {% endhighlight %}
 
+*require_auth()* is a decorator which takes the function *secret_page()* as input and returns a replacement function. To put it simply, we check if the user is already authenticated. If he is, *index.html* is rendered. If not, we ask for user credentials (username and password). If username and password match our ours (*check_auth()* takes care of it), we render *index.html*, else we show a *401 response* (see *authenticate()*). 
 
 
+This tutorial covers the bare essentials of Flask. To learn more, go to [Discover Flask](https://github.com/realpython/discover-flask) that contains video tutorials covering pretty much everything in Flask. Also follow this [thread](https://discuss.fsftn.org/t/event-training-session-on-flask-python/742) for more Flask resources. As always, you are welcome to leave a comment below. 
 
