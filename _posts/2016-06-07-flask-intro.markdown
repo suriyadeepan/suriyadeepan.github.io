@@ -46,7 +46,28 @@ We have successfully installed flask in a virtual environment. Now lets jump to 
 
 ## Hello World!
 
+Create a file _helloworld.py_. Copy paste the following code into it. And run it.
 
+{% highlight python %}
+from flask import Flask
+
+app = Flask(__name__)
+
+@app.route("/") 
+def hello(): 
+    return "Hello World!"
+
+
+if (__name__ == "__main__"): 
+    app.run(port = 5001) 
+{% endhighlight %}
+
+
+{% highlight bash %}
+# run it
+python helloworld.py
+# * Running on http://127.0.0.1:5001/ (Press CTRL+C to quit)
+{% endhighlight %}
 
 
 
