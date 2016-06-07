@@ -13,9 +13,9 @@ published: true
 2. Cost function
 3. Gradient Descent
 4. Multivariable Linear Regression
-5. Logistic Regression
+5. Logistic Regression<a name="linalg"></a>
 6. Neural Network 
-7. Backpropagation<a name="linalg"></a>
+7. Backpropagation
 
 ## Linear Algebra Revision
 
