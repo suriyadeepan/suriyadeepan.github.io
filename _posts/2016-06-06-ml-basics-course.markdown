@@ -9,11 +9,11 @@ published: true
 ## Syllabus
 
 1. [Linear Algebra basics](#linalg)
-1. Linear Regression
-2. Cost function
-3. Gradient Descent
-4. Multivariable Linear Regression
-5. Logistic Regression<a name="linalg"></a>
+1. [Linear Regression](#lreg)
+2. [Cost function](#cost)
+3. [Gradient Descent](#gd)
+4. [Multivariable Linear Regression](#mlreg)
+5. [Logistic Regression](#logreg)<a name="linalg"></a>
 6. Neural Network 
 7. Backpropagation
 
@@ -100,7 +100,8 @@ print x.T
 # Inverse of a matrix
 y = np.linalg.inv(x)
 print y
-{% endhighlight %}
+{% endhighlight %}<a name="lreg"></a>
+
 <br>
 
 ## Linear Regression
@@ -128,7 +129,7 @@ Download the whole table from [here](https://raw.githubusercontent.com/ChatAI/Co
 |5.3054|1.9869|
 |8.2934|0.14454|
 |13.394|9.0551|
-
+<a name="cost"></a>
 First we define a hypothesis, $$h=a + bx$$. Now our objective is to find the best values of a and b that closely fits the relationship between x and y, in other words find a,b such that $$h \approx y$$.
 
 ## Cost Function
@@ -139,11 +140,15 @@ $$
 L = (1/2m)\sum_{i=1}^{m}(h-y)^2
 $$
 
+<a name="gd"></a>
+
 By measuring the error in the hypothesis we can adjust the parameters a and b to decrease the error. Now this becomes the core function of regression. We adjust the parameters, check the error, adjust them again and on and on; eventually we get the best set of parameters and hence the best fitting model. We call this iterative process, _learning_. But how exactly do we adjust the parameters?
 
 ## Gradient Descent
 
 Gradient Descent is an optimization technique that improves the parameters of the model, step by step. In each iteration, a small step is taken in the direction of the local minima of the cost function. The distance of movement in each step, is called the learning rate. If the learning rate is too small, it takes a long time for the model to converge (to fit the data well) and if it is too big, the model might not converge. The value of learning rate($$\alpha$$) is thus, crucial to the learning process. 
+
+<a name="mlreg"></a>
 
 $$
 a : a - (1/m) \alpha \nabla_{a}\\
@@ -170,6 +175,8 @@ $$
 
 <br>
 **Gradient Descent**
+
+<a name="logreg"></a>
 
 $$
 \theta : \theta - (1/m)\alpha\nabla_{\theta}\\
