@@ -6,11 +6,11 @@ tags: ["python", "flask", "web development"]
 published: true
 ---
 
-Yesterday 6th June, I participated in a tutorial session on [Flask](http://flask.pocoo.org/), via google hangout (What happened to the chat option?). Ramaseshan arranged the session; he invited [Abhinav]() who uses flask for his web applications, as the speaker. What is Flask? 
+Yesterday 6th June, I participated in a tutorial session on [Flask](http://flask.pocoo.org/), via google hangout (What happened to the chat option?). Ramaseshan arranged the session; he invited [Abhinav]() a flask user, as the speaker. What is Flask? 
 
 > Flask is a microframework for Python based on Werkzeug, Jinja 2 and good intentions. And before you ask: It's BSD licensed!
 
-It is a lightweight web framework for people who think [Django](https://www.djangoproject.com/) is a way too complicated tool for the job. Most of my code in Deep learning is exclusively written in python (numpy, theano, keras, scipy). And I don't want to get too deep into the "web" side of things. Hence, Flask is an ideal tool for me.
+It is a lightweight web framework for people who think [Django](https://www.djangoproject.com/) is a way too complicated tool for the job. Most of my code in Deep learning is exclusively written in python (numpy, theano, keras, scipy). I am currently building a Dialogue system based on [Seq2Seq](http://arxiv.org/abs/1409.3215) architecture. I would like to run it as a chatbot and serve multiple clients. And I don't want to get too deep into the "web" side of things. Hence, Flask is an ideal tool for me.
 
 Abhinav covered the following topics in yesterday's session.
 
@@ -42,7 +42,7 @@ pip install Flask
 {% endhighlight %}
 
 
-We have successfully installed flask in a virtual environment. Now lets jump to the _hello world_ applications.
+We have successfully installed flask in a virtual environment. Now lets jump to the _hello world_ application.
 
 ## Hello World!
 
@@ -69,9 +69,9 @@ python helloworld.py
 # * Running on http://127.0.0.1:5001/ (Press CTRL+C to quit)
 {% endhighlight %}
 
-When you load _localhost:5001_ in your browser, we will see a page with "hello world" in it. 
+When you load _localhost:5001_ in your browser, you will see a page with "hello world" in it. 
 
-The code is fairly simple; the imports, main function, flask app intitialization and routing. _@app.route("/")_ runs the function _hello()_ whenever a user loads the root address, that is _localhost:5001/_. 
+The code is fairly simple; the imports, main function, flask app intitialization and routing. _@app.route("/")_ runs the function _hello( )_ whenever a user loads the root address, that is _localhost:5001/_. 
 
 ## Serving Static Files
 
@@ -89,7 +89,7 @@ Copy paste the alert call into app.js.
 alert("you are feeling app.js!");
 {% endhighlight %}
 
-Add _static_url_path="/static"_ parameter to _Flask()_ constructor in line 3 of _helloworld.py_. Run _helloworld.py_. Access the path _http://localhost:5001/static/app.js_ in your browser. It should display the contents of _app.js_.
+Add _static_url_path="/static"_ parameter to _Flask( )_ constructor in line 3 of _helloworld.py_. Run _helloworld.py_. Access the path _http://localhost:5001/static/app.js_ in your browser. It should display the contents of _app.js_.
 
 {% highlight python %}
 # Line 3
@@ -99,7 +99,7 @@ app = Flask(__name__,static_url_path="/static")
 
 ## Rendering Templates
 
-When we have the need to render html pages/templates, we can use the function *render_template()*. Create a folder _templates_. Create a html file _index.html_ inside it. 
+When we have the need to render html pages/templates, we can use the function *render_template( )*. Create a folder _templates_. Create a html file _index.html_ inside it. 
 
 {% highlight html %}
 <h1>A HTML File from templates/</h1>
@@ -132,7 +132,7 @@ def name(username):
     return "User %s " % username
 {% endhighlight %}
 
-The snippet above handles the url */user/<username>*, where *username* is a parameter passed by the user. This variable is passed to the *name()* function which handles it. In this case, we just display the variable in the browser. Try it out for yourself. 
+The snippet above handles the url "/user/<username>", where "username" is a parameter passed by the user. This variable is passed to the "name()" function which handles it. In this case, we just display the variable in the browser. Try it out for yourself. 
 
 ## Basic Authentication System
 
@@ -176,8 +176,10 @@ if (__name__ == "__main__"):
 ##
 {% endhighlight %}
 
-*require_auth()* is a decorator which takes the function *secret_page()* as input and returns a replacement function. To put it simply, we check if the user is already authenticated. If he is, *index.html* is rendered. If not, we ask for user credentials (username and password). If username and password match our ours (*check_auth()* takes care of it), we render *index.html*, else we show a *401 response* (see *authenticate()*). 
+*require_auth( )* is a decorator which takes the function *secret_page( )* as input and returns a replacement function. To put it simply, we check if the user is already authenticated. If he is, *index.html* is rendered. If not, we ask for user credentials (username and password). If username and password match ours (*check_auth( )* takes care of it), we render *index.html*, else we show a *401 response* (see *authenticate( )*). 
 
 
-This tutorial covers the bare essentials of Flask. To learn more, go to [Discover Flask](https://github.com/realpython/discover-flask) that contains video tutorials covering pretty much everything in Flask. Also follow this [thread](https://discuss.fsftn.org/t/event-training-session-on-flask-python/742) for more Flask resources. As always, you are welcome to leave a comment below. 
+This tutorial covers the bare essentials of Flask. To learn more, go to [Discover Flask](https://github.com/realpython/discover-flask) that contains video tutorials covering pretty much everything in Flask. Also follow this [thread](https://discuss.fsftn.org/t/event-training-session-on-flask-python/742) for more Flask resources. 
+
+As always, you are welcome to leave a comment below. 
 
