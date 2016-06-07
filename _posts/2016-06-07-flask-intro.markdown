@@ -71,7 +71,57 @@ python helloworld.py
 
 When you load _localhost:5001_ in your browser, we will see a page with "hello world" in it. 
 
-The code is fairly simple; the imports, main function, flask app intitialization and routing. _@app.route("/")_ runs the function _hello()_ whenever an user loads the root address, that is _localhost:5001/_. 
+The code is fairly simple; the imports, main function, flask app intitialization and routing. _@app.route("/")_ runs the function _hello()_ whenever a user loads the root address, that is _localhost:5001/_. 
+
+## Serving Static Files
+
+In this section, we will be serving a file _app.js_. Create a directory _static_, where all the static files will go. Create _app.js_ inside _static/_.
+
+{% highlight bash %}
+# create a file app.js inside directory static/
+mkdir static && cd static
+touch app.js
+{% endhighlight %}
+
+Copy paste the alert call into app.js. 
+
+{% highlight javascript %}
+alert("you are feeling app.js!");
+{% endhighlight %}
+
+Add _static_url_path="/static"_ parameter to _Flask()_ constructor in line 3 of _helloworld.py_. Run _helloworld.py_. Access the path _http://localhost:5001/static/app.js_ in your browser. It should display the contents of _app.js_.
+
+{% highlight python %}
+# Line 3
+app = Flask(__name__,static_url_path="/static") 
+{% endhighlight %}
+
+
+## Rendering Templates
+
+When we have the need to render html pages/templates, we can use the function *render_template()*. Create a folder _templates_. Create a html file _index.html_ inside it. 
+
+{% highlight html %}
+<h1>A HTML File from templates/</h1>
+<script src="static/app.js"></script>
+{% endhighlight %}
+
+Notice that we have embedded our javascript file _app.js_ inside it. 
+
+To render _index.html_, the function _hello()_ should return *render_template("index.html")*. 
+
+{% highlight python %}
+from flask import Flask, render_template
+app = Flask(__name__,static_url_path="/static") 
+
+@app.route("/") 
+def hello(): 
+    return render_template("index.html")
+{% endhighlight %}
+
+When you access _localhost:5001_, you will see the heading "A HTML File from templates", along with an alert that says "you are feeling app.js!". 
+
+## Receiving URL encoded parameters
 
 
 
