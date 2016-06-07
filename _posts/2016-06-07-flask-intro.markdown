@@ -132,7 +132,7 @@ def name(username):
     return "User %s " % username
 {% endhighlight %}
 
-The snippet above handles the url _/user/<username>_, where _username_ is a parameter passed by the user. This variable is passed to the _name()_ function which handles it. In this case, we just display the variable in the browser. Try it out for yourself. 
+The snippet above handles the url */user/<username>*, where *username* is a parameter passed by the user. This variable is passed to the *name()* function which handles it. In this case, we just display the variable in the browser. Try it out for yourself. 
 
 ## Basic Authentication System
 
