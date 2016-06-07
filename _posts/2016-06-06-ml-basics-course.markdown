@@ -199,8 +199,8 @@ Gradients, $$\frac{\partial J(\theta)}{\partial \theta} = (1/m) \sum [ (H - Y) \
 
 | Model | Hypothesis | Cost Function | Gradients | 
 | :-----------------------------|:----------------------------------------|:---------------------------------------------------------------|:------------------------------- |
-|Linear Regression| $$H = a + bx$$ | $$L = (1/2m)\sum_{i=1}^{m}(h-y)^2$$ | $$\nabla_{a} = \sum_{i=1}^{m} (h_{i} - y_{i})\\ \nabla_{b} = \sum_{i=1}^{m} (h_{i} - y_{i})x_{i} $$ |
-|Multivariable Linear Regression| $$H = \theta^{T} X$$ | $$J(\theta) = (1/2m)\sum (Y-H)$$ | $$ \nabla_{\theta} = (1/m) (X \cdot (H - Y))$$ |
-|Logistic Regression| $$ h-g(\theta^{T}X) $$ | $$J(\theta) = (1/m) \sum [ Y \cdot log(H) - (1 - Y) \cdot log(1-H) ] $$ | $$\frac{\partial J(\theta)}{\partial \theta} = (1/m) [ X \cdot  (H - Y) ] $$ |
+|Simple Linear Regression| $$H = a + bx$$ | $$L = (1/2m)\sum_{i=1}^{m}(h-y)^2$$ | $$\nabla_{a} = \sum_{i=1}^{m} (h_{i} - y_{i})\\ \nabla_{b} = \sum_{i=1}^{m} (h_{i} - y_{i})x_{i} $$ |
+|Multivariable Linear Regression| $$H = \theta^{T} X$$ | $$J(\theta) = (1/2m)\sum (Y-H)$$ | $$ J(\theta) = (1/m) (X \cdot (H - Y))$$ |
+|Logistic Regression| $$ h-g(\theta^{T}X) $$ | $$J(\theta) = (1/m) \sum [ Y \cdot log(H) - (1 - Y) \cdot log(1-H) ] $$ | $$\frac{\partial J(\theta)}{\partial \theta} = (1/m) ( X \cdot  (H - Y) ) $$ |
 
 
