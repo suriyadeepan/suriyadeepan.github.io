@@ -15,9 +15,9 @@ published: true
 4. Multivariable Linear Regression
 5. Logistic Regression
 6. Neural Network 
-7. Backpropagation
+7. Backpropagation<a name="linalg"></a>
 
-## Linear Algebra Revision<a name="linalg"></a>
+## Linear Algebra Revision
 
 To study advanced machine learning, it is recommended to know a few concepts in Linear Algebra like Matrix calculus, Eigen Decomposition, etc. But for this course, we just need to remember a few matrix operations like matrix addition, multiplication, inversion from high school. Let's start with how we represent a matrix. A matrix is typically of 2 dimensions, represented by [m,n]. A matrix with just one row or one column is called a vector. 
 
