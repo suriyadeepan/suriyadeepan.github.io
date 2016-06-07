@@ -123,6 +123,59 @@ When you access _localhost:5001_, you will see the heading "A HTML File from tem
 
 ## Receiving URL encoded parameters
 
+In order to process requests with parameters encoded in the url, we need to setup the corresponding route and the parameters are provided to a function that handles it.
+
+{% highlight python %}
+# GET
+@app.route("/user/<username>") 
+def name(username): 
+    return "User %s " % username
+{% endhighlight %}
+
+The snippet above handles the url _/user/<username>_, where _username_ is a parameter passed by the user. This variable is passed to the _name()_ function which handles it. In this case, we just display the variable in the browser. Try it out for yourself. 
+
+## Basic Authentication System
+
+Sometimes we need to authenticate a user before serving him. Follow the code below carefully. 
+
+{% highlight python %}
+from flask import Flask, render_template, request, Response
+from functools import wraps
+
+app = Flask(__name__,static_url_path="/static") 
+
+def check_auth(username, password):
+    return username == 'admin' and password == 'secret'
+
+def authenticate():
+    # 401 response
+    return Response('Could not verify your access level for that URL; \n You have to login with proper credentials',
+            401,{'WWW-Authenticate': 'Basic realm="Login Required"'})
+
+def requires_auth(f):
+    @wraps(f)
+    # f -> function being decorated
+    def decorated(*args, **kwargs):
+        auth = request.authorization
+        if not auth or not check_auth(auth.username, auth.password):
+            return authenticate()
+        return f(*args,**kwargs)
+    return decorated
+
+@app.route("/") 
+@requires_auth
+def secret_page(): 
+    return render_template('index.html')
+
+
+if (__name__ == "__main__"): 
+    app.run(port = 5000) 
+
+## Reference
+# 1. http://flask.pocoo.org/snippets/8/
+##
+{% endhighlight %}
+
 
 
 
