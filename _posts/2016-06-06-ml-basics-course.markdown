@@ -160,14 +160,16 @@ Download the whole table from [here](https://raw.githubusercontent.com/ChatAI/Co
 |5.3054|1.9869|
 |8.2934|0.14454|
 |13.394|9.0551|
-{% highlight python %}
 
+
+{% highlight python %}
+# read data (x,y) from file
 def readDataset(filename='ex1data1.txt'):
 
     with open(filename) as csvfile:
         reader = csv.reader(csvfile)
         datlist = list(reader)
-
+    # return as numpy array
     return np.array(datlist,dtype='float32')
     
 x,y = readDataset().T
@@ -338,13 +340,16 @@ def gd(x,y,theta,alpha = 0.005,iter=1000000):
     print 'theta',theta
     print 'cost',cost(x,y,theta)
 {% endhighlight %}
+<br>
+
+## Tabulation of Models
 
 | Model | Hypothesis | Cost Function | Gradients | 
 | :----------------------------- | :---------------------------------------- | :--------------------------------------------------------------- | :------------------------------- |
 |Simple Linear Regression| $$H = a + bx$$ | $$L = (1/2m)\sum_{i=1}^{m}(h-y)^2$$ | $$\nabla_{a} = \sum_{i=1}^{m} (h_{i} - y_{i})\\ \nabla_{b} = \sum_{i=1}^{m} (h_{i} - y_{i})x_{i} $$ |
 |Multivariable Linear Regression| $$H = \theta^{T} X$$ | $$J(\theta) = (1/2m)\sum (Y-H)$$ | $$ \frac{\partial J(\theta)}{\partial \theta} = (1/m) (X \cdot (H - Y))$$ |
 |Logistic Regression| $$ H = g(\theta^{T}X) $$ | $$J(\theta) = (1/m) \sum [ Y \cdot log(H) - (1 - Y) \cdot log(1-H) ] $$ | $$\frac{\partial J(\theta)}{\partial \theta} = (1/m) ( X \cdot  (H - Y) ) $$ |
-
+<br>
 
 ## Neural Networks
 
