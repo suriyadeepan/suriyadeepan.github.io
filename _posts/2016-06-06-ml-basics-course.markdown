@@ -234,6 +234,13 @@ where $$X, \theta$$ are vectors
 
 X is a vector of [$$x_1, x_2, x_3,...x_n$$] and $$\theta$$ is a vector of all the parameters [$$\theta_0, \theta_1,...\theta_n$$]. 
 
+{% highlight python %}
+
+def hyp(x,theta,m):
+    return np.dot(theta,x.reshape([3,m]))
+{% endhighlight %}
+
+
 **Cost function**
 
 $$
