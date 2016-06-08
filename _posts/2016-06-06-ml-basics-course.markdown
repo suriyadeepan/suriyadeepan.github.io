@@ -160,7 +160,18 @@ Download the whole table from [here](https://raw.githubusercontent.com/ChatAI/Co
 |5.3054|1.9869|
 |8.2934|0.14454|
 |13.394|9.0551|
+{% highlight python %}
 
+def readDataset(filename='ex1data1.txt'):
+
+    with open(filename) as csvfile:
+        reader = csv.reader(csvfile)
+        datlist = list(reader)
+
+    return np.array(datlist,dtype='float32')
+    
+x,y = readDataset().T
+{% endhighlight %}
 <a name="cost"></a>
 
 First we define a hypothesis, $$h=a + bx$$. Now our objective is to find the best values of a and b that closely fits the relationship between x and y, in other words find a,b such that $$h \approx y$$.
