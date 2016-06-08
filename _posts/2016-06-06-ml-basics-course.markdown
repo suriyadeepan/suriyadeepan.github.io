@@ -305,6 +305,16 @@ Cost Function, $$J(\theta) = (1/m) \sum_{i=1}^{m} [-y^{(i)} log( h_{\theta}(x^{(
 
 In vector form, $$J(\theta) = (1/m) \sum [ Y \cdot log(H) - (1 - Y) \cdot log(1-H) ] $$
 
+{% highlight python %}
+
+def cost(x,y,theta):
+    m = y.shape[0]
+    h = hyp(x,theta,m)
+    h1 = np.multiply(y,np.log(h))
+    h2 = np.multiply(1- y,np.log(1-h))
+    return -np.sum(h1+h2)/(1.0*m)
+{% endhighlight %}
+
 Gradients, $$\frac{\partial J(\theta)}{\partial \theta} = (1/m) \sum [ (H - Y) \cdot X ] $$
 
 | Model | Hypothesis | Cost Function | Gradients | 
