@@ -110,7 +110,7 @@ print y
 ## Numpy Essentials
 
 | Task | Function | Snippet |
-| :--------- | :--------- | :--------- |
+| :------------------------ | :--------------------- | :--------- |
 | Convert a list to numpy array | *np.array( )* | *np.array([1,2,3,4])* |
 | Create a null vector of size 10 | *np.zeros( )* | *np.zeros(10)* |
 | Create a vector with values ranging from 10 to 49 | *np.arange( )* | *np.arange(10,50)* |
