@@ -293,12 +293,18 @@ $$
 
 where $$g$$ is a sigmoid function, which squashes the input $$\theta^{T}X$$ into the range (0,1). 
 
-Sigmoid, $$g(z) = 1/(1 + e^{-z})$$.
-
 {% highlight python %}
 
 def hyp(x,theta,m):
     return sigmoid(np.dot(theta,x.reshape([3,m])))
+{% endhighlight %}
+Sigmoid, $$g(z) = 1/(1 + e^{-z})$$.
+
+
+{% highlight python %}
+
+def sigmoid(x):
+    return 1/(1 + np.exp(-x))
 {% endhighlight %}
 
 Cost Function, $$J(\theta) = (1/m) \sum_{i=1}^{m} [-y^{(i)} log( h_{\theta}(x^{(i)})) - (1-y^{(i)}) log( 1 - h_{\theta}(x^{(i)})) ] $$
@@ -318,8 +324,7 @@ def cost(x,y,theta):
 Gradients, $$\frac{\partial J(\theta)}{\partial \theta} = (1/m) \sum [ (H - Y) \cdot X ] $$
 
 {% highlight python %}
-def hyp(x,theta,m):
-    return sigmoid(np.dot(theta,x.reshape([3,m])))
+
 
 def gd(x,y,theta,alpha = 0.005,iter=1000000):
     m = y.shape[0]
