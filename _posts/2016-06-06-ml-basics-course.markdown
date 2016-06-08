@@ -247,6 +247,14 @@ $$
 L = (1/2m)\sum (Y-H)
 $$
 
+{% highlight python %}
+def cost(x,y,theta):
+    m = y.shape[0]
+    h = np.dot(theta,x.reshape([3,m]))
+    #print h.shape,x.shape,y.shape,theta.shape
+    return np.sum(np.square(y-h))/(2.0*m)
+{% endhighlight %}
+
 <br>
 **Gradient Descent**
 
