@@ -109,7 +109,6 @@ print y
 
 ## Numpy Essentials
 
-<br>
 
 | Task | Function | Snippet |
 | :------------------------ | :--------------------- | :--------- |
