@@ -213,3 +213,18 @@ Gradients, $$\frac{\partial J(\theta)}{\partial \theta} = (1/m) \sum [ (H - Y) \
 |Logistic Regression| $$ H = g(\theta^{T}X) $$ | $$J(\theta) = (1/m) \sum [ Y \cdot log(H) - (1 - Y) \cdot log(1-H) ] $$ | $$\frac{\partial J(\theta)}{\partial \theta} = (1/m) ( X \cdot  (H - Y) ) $$ |
 
 
+## Neural Networks
+
+Neural Networks or Artificial Neural Networks are multilayered architectures of interconnected neurons or computational units to be accurate, that maps the inputs to outputs. They are function approximators, known for their representation power. Deep Neural Networks are data hungry. More the data better the model. These networks learn the mapping between input and output by adjusting the numerical weights which define the connections between neurons. There are a great many categories of Neural Networks. The kind of neural network that we will learn is Feed Forward Neural Network or Multi-layer Perceptron (MLP). 
+
+In an MLP, there are 3 types of layers : *Input* layer, *Hidden* Layer and the *Output* Layer. 
+
+![](http://cs231n.github.io/assets/nn1/neural_net2.jpeg)
+
+The representation power of the neural network depends on the number of hidden layers (depth). The name "deep" learning comes from this *depth*. Notice the connections in the figure. Every node in one layer is connected to every other node in the next or previous layer, but there are no connections between the nodes in the same layer. This kind of layers are called *Fully connected layers*. Also, notice the arrow pointing in the forward direction (looking from the input to output). This means that the flow of information happens from the input to the output, hence the name *Feed Forward Neural Network*. 
+
+The network can be seen as a collection of non-linear functions that are parameterized by the weights (connections between neurons). 
+
+
+
+
