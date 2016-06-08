@@ -348,6 +348,7 @@ def gd(x,y,theta,alpha = 0.005,iter=1000000):
 |Simple Linear Regression| $$H = a + bx$$ | $$L = (1/2m)\sum_{i=1}^{m}(h-y)^2$$ | $$\nabla_{a} = \sum_{i=1}^{m} (h_{i} - y_{i})\\ \nabla_{b} = \sum_{i=1}^{m} (h_{i} - y_{i})x_{i} $$ |
 |Multivariable Linear Regression| $$H = \theta^{T} X$$ | $$J(\theta) = (1/2m)\sum (Y-H)$$ | $$ \frac{\partial J(\theta)}{\partial \theta} = (1/m) (X \cdot (H - Y))$$ |
 |Logistic Regression| $$ H = g(\theta^{T}X) $$ | $$J(\theta) = (1/m) \sum [ Y \cdot log(H) - (1 - Y) \cdot log(1-H) ] $$ | $$\frac{\partial J(\theta)}{\partial \theta} = (1/m) ( X \cdot  (H - Y) ) $$ |
+
 <br>
 
 ## Neural Networks
