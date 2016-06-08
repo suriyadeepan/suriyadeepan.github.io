@@ -266,6 +266,21 @@ $$
 $$
 
 
+{% highlight python %}
+def gd(x,y,theta,alpha = 0.005,iter=1000000):
+    m = y.shape[0]
+
+    for i in range(iter):
+        h = hyp(x,theta,m)
+        error = h-y
+        update = np.dot(x,error)
+        theta = theta - ( (alpha*update)/m )
+
+    print 'theta',theta
+    print 'cost',cost(x,y,theta)
+
+{% endhighlight %}
+
 ## Logistic Regression
 
 Logistic Regression is a regression technique where the output variable is categorical (note that the output variable is continuous in the previous cases). Categorical means that the output variable can only take a limited set of values. Take the case of Binary Logistic Regression model where the output is either zero or one [0,1]. Similarly we can build a model such that the output is [0,1,2,3,4,5,6,7,8,9]. Such a model can be used for classification of images of characters [A-Z] or digits [0-9]. The logistic regression model can also be called a classifier. 
