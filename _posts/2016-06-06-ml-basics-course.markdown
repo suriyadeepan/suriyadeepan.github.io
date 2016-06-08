@@ -111,8 +111,8 @@ print y
 
 | Task | Function | Snippet |
 | :--------- | :--------- | :--------- |
-| Convert a list to numpy array | *np.array( )* | <% highlight python %> a = [1,2,3,4]<br>npa = np.array(a) <% endhighlight %> |
-| Convert a list to numpy array | *np.array( )* | <% highlight python %> a = [1,2,3,4]<br>npa = np.array(a) <% endhighlight %> |
+| Convert a list to numpy array | *np.array( )* | {% highlight python %} a = [1,2,3,4]<br>npa = np.array(a) {% endhighlight %} |
+| Convert a list to numpy array | *np.array( )* | {% highlight python %} a = [1,2,3,4]<br>npa = np.array(a) {% endhighlight %} |
 
 
 ## Linear Regression
