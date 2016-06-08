@@ -221,9 +221,10 @@ In an MLP, there are 3 types of layers : *Input* layer, *Hidden* Layer and the *
 
 ![](http://cs231n.github.io/assets/nn1/neural_net2.jpeg)
 
-The representation power of the neural network depends on the number of hidden layers (depth). The name "deep" learning comes from this *depth*. Notice the connections in the figure. Every node in one layer is connected to every other node in the next or previous layer, but there are no connections between the nodes in the same layer. This kind of layers are called *Fully connected layers*. Also, notice the arrow pointing in the forward direction (looking from the input to output). This means that the flow of information happens from the input to the output, hence the name *Feed Forward Neural Network*. 
+The representation power of the neural network depends on the number of hidden layers (depth). The name "deep" learning comes from this *depth*. Notice the connections in the figure. Every node in one layer is connected to every other node in the next or previous layer, but there are no connections between the nodes in the same layer. This kind of layers are called *Fully connected layers*. Also, notice the arrow pointing in the forward direction (looking from the input to output). This means that the flow of information happens from the input to the output, hence the name *Feed Forward Neural Network*. The network can be seen as a collection of non-linear functions that are parameterized by the weights (connections between neurons). 
 
-The network can be seen as a collection of non-linear functions that are parameterized by the weights (connections between neurons). 
+Representation Learning is another important property of Neural Networks that should be understood. In a deep network, the raw input is transformed into a useful form/*feature*/*representation*, through a series of non-linear transformations. This representation is useful, in the sense that it is convinient for the network to use the input in this form and learn the best input-output mapping. Moreover, the inputs, which are physical phenomena like sound, image, etc., are complex, noisy and highly redundant. While learning to map inputs to outputs, the network automatically learns the best representation from complex raw inputs that helps the network to get the job done. The *job* I mentioned could be classification, regression, etc,. 
+
 
 
 
