@@ -317,6 +317,23 @@ def cost(x,y,theta):
 
 Gradients, $$\frac{\partial J(\theta)}{\partial \theta} = (1/m) \sum [ (H - Y) \cdot X ] $$
 
+{% highlight python %}
+def hyp(x,theta,m):
+    return sigmoid(np.dot(theta,x.reshape([3,m])))
+
+def gd(x,y,theta,alpha = 0.005,iter=1000000):
+    m = y.shape[0]
+
+    for i in range(iter):
+        h = hyp(x,theta,m)
+        error = h-y
+        update = np.dot(x,error)
+        theta = theta - ( (alpha*update)/m )
+
+    print 'theta',theta
+    print 'cost',cost(x,y,theta)
+{% endhighlight %}
+
 | Model | Hypothesis | Cost Function | Gradients | 
 | :----------------------------- | :---------------------------------------- | :--------------------------------------------------------------- | :------------------------------- |
 |Simple Linear Regression| $$H = a + bx$$ | $$L = (1/2m)\sum_{i=1}^{m}(h-y)^2$$ | $$\nabla_{a} = \sum_{i=1}^{m} (h_{i} - y_{i})\\ \nabla_{b} = \sum_{i=1}^{m} (h_{i} - y_{i})x_{i} $$ |
