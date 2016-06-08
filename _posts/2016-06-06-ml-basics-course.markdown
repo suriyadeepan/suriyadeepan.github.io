@@ -209,6 +209,21 @@ b : b - (1/m) \alpha \nabla_{b}\\
 \nabla_{b} = \sum_{i=1}^{m} (h_{i} - y_{i})x_{i}\\
 $$
 
+
+{% highlight python %}
+def gd(x,y,theta,alpha = 0.005,iter=10000):
+    m = y.shape[0]
+
+    for i in range(iter):
+        h = hyp(x,theta,m)
+        error = h-y
+        update = np.dot(x,error)
+        theta = theta - ( (alpha*update)/m )
+
+    print 'theta',theta
+    print 'cost',cost(x,y,theta)
+{% endhighlight %}
+
 ## Multivariable Linear Regression
 
 What we have seen so far, is _Simple Linear Regression_, which models the relationsip between two scalar variables. In multivariable linear regression, we will deal with a vector of inputs. 
