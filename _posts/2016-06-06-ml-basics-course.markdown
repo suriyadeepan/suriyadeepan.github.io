@@ -9,13 +9,16 @@ published: true
 ## Syllabus
 
 1. [Linear Algebra basics](#linalg)
+2. [Numpy Essentials](#numpy)
 1. [Linear Regression](#lreg)
 2. [Cost function](#cost)
 3. [Gradient Descent](#gd)
 4. [Multivariable Linear Regression](#mlreg)
 5. [Logistic Regression](#logreg)<a name="linalg"></a>
-6. Neural Network 
-7. Backpropagation
+6. [Theano Basics](#theano)
+6. [Neural Networks](#nn) 
+7. [Introduction to Keras](#keras)
+7. [Backpropagation](#bp)
 
 ## Linear Algebra Revision
 
@@ -104,6 +107,14 @@ print y
 
 <br>
 
+## Numpy Essentials
+
+| Task | Function | Snippet |
+| :--------- | :--------- | :--------- |
+| Convert a list to numpy array | *np.array( )* | <% highlight python %> a = [1,2,3,4]<br>npa = np.array(a) <% endhighlight %> |
+| Convert a list to numpy array | *np.array( )* | <% highlight python %> a = [1,2,3,4]<br>npa = np.array(a) <% endhighlight %> |
+
+
 ## Linear Regression
 
 Regression is a statistical method for modeling the relationship between a set of (independent) variables. Linear regression basically assumes a linear model. What is linear model? A model that is linear in parameters but can still use the independent variables in non-linear forms like $$x^{2}$$ and $$\log x$$. 
@@ -188,7 +199,7 @@ $$
 
 ## Logistic Regression
 
-Logistic Regression is a regression technique where the output variable is categorical (note that the output variable is continuous in the previous cases). Categorical means that the output variable can only take a limited set of values. Take the case of Binary Logistic Regression model where the output is either zero or one [0,1]. Similarly we can build a model such that the output is [0,1,2,3,4,5,6,7,8,9]. It is very useful for classification tasks, eg: classification of images of characters [A-Z] or digits [0-9].
+Logistic Regression is a regression technique where the output variable is categorical (note that the output variable is continuous in the previous cases). Categorical means that the output variable can only take a limited set of values. Take the case of Binary Logistic Regression model where the output is either zero or one [0,1]. Similarly we can build a model such that the output is [0,1,2,3,4,5,6,7,8,9]. Such a model can be used for classification of images of characters [A-Z] or digits [0-9]. The logistic regression model can also be called a classifier. 
 
 The hypothesis is defined as
 
@@ -226,6 +237,5 @@ The representation power of the neural network depends on the number of hidden l
 Representation Learning is another important property of Neural Networks that should be understood. In a deep network, the raw input is transformed into a useful form/*feature*/*representation*, through a series of non-linear transformations. This representation is useful, in the sense that it is convinient for the network to use the input in this form and learn the best input-output mapping. Moreover, the inputs, which are physical phenomena like sound, image, etc., are complex, noisy and highly redundant. While learning to map inputs to outputs, the network automatically learns the best representation from complex raw inputs that helps the network to get the job done. The *job* I mentioned could be classification, regression, etc,. 
 
 
-
-
+## Introduction to Keras 
 
