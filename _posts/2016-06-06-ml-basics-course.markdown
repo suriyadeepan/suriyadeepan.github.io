@@ -160,7 +160,7 @@ Download the whole table from [here](https://raw.githubusercontent.com/ChatAI/Co
 |8.2934|0.14454|
 |13.394|9.0551|
 
-
+<br>
 {% highlight python %}
 # read data (x,y) from file
 def readDataset(filename='ex1data1.txt'):
