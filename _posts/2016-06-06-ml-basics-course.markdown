@@ -366,3 +366,10 @@ Representation Learning is another important property of Neural Networks that sh
 
 ## Introduction to Keras 
 
+> Keras is a minimalist, highly modular neural networks library, written in Python and capable of running on top of either TensorFlow or Theano. It was developed with a focus on enabling fast experimentation. Being able to go from idea to result with the least possible delay is key to doing good research.
+
+Install keras via pip. 
+{% highlight bash %}
+sudo pip install keras -U
+{% endhighlight %}
+
