@@ -373,3 +373,4 @@ Install keras via pip.
 sudo pip install keras -U
 {% endhighlight %}
 
+Let us learn keras by creating a MLP (Multilayer perceptron) to classify digits from MNIST dataset. 
