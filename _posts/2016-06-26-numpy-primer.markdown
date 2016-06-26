@@ -102,6 +102,12 @@ print x[1:,2]
 # To get elements 13,14,15
 print x[-1,1:]
 
+# Boolean indexing / Conditional
+print x>7
+print x%2 == 0
+print x[x<7]
+print x[x%2 != 0]
+
 {% endhighlight %}
 
 
