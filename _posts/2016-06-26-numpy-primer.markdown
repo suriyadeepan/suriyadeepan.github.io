@@ -111,9 +111,100 @@ print x[x%2 != 0]
 {% endhighlight %}
 
 
+### Datatypes
+
+{% highlight python %}
+
+# default type np.int64
+x = np.array([ [1,2], [3,4] ])
+print x, x.dtype
+
+# type set to np.int32
+x1 = np.array([ [1,2], [3,4] ], dtype=np.int32)
+print x1, x1.dtype
+
+# default type np.float64
+y = np.array([ [1.,2], [3,4] ])
+print y, y.dtype
+
+# set to np.float32
+y1 = y.astype(np.float32)
+print y1, y1.dtype
+
+# the boolean type
+z = x>2
+print x, x.dtype
+
+{% endhighlight %}
 
 
+### Arithmetics
 
+{% highlight python %}
+
+# elementwise operations
+x = np.full([3,3],3)
+y = np.eye(3)
+z = np.ones(3)
+
+# Add
+print x + y
+# Subtract
+print x-y
+# Multiply
+print x * (x+z)
+# Divide
+print (x + 1) / (z + 1)
+
+# Dot product
+a = np.arange(9).reshape(3,3)
+b = np.arange(12).reshape(3,4)
+print np.dot(a,b) # or a.dot(b)
+# try b.dot(a)
+
+# transpose for dot product
+x = np.random.randint(0,9,[3,3])
+y = np.random.randint(0,9,[1,3])
+# x.dot(y) wont work as x.shape[1] != y.shape[0]
+print x.dot(y.T) # transpose y to shape[3,1]
+# gives an output of shape [3,1]
+
+{% endhighlight %}
+
+
+### Statistics
+
+{% highlight python %}
+
+a = np.arange(9)
+# sum
+print a.sum()
+# mean
+print a.mean()
+# stddev, variance
+print a.std(), a.var()
+# min and max
+print a.min(), a.max()
+# id of min and max elements
+print a.argmin(), a.argmax()
+
+b = np.arange(9).reshape([3,3])
+# row-wise sum
+b.sum(axis=1)
+# column-wise sum
+b.sum(axis=0)
+
+{% endhighlight %}
+
+
+### Broadcating
+
+{% highlight python %}
+
+x = np.arange(16).reshape([4,4])
+print x + 1
+
+{% endhighlight %}
 
 
 
