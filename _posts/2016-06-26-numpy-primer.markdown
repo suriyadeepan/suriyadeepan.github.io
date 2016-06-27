@@ -202,13 +202,16 @@ b.sum(axis=0)
 {% highlight python %}
 
 x = np.arange(16).reshape([4,4])
+# array[1] is broadcasted to shape [4,4] of x
 print x + 1
+# consider 2 arrays of shapes : [4,4] and [4,]
+a = np.random.randint(0,10,[4,4])
+b = np.arange(4)
+print a*b
+# here b is broadcasted to all the rows of a
+
 
 {% endhighlight %}
-
-
-
-
 
 
 
