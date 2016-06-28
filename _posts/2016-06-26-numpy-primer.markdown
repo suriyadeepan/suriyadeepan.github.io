@@ -197,7 +197,7 @@ b.sum(axis=0)
 {% endhighlight %}
 
 
-### Broadcating
+### Broadcasting
 
 {% highlight python %}
 
@@ -273,3 +273,4 @@ print arr
 2. [List of Mathematics Functions in Numpy](http://docs.scipy.org/doc/numpy/reference/routines.math.html) 
 3. [Broadcasting Arrays in Numpy](http://eli.thegreenplace.net/2015/broadcasting-arrays-in-numpy/)
 4. [Array Masking](https://www.getdatajoy.com/learn/Array_Masking)
+5. [100 Numpy Exercises](http://www.labri.fr/perso/nrougier/teaching/numpy.100/)
