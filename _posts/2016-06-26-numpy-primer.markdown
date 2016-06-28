@@ -266,10 +266,9 @@ print arr
 | Find the datatype of x | *np.dtype* | *x.dtype* |
 | Set datatype of x as *float32* | *np.astype()* | *x.astype('float32')* |
 
-<br />
 
 ## Reference
-<br />
+
 1. [Indexing Numpy Arrays](https://scipy.github.io/old-wiki/pages/Cookbook/Indexing)
 2. [List of Mathematics Functions in Numpy](http://docs.scipy.org/doc/numpy/reference/routines.math.html) 
 3. [Broadcasting Arrays in Numpy](http://eli.thegreenplace.net/2015/broadcasting-arrays-in-numpy/)
