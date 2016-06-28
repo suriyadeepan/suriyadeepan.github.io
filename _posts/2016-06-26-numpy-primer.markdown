@@ -210,8 +210,49 @@ b = np.arange(4)
 print a*b
 # here b is broadcasted to all the rows of a
 
+{% endhighlight %}
+
+
+### Array Masking
+
+{% highlight python %}
+
+'''
+Array masking is the name of a special method of selection available in Python by means of a boolean mask, it allows to extract data out of an array based on certain condition.
+'''
+arr = np.arange(9).reshape([3,3])
+print arr
+# create a random boolean array
+mask1 = np.random.choice([True,False],[3,3]).astype(np.bool)
+print mask1
+# mask over array
+print arr[mask1]
+
+# using conditions to create mask
+div_4_mask = (arr%4 == 0)
+print div_4_mask
+print arr[div_4_mask]
+
+# Efficient masking using np.putmask() function
+#		using a <divisible by 3> mask
+np.putmask(arr,arr%3 == 0,0)
+print arr
+# there is an option to operate on the elements that satisfy
+#		the condition <divisible by 3>
+#			enter the operation as parameter 3; say multiply by 10
+arr = np.arange(9).reshape([3,3])
+print arr
+# if divisible by 3 multiply by 10
+np.putmask(arr, arr%3 == 0, arr*10) 
+print arr
 
 {% endhighlight %}
 
 
 
+## Reference
+
+1. [Indexing Numpy Arrays](https://scipy.github.io/old-wiki/pages/Cookbook/Indexing)
+2. [List of Mathematics Functions in Numpy](http://docs.scipy.org/doc/numpy/reference/routines.math.html) 
+3. [Broadcasting Arrays in Numpy](http://eli.thegreenplace.net/2015/broadcasting-arrays-in-numpy/)
+4. [Array Masking](https://www.getdatajoy.com/learn/Array_Masking)
