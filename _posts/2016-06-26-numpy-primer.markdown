@@ -218,7 +218,7 @@ print a*b
 {% highlight python %}
 
 '''
-Array masking is the name of a special method of selection available in Python by means of a boolean mask, it allows to extract data out of an array based on certain condition.
+Array masking is the name of a special method of selection available in numpy by means of a boolean mask, it allows to extract data out of an array based on certain condition.
 '''
 arr = np.arange(9).reshape([3,3])
 print arr
