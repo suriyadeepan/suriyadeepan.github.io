@@ -248,10 +248,28 @@ print arr
 
 {% endhighlight %}
 
+## Summary
+
+| Task | Function | Snippet |
+| :------------------------ | :--------------------- | :--------- |
+| Convert a list to numpy array | *np.array()* | *np.array([1,2,3,4])* |
+| Create a null vector of size 10 | *np.zeros()* | *np.zeros(10)* |
+| Create a vector with values ranging from 10 to 49 | *np.arange()* | *np.arange(10,50)* |
+| Create a 3x3 matrix with values ranging from 0 to 8 | *np.reshape()*| *np.arange(9).reshape(3,3)* |
+| Create a 3x3 identity matrix | *np.eye()* | *np.eye(3)* |
+| Create a 3x2x2 array with random values | *np.random.random()* | *np.random.random([3,2,2])* |
+| Create a 4x4 array (x) with random integers from 0-99 | *np.random.randint()* | *x = np.random.randint(0,100,[4,4])* |
+| Find the index of maximum of x | *np.argmax(), np.unravel_index* | *np.unravel_index(x.argmax(),x.shape)* |
+| Find the index of minimum of x | *np.argmin(), np.unravel_index* | *np.unravel_index(x.argmin(),x.shape)* |
+| Find mean of x | *np.mean()* | *x.mean()* | 
+| Find sum of all elements in x | *np.sum()* | *x.sum()* | 
+| Find the datatype of x | *np.dtype* | *x.dtype* |
+| Set datatype of x as *float32* | *np.astype()* | *x.astype('float32')* |
+
 <br />
 
 ## Reference
-
+<br />
 1. [Indexing Numpy Arrays](https://scipy.github.io/old-wiki/pages/Cookbook/Indexing)
 2. [List of Mathematics Functions in Numpy](http://docs.scipy.org/doc/numpy/reference/routines.math.html) 
 3. [Broadcasting Arrays in Numpy](http://eli.thegreenplace.net/2015/broadcasting-arrays-in-numpy/)

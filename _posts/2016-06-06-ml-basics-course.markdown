@@ -103,7 +103,7 @@ print x.T
 # Inverse of a matrix
 y = np.linalg.inv(x)
 print y
-{% endhighlight %}<a name="lreg"></a>
+{% endhighlight %}<a name="numpy"></a>
 
 <br>
 
@@ -125,6 +125,8 @@ print y
 | Find sum of all elements in x | *np.sum()* | *x.sum()* | 
 | Find the datatype of x | *np.dtype* | *x.dtype* |
 | Set datatype of x as *float32* | *np.astype()* | *x.astype('float32')* |
+
+<a name="lreg"></a>
 
 <br>
 
