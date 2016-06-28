@@ -234,12 +234,12 @@ print div_4_mask
 print arr[div_4_mask]
 
 # Efficient masking using np.putmask() function
-#		using a <divisible by 3> mask
+#	  using a <divisible by 3> mask
 np.putmask(arr,arr%3 == 0,0)
 print arr
 # there is an option to operate on the elements that satisfy
-#		the condition <divisible by 3>
-#			enter the operation as parameter 3; say multiply by 10
+#	  the condition <divisible by 3>
+#	    enter the operation as parameter 3; say multiply by 10
 arr = np.arange(9).reshape([3,3])
 print arr
 # if divisible by 3 multiply by 10
