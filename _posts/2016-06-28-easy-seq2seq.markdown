@@ -25,6 +25,7 @@ As I am writing this blog post, my GTX960 is training a 2-layered LSTM based Seq
 	- [ ] Setup Flask
 	- [ ] Run : Gif of results
 - [ ] Reference : 1. Understanding RNN, 2. Chatbot platforms, 3. 
+- [ ] Image Credits 
 
 {% comment %} Chatbots Intro {% endcomment %}
 
@@ -45,12 +46,13 @@ Read this article : [Deep Learning For Chatbots](http://www.wildml.com/2016/04/d
 
 ## Seq2Seq
 
-Sequence To Sequence model introduced in [Learning Phrase Representations using RNN Encoder-Decoder for Statistical Machine Translation](http://arxiv.org/abs/1406.1078) has since then, become the Go-To model for Dialogue Systems and Machine Translation. It consists of two RNNs[http://colah.github.io/posts/2015-08-Understanding-LSTMs/](Recurrent Neural Networks) : An Encoder and a decoder. The encoder takes a sequence(sentence) as inputs, one symbol(word) at each timestep. Its objective is to convert a sequence of symbols into a fixed size feature vector that encodes only the important information in the sequence while losing the unnecessary information. You can visualize data flow in the encoder along the time axis, as the flow of local information from one end of the sequence to another. 
+Sequence To Sequence model introduced in [Learning Phrase Representations using RNN Encoder-Decoder for Statistical Machine Translation](http://arxiv.org/abs/1406.1078) has since then, become the Go-To model for Dialogue Systems and Machine Translation. It consists of two [RNNs](http://colah.github.io/posts/2015-08-Understanding-LSTMs/)(Recurrent Neural Networks) : An Encoder and a decoder. The encoder takes a sequence(sentence) as input and processes one symbol(word) at each timestep. Its objective is to convert a sequence of symbols into a fixed size feature vector that encodes only the important information in the sequence while losing the unnecessary information. You can visualize data flow in the encoder along the time axis, as the flow of local information from one end of the sequence to another. 
 
 ![](/img/seq2seq/seq2seq1.png)
 
-Each hidden state influences the next hidden state and the final hidden state can be seen as the summary of the sequence. This state is called the context or thought vector, as it represents the intention of the sequence. From the context, the decoder generates another sequence, one symbol(word) at a time. Here, at each time step, the encoder is influenced by the context and the previously generated symbol(word). 
+Each hidden state influences the next hidden state and the final hidden state can be seen as the summary of the sequence. This state is called the context or thought vector, as it represents the intention of the sequence. From the context, the decoder generates another sequence, one symbol(word) at a time. Here, at each time step, the decoder is influenced by the context and the previously generated symbols.
 
+![](/img/seq2seq/seq2seq2.png)
 
 
 
