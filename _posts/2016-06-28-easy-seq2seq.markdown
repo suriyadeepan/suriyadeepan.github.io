@@ -67,20 +67,20 @@ There are a few challenges in using this model. The most disturbing one is that 
 
 Before training, we work on the dataset to convert the variable length sequences into fixed length sequences, by **padding**. We use a few special symbols to fill in the sequence.
 
-1. EOS : End of sentence
-2. PAD : Filler
-3. GO  : Start decoding
-4. UNK : Unknown; work not in vocabulary
+1. **EOS** : End of sentence
+2. **PAD** : Filler
+3. **GO**  : Start decoding
+4. **UNK** : Unknown; word not in vocabulary
 
 Consider the following query-response pair.
 
 > **Q** : How are you? <br />
 > **A** : I am fine.
 
-Assuming that we would like our sentences (queries and responses) to be of fixed length 10, this pair will be converted to:
+Assuming that we would like our sentences (queries and responses) to be of fixed length, **10**, this pair will be converted to:
 
-> **[** PAD, PAD, PAD, PAD, PAD, PAD, "?", "you", "are", "How" **]** <br />
-> **[** GO, "I", "am", "fine", ".", EOS, PAD, PAD, PAD, PAD **]**
+> **Q** : **[** PAD, PAD, PAD, PAD, PAD, PAD, "?", "you", "are", "How" **]** <br />
+> **A** : **[** GO, "I", "am", "fine", ".", EOS, PAD, PAD, PAD, PAD **]**
 
 
 ### Bucketing
@@ -88,6 +88,11 @@ Assuming that we would like our sentences (queries and responses) to be of fixed
 Introduction of padding did solve the problem of variable length sequences, but consider the case of large sentences. If the largest sentence in our dataset is of length 100, we need to encode all our sentences to be of length 100, in order to not lose any words. Now, what happens to "How are you?" ? There will be 97 PAD symbols in the encoded version of the sentence. This will overshadow the actual information in the sentence. 
 
 Bucketing kind of solves this problem, by putting sentences into buckets of different sizes. Consider this list of buckets : **[** (5,10), (10,15), (20,25), (40,50) **]**. If the length of a query is 4 and the length of its response is 4 (as in our previous example), we put this sentence in the bucket (5,10). The query will be padded to length 5 and the response will be padded to length 10. While running the model (training or predicting), we use a different model for each bucket, compatible with the lengths of query and response. All these models, share the same parameters and hence function exactly the same way. 
+
+If we are using the bucket (5,10), our sentences will be encoded to :
+
+> **Q** : **[** PAD, "?", "you", "are", "How" **]** <br />
+> **A** : **[** GO, "I", "am", "fine", ".", EOS, PAD, PAD, PAD, PAD **]**
 
 
 ### Sampled Softmax
