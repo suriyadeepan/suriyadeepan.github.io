@@ -13,9 +13,14 @@ As I am writing this blog post, my GTX960 is training a 2-layered LSTM based Seq
 {% endcomment %}
 
 - [x] Chatbots Intro
-- [ ] Seq2Seq 
-	- [ ] Description, Figure, Reference, Implementation (bucketing, padding)
-- [ ] Sampled Softmax
+- [-] Seq2Seq 
+	- [x] Description
+	- [x] Figure
+	- [ ] Padding
+	- [ ] Bucketing
+	- [ ] Sampled Softmax
+	- [ ] Word Embedding
+	- [ ] Reference
 - [ ] Attention : Jointly Learning to Align and Translate
 - [ ] Code Overview
 - [ ] Bootstrapping easy_seq2seq
@@ -31,7 +36,7 @@ As I am writing this blog post, my GTX960 is training a 2-layered LSTM based Seq
 
 Last year, Telegram released its [bot API](https://core.telegram.org/bots/api), providing an easy way for developers, to create bots by interacting with a bot, the [Bot Father](https://telegram.me/botfather). Immediately people started creating abstractions in nodejs, ruby and python, for building bots. We (Free Software Community) created a group for interacting with the bots we built. I created **[Myshkin](https://github.com/suriyadeepan/myshkin)** in nodejs that answers any query with a quote. The program uses the linux utility **[fortune](https://en.wikipedia.org/wiki/Fortune_(Unix))**, a pseudorandom message generator. It was dumb. But it was fun to see people willingly interact with a program that I've created. Someone made a **Hodor bot**. You probably figured out what it does. Then I encountered another bot, [Mitsuku](http://www.mitsuku.com/) which seemed quite intelligent. It is written in **AIML** (Artificial Intelligence Markup Language); an XML based "language" that lets develpers write rules for the bots to follow. Basically, you write a PATTERN and a TEMPLATE, such that when the bot encounters that pattern in a sentence from user, it replies with one of the templates. Let us call this model of bots, **Rule based model**.
 
-Rule based models make it easy for anyone to create a bot. But it is incredibly difficult to create a bot that answers complex queries. The pattern matching is kind of weak and hence, AIML based bots suffer when they encounter a sentence that doesn't contain any known patterns. Also, it is time consuming and takes a lot of effor to write the rules manually. What if we can build a bot that learns from existing conversations (between humans). This is where *Machine Learning* comes in. 
+Rule based models make it easy for anyone to create a bot. But it is incredibly difficult to create a bot that answers complex queries. The pattern matching is kind of weak and hence, AIML based bots suffer when they encounter a sentence that doesn't contain any known patterns. Also, it is time consuming and takes a lot of effort to write the rules manually. What if we can build a bot that learns from existing conversations (between humans). This is where *Machine Learning* comes in. 
 
 Let us call these models that automatically learn from data, **Intelligent models**. The Intelligent models can be further classified into:
 
@@ -55,6 +60,10 @@ Each hidden state influences the next hidden state and the final hidden state ca
 ![](/img/seq2seq/seq2seq2.png)
 
 
+There are a few challenges in using this model. The most disturbing one is that the model cannot handle variable length sequences. It is disturbing because almost all the sequence-to-sequence applications, involve variable length sequences. The next one is the vocabulary size. The decoder has to run softmax over a large vocabulary of say 20,000 words, for each word in the output. That is going to slow down the training process, even if your hardware is capable of handling it. Representation of words is of great importance. How do you represent the words in the sequence? Use of one-hot vectors means we need to deal with large sparse vectors due to large vocabulary and there is no semantic meaning to words encoded into one-hot vectors. Lets look into how we can face these challenges, one by one. 
+
+
+### Padding
 
 
 
