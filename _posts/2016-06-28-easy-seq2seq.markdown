@@ -108,7 +108,15 @@ Word Embedding is a technique for learning dense representation of words in a lo
 Word Embedding is typically done in the first layer of the network : Embedding layer, that maps a word (index to word in vocabulary) from vocabulary to a dense vector of given size. In the seq2seq model, the weights of the embedding layer are jointly trained with the other parameters of the model. Follow this [tutorial](http://sebastianruder.com/word-embeddings-1/) by Sebastian Ruder to learn about different models used for word embedding and its importance in NLP.
 
 
+{% comment %}
 ### Sampled Softmax
+{% endcomment %}
+
+
+
+## Attention Mechanism
+
+![](/img/seq2seq/attention1.png)
 
 
 
