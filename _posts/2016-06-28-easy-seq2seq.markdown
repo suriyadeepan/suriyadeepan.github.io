@@ -18,8 +18,8 @@ As I am writing this blog post, my GTX960 is training a 2-layered LSTM based Seq
 	- [x] Figure
 	- [x] Padding
 	- [x] Bucketing
+	- [x] Word Embedding
 	- [ ] Sampled Softmax
-	- [ ] Word Embedding
 	- [ ] Reference
 - [ ] Attention : Jointly Learning to Align and Translate
 - [ ] Code Overview
@@ -46,7 +46,7 @@ Let us call these models that automatically learn from data, **Intelligent model
 
 The Retrieval-based models pick a response from a collection of responses based on the query. It does not generate any new sentences, hence we don't need to worry about grammar. The Generative models are quite intelligent. They generate a response, word by word based on the query. Due to this, the responses generated are prone to grammatical errors. These models are difficult to train, as they need to learn the proper sentence structure by themselves. However, once trained, the generative models outperform the retrieval-based models in terms of handling previously unseen queries and create an impression of talking with a human (a toddler may be) for the user.
 
-Read this article : [Deep Learning For Chatbots](http://www.wildml.com/2016/04/deep-learning-for-chatbots-part-1-introduction/) by Denny Britz where he talks about the length of conversations, open vs closed domain dialogs, challenges in generative models like Context based responses, Coherent Personality, understanding the Intention of user and how to evaluate these models. 
+Read [Deep Learning For Chatbots](http://www.wildml.com/2016/04/deep-learning-for-chatbots-part-1-introduction/) by Denny Britz where he talks about the length of conversations, open vs closed domain dialogs, challenges in generative models like Context based responses, Coherent Personality, understanding the Intention of user and how to evaluate these models. 
 
 
 ## Seq2Seq
@@ -95,8 +95,20 @@ If we are using the bucket (5,10), our sentences will be encoded to :
 > **A** : **[** GO, "I", "am", "fine", ".", EOS, PAD, PAD, PAD, PAD **]**
 
 
-### Sampled Softmax
+### Word Embedding
 
+Word Embedding is a technique for learning dense representation of words in a low dimensional vector space. Each word can be seen as a point in this space, represented by a fixed length vector. Semantic relations between words are captured by this technique. The **word vectors** have some interesting properties.
+
+> paris – france + poland = warsaw. 
+
+*The vector difference between paris and france captures the concept of capital city.*
+
+![](/img/seq2seq/we1.png)
+
+Word Embedding is typically done in the first layer of the network : Embedding layer, that maps a word (index to word in vocabulary) from vocabulary to a dense vector of given size. In the seq2seq model, the weights of the embedding layer are jointly trained with the other parameters of the model. Follow this [tutorial](http://sebastianruder.com/word-embeddings-1/) by Sebastian Ruder to learn about different models used for word embedding and its importance in NLP.
+
+
+### Sampled Softmax
 
 
 
