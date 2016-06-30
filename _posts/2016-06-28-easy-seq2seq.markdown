@@ -2,7 +2,7 @@
 layout: post
 title: "Chatbots with Seq2Seq"
 subtitle: "Learn to build a chatbot using TensorFlow"
-tags: ["numpy", "machine learning"]
+tags: ["tensorflow", "machine learning", "seq2seq", "NLP"]
 published: true
 ---
 
@@ -12,7 +12,7 @@ As I am writing this blog post, my GTX960 is training a 2-layered LSTM based Seq
 
 {% endcomment %}
 
-- [ ] Chatbots Intro
+- [x] Chatbots Intro
 - [ ] Seq2Seq 
 	- [ ] Description, Figure, Reference, Implementation (bucketing, padding)
 - [ ] Sampled Softmax
@@ -27,18 +27,19 @@ As I am writing this blog post, my GTX960 is training a 2-layered LSTM based Seq
 
 {% comment %} Chatbots Intro {% endcomment %}
 
-Last year, Telegram released its [bot API](https://core.telegram.org/bots/api), providing an easy way for developers, to create bots by interacting with a bot, the [Bot Father](https://telegram.me/botfather). Immediately people started creating abstractions in nodejs, ruby and python, for building bots. We (Free Software Community) created a group for interacting with the bots we built. I created **[Myshkin](https://github.com/suriyadeepan/myshkin)** in nodejs that answers any query with a quote. The program uses the linux utility **[fortune](https://en.wikipedia.org/wiki/Fortune_(Unix))**, a pseudorandom message generator. It was dumb. But it was fun to see people willingly interact with a program that I've created. Someone made a **Hodor bot**. You probably figured out what it does. Then I encountered another bot, [Mitsuku](http://www.mitsuku.com/) which seemed quite intelligent. It is written in **AIML** (Artificial Intelligence Markup Language); an XML based "language" that lets develpers write rules for the bots to follow. Basically, you write a PATTERN and a TEMPLATE, such that when the bot encounters that pattern in a sentence from user, it replies with one of the templates. Let us call this model of bots, **Rule based models**.
+Last year, Telegram released its [bot API](https://core.telegram.org/bots/api), providing an easy way for developers, to create bots by interacting with a bot, the [Bot Father](https://telegram.me/botfather). Immediately people started creating abstractions in nodejs, ruby and python, for building bots. We (Free Software Community) created a group for interacting with the bots we built. I created **[Myshkin](https://github.com/suriyadeepan/myshkin)** in nodejs that answers any query with a quote. The program uses the linux utility **[fortune](https://en.wikipedia.org/wiki/Fortune_(Unix))**, a pseudorandom message generator. It was dumb. But it was fun to see people willingly interact with a program that I've created. Someone made a **Hodor bot**. You probably figured out what it does. Then I encountered another bot, [Mitsuku](http://www.mitsuku.com/) which seemed quite intelligent. It is written in **AIML** (Artificial Intelligence Markup Language); an XML based "language" that lets develpers write rules for the bots to follow. Basically, you write a PATTERN and a TEMPLATE, such that when the bot encounters that pattern in a sentence from user, it replies with one of the templates. Let us call this model of bots, **Rule based model**.
+
+Rule based models make it easy for anyone to create a bot. But it is incredibly difficult to create a bot that answers complex queries. The pattern matching is kind of weak and hence, AIML based bots suffer when they encounter a sentence that doesn't contain any known patterns. Also, it is time consuming and takes a lot of effor to write the rules manually. What if we can build a bot that learns from existing conversations (between humans). This is where *Machine Learning* comes in. 
+
+Let us call these models that automatically learn from data, **Intelligent models**. The Intelligent models can be further classified into:
+
+1. **Retrieval-based** models
+2. **Generative** models
 
 
+The Retrieval-based models pick a response from a collection of responses based on the query. It does not generate any new sentences, hence we don't need to worry about grammar. The Generative models are quite intelligent. They generate a response, word by word based on the query. Due to this, the responses generated are prone to grammatical errors. These models are difficult to train, as they need to learn the proper sentence structure by themselves. However, once trained, the generative models outperform the retrieval-based models in terms of handling previously unseen queries and create an impression of talking with a human (a toddler may be) for the user.
+
+Read this article : [DEEP LEARNING FOR CHATBOTS, PART 1 – INTRODUCTION](http://www.wildml.com/2016/04/deep-learning-for-chatbots-part-1-introduction/) by Denny Britz where he talks about the length of conversations, open vs closed domain dialogs, challenges in generative models like Context based responses, Coherent Personality, understanding the Intention of user and how to evaluate these models. 
 
 
-
-
-
-
-
-
-
-
-
-
+## Seq2Seq
