@@ -16,8 +16,8 @@ As I am writing this blog post, my GTX960 is training a 2-layered LSTM based Seq
 - [-] Seq2Seq 
 	- [x] Description
 	- [x] Figure
-	- [ ] Padding
-	- [ ] Bucketing
+	- [x] Padding
+	- [x] Bucketing
 	- [ ] Sampled Softmax
 	- [ ] Word Embedding
 	- [ ] Reference
@@ -75,9 +75,22 @@ Before training, we work on the dataset to convert the variable length sequences
 Consider the following query-response pair.
 
 > **Q** : How are you? <br />
-> **A** : I am fine
+> **A** : I am fine.
+
+Assuming that we would like our sentences (queries and responses) to be of fixed length 10, this pair will be converted to:
+
+> **[** PAD, PAD, PAD, PAD, PAD, PAD, "?", "you", "are", "How" **]** <br />
+> **[** GO, "I", "am", "fine", ".", EOS, PAD, PAD, PAD, PAD **]**
 
 
+### Bucketing
+
+Introduction of padding did solve the problem of variable length sequences, but consider the case of large sentences. If the largest sentence in our dataset is of length 100, we need to encode all our sentences to be of length 100, in order to not lose any words. Now, what happens to "How are you?" ? There will be 97 PAD symbols in the encoded version of the sentence. This will overshadow the actual information in the sentence. 
+
+Bucketing kind of solves this problem, by putting sentences into buckets of different sizes. Consider this list of buckets : **[** (5,10), (10,15), (20,25), (40,50) **]**. If the length of a query is 4 and the length of its response is 4 (as in our previous example), we put this sentence in the bucket (5,10). The query will be padded to length 5 and the response will be padded to length 10. While running the model (training or predicting), we use a different model for each bucket, compatible with the lengths of query and response. All these models, share the same parameters and hence function exactly the same way. 
+
+
+### Sampled Softmax
 
 
 
