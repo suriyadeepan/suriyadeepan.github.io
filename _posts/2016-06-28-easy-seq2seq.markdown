@@ -65,6 +65,18 @@ There are a few challenges in using this model. The most disturbing one is that 
 
 ### Padding
 
+Before training, we work on the dataset to convert the variable length sequences into fixed length sequences, by **padding**. We use a few special symbols to fill in the sequence.
+
+1. EOS : End of sentence
+2. PAD : Filler
+3. GO  : Start decoding
+4. UNK : Unknown; work not in vocabulary
+
+Consider the following query-response pair.
+
+> **Q** : How are you? <br />
+> **A** : I am fine
+
 
 
 
