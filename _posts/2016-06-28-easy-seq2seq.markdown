@@ -24,6 +24,7 @@ As I am writing this blog post, my GTX960 is training a 2-layered LSTM based Seq
 - [ ] Web Interface
 	- [ ] Setup Flask
 	- [ ] Run : Gif of results
+- [ ] Reference : 1. Understanding RNN, 2. Chatbot platforms, 3. 
 
 {% comment %} Chatbots Intro {% endcomment %}
 
@@ -39,7 +40,24 @@ Let us call these models that automatically learn from data, **Intelligent model
 
 The Retrieval-based models pick a response from a collection of responses based on the query. It does not generate any new sentences, hence we don't need to worry about grammar. The Generative models are quite intelligent. They generate a response, word by word based on the query. Due to this, the responses generated are prone to grammatical errors. These models are difficult to train, as they need to learn the proper sentence structure by themselves. However, once trained, the generative models outperform the retrieval-based models in terms of handling previously unseen queries and create an impression of talking with a human (a toddler may be) for the user.
 
-Read this article : [DEEP LEARNING FOR CHATBOTS, PART 1 – INTRODUCTION](http://www.wildml.com/2016/04/deep-learning-for-chatbots-part-1-introduction/) by Denny Britz where he talks about the length of conversations, open vs closed domain dialogs, challenges in generative models like Context based responses, Coherent Personality, understanding the Intention of user and how to evaluate these models. 
+Read this article : [Deep Learning For Chatbots](http://www.wildml.com/2016/04/deep-learning-for-chatbots-part-1-introduction/) by Denny Britz where he talks about the length of conversations, open vs closed domain dialogs, challenges in generative models like Context based responses, Coherent Personality, understanding the Intention of user and how to evaluate these models. 
 
 
 ## Seq2Seq
+
+Sequence To Sequence model introduced in [Learning Phrase Representations using RNN Encoder-Decoder for Statistical Machine Translation](http://arxiv.org/abs/1406.1078) has since then, become the Go-To model for Dialogue Systems and Machine Translation. It consists of two RNNs[http://colah.github.io/posts/2015-08-Understanding-LSTMs/](Recurrent Neural Networks) : An Encoder and a decoder. The encoder takes a sequence(sentence) as inputs, one symbol(word) at each timestep. Its objective is to convert a sequence of symbols into a fixed size feature vector that encodes only the important information in the sequence while losing the unnecessary information. You can visualize data flow in the encoder along the time axis, as the flow of local information from one end of the sequence to another. 
+
+![](/img/seq2seq/seq2seq1.png)
+
+Each hidden state influences the next hidden state and the final hidden state can be seen as the summary of the sequence. This state is called the context or thought vector, as it represents the intention of the sequence. From the context, the decoder generates another sequence, one symbol(word) at a time. Here, at each time step, the encoder is influenced by the context and the previously generated symbol(word). 
+
+
+
+
+
+
+
+
+
+
+
