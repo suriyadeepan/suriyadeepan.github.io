@@ -20,8 +20,8 @@ As I am writing this blog post, my GTX960 is training a 2-layered LSTM based Seq
 	- [x] Bucketing
 	- [x] Word Embedding
 	- [ ] Sampled Softmax
-	- [ ] Reference
-- [ ] Attention : Jointly Learning to Align and Translate
+	- [x] Reference
+- [x] Attention : Jointly Learning to Align and Translate
 - [ ] Code Overview
 - [ ] Bootstrapping easy_seq2seq
 	- [ ] Dataset : Preprocessing
@@ -112,11 +112,17 @@ Word Embedding is typically done in the first layer of the network : Embedding l
 ### Sampled Softmax
 {% endcomment %}
 
+### Papers on Sequence to Sequence
+
+1. [Learning Phrase Representations using RNN Encoder-Decoder for Statistical Machine Translation](http://arxiv.org/abs/1406.1078)
+2. [Sequence to Sequence Learning with Neural Networks](http://arxiv.org/abs/1409.3215)
+3. [Neural Machine Translation by Jointly Learning to Align and Translate](https://arxiv.org/abs/1409.0473)
+4. [A Neural Conversational Model](http://arxiv.org/abs/1506.05869)
 
 
 ## Attention Mechanism
 
-One of the limitations of seq2seq framework is that the entire information in the input sentence should be encoded into a fixed length vector, **context**. As the length of the sequence gets larger, we start losing considerable amount information. This is why the basic seq2seq model doesn't work well in decoding large sequences. The attention mechanism, introduced in this [paper](Neural Machine Translation by Jointly Learning to Align and Translate), allows the decoder to selectively look at the input sequence while decoding. This takes the pressure off the encoder to encode every useful information from the input. 
+One of the limitations of seq2seq framework is that the entire information in the input sentence should be encoded into a fixed length vector, **context**. As the length of the sequence gets larger, we start losing considerable amount of information. This is why the basic seq2seq model doesn't work well in decoding large sequences. The attention mechanism, introduced in this [paper](Neural Machine Translation by Jointly Learning to Align and Translate), allows the decoder to selectively look at the input sequence while decoding. This takes the pressure off the encoder to encode every useful information from the input. 
 
 ![](/img/seq2seq/attention1.png)
 
@@ -130,5 +136,5 @@ $$ \alpha_{ij} = \exp(e_{ij}) / \sum_{k=1}^{n} \exp(e_{ik}) $$
 
 $$ e_{ij} $$ is the alignment model which is function of decoder's previous hidden state $$ s_{i-1} $$ and the jth hidden state of the encoder. This alignment model is parameterized as a feedforward neural network which is jointly trained with the rest of model. 
 
-
+Each hidden state in the encoder encodes information about the local context about that part of the sentence. As data flow from word 0 to word n, this local context information get diluted. This makes it necessary for the decoder to peak through the encoder, to know the local contexts. Different parts of input sequence contain information necessary for generating differnt parts of the output sequence. In other words, each word in the output sequence is aligned to differnent parts of the input sequence. The alignment model gives us a measure of how well the output at position *i* match with inputs at around postion *j*. Based on which, we take a weighted sum of the input contexts (hidden states) to generate each word in the ouput sequence.
 
