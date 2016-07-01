@@ -128,7 +128,7 @@ where *n* is the length of input sequence, $$ h_j $$ is the hidden state at time
 
 $$ \alpha_{ij} = \exp(e_{ij}) / \sum_{k=1}^{n} \exp(e_{ik}) $$
 
-$$ e_{ij} is the alignment model which is function of decoder's previous hidden state $$ s_ij $$ and the jth hidden state of the encoder. This alignment model is parameterized as a feedforward neural network which is jointly trained with the rest of model. 
+$$ e_{ij} $$ is the alignment model which is function of decoder's previous hidden state $$ s_ij $$ and the jth hidden state of the encoder. This alignment model is parameterized as a feedforward neural network which is jointly trained with the rest of model. 
 
 
 
