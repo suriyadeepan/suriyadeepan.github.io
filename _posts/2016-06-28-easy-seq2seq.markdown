@@ -116,9 +116,19 @@ Word Embedding is typically done in the first layer of the network : Embedding l
 
 ## Attention Mechanism
 
+One of the limitations of seq2seq framework is that the entire information in the input sentence should be encoded into a fixed length vector, **context**. As the length of the sequence gets larger, we start losing considerable amount information. This is why the basic seq2seq model doesn't work well in decoding large sequences. The attention mechanism, introduced in this [paper](Neural Machine Translation by Jointly Learning to Align and Translate), allows the decoder to selectively look at the input sequence while decoding. This takes the pressure off the encoder to encode every useful information from the input. 
+
 ![](/img/seq2seq/attention1.png)
 
+How does it work? During each timestep in the decoder, instead of using a fixed context (last hidden state of encoder), a distinct context vector $$ c_i $$ is used for generating word $$ y_i $$. This context vector $$ c_i $$ is basically the weighted sum of hidden states of the encoder. 
 
+$$ c_i =  \sum_{j=1}^{n} \alpha_{ij}h_{j} $$
+
+where *n* is the length of input sequence, $$ h_j $$ is the hidden state at timestep *j*.
+
+$$ \alpha_{ij} = \exp(e_{ij}) / \sum_{k=1}^{n} \exp(e_{ik}) $$
+
+$$ e_{ij} is the alignment model which is function of decoder's previous hidden state $$ s_ij $$ and the jth hidden state of the encoder. This alignment model is parameterized as a feedforward neural network which is jointly trained with the rest of model. 
 
 
 
