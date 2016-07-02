@@ -34,7 +34,7 @@ As I am writing this blog post, my GTX960 is training a 2-layered LSTM based Seq
 
 {% comment %} Chatbots Intro {% endcomment %}
 
-Last year, Telegram released its [bot API](https://core.telegram.org/bots/api), providing an easy way for developers, to create bots by interacting with a bot, the [Bot Father](https://telegram.me/botfather). Immediately people started creating abstractions in nodejs, ruby and python, for building bots. We (Free Software Community) created a group for interacting with the bots we built. I created **[Myshkin](https://github.com/suriyadeepan/myshkin)** in nodejs that answers any query with a quote. The program uses the linux utility **[fortune](https://en.wikipedia.org/wiki/Fortune_(Unix))**, a pseudorandom message generator. It was dumb. But it was fun to see people willingly interact with a program that I've created. Someone made a **Hodor bot**. You probably figured out what it does. Then I encountered another bot, [Mitsuku](http://www.mitsuku.com/) which seemed quite intelligent. It is written in **AIML** (Artificial Intelligence Markup Language); an XML based "language" that lets developers write rules for the bot to follow. Basically, you write a PATTERN and a TEMPLATE, such that when the bot encounters that pattern in a sentence from user, it replies with one of the templates. Let us call this model of bots, **Rule based model**.
+Last year, Telegram released its [bot API](https://core.telegram.org/bots/api), providing an easy way for developers, to create bots by interacting with a bot, the [Bot Father](https://telegram.me/botfather). Immediately people started creating abstractions in nodejs, ruby and python, for building bots. We (Free Software Community) created a group for interacting with the bots we built. I created [Myshkin](https://github.com/suriyadeepan/myshkin) in nodejs that answers any query with a quote. The program uses the linux utility [fortune](https://en.wikipedia.org/wiki/Fortune_(Unix)), a pseudorandom message generator. It was dumb. But it was fun to see people willingly interact with a program that I've created. Someone made a **Hodor bot**. You probably figured out what it does. Then I encountered another bot, [Mitsuku](http://www.mitsuku.com/) which seemed quite intelligent. It is written in **AIML** (Artificial Intelligence Markup Language); an XML based "language" that lets developers write rules for the bot to follow. Basically, you write a PATTERN and a TEMPLATE, such that when the bot encounters that pattern in a sentence from user, it replies with one of the templates. Let us call this model of bots, **Rule based model**.
 
 Rule based models make it easy for anyone to create a bot. But it is incredibly difficult to create a bot that answers complex queries. The pattern matching is kind of weak and hence, AIML based bots suffer when they encounter a sentence that doesn't contain any known patterns. Also, it is time consuming and takes a lot of effort to write the rules manually. What if we can build a bot that learns from existing conversations (between humans). This is where *Machine Learning* comes in. 
 
@@ -137,4 +137,14 @@ $$ \alpha_{ij} = \exp(e_{ij}) / \sum_{k=1}^{n} \exp(e_{ik}) $$
 $$ e_{ij} $$ is the alignment model which is function of decoder's previous hidden state $$ s_{i-1} $$ and the jth hidden state of the encoder. This alignment model is parameterized as a feedforward neural network which is jointly trained with the rest of model. 
 
 Each hidden state in the encoder encodes information about the local context in that part of the sentence. As data flows from word 0 to word n, this local context information gets diluted. This makes it necessary for the decoder to peak through the encoder, to know the local contexts. Different parts of input sequence contain information necessary for generating different parts of the output sequence. In other words, each word in the output sequence is aligned to different parts of the input sequence. The alignment model gives us a measure of how well the output at position *i* match with inputs at around postion *j*. Based on which, we take a weighted sum of the input contexts (hidden states) to generate each word in the ouput sequence.
+
+
+
+## Code
+
+The code is available in this repository, [suriyadeepan/easy_seq2seq](https://github.com/suriyadeepan/easy_seq2seq). The code is based on Tensorflow's [English-French translation](https://www.tensorflow.org/versions/r0.9/tutorials/seq2seq/index.html) example. I borrowed the files *data_utils.py*, *seq2seq_model.py* and *translate.py* from it. 
+
+
+
+
 
