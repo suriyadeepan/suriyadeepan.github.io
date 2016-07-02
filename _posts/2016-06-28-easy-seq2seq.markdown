@@ -142,7 +142,41 @@ Each hidden state in the encoder encodes information about the local context in 
 
 ## Code
 
-The code is available in this repository, [suriyadeepan/easy_seq2seq](https://github.com/suriyadeepan/easy_seq2seq). The code is based on Tensorflow's [English-French translation](https://www.tensorflow.org/versions/r0.9/tutorials/seq2seq/index.html) example. I borrowed the files *data_utils.py*, *seq2seq_model.py* and *translate.py* from it. 
+The code is available in this repository, [suriyadeepan/easy_seq2seq](https://github.com/suriyadeepan/easy_seq2seq). It is based on Tensorflow's [English-French translation](https://www.tensorflow.org/versions/r0.9/tutorials/seq2seq/index.html) example. I borrowed the files *data_utils.py*, *seq2seq_model.py* and *translate.py* from it. *data_utils.py* consists of functions for preprocessing the dataset. We will be working with [Cornell Movie Dialog Corpus](http://www.cs.cornell.edu/~cristian/Cornell_Movie-Dialogs_Corpus.html). 
+
+{% highlight python %}
+'''
+working_directory : directory where vocabulary files will be stored
+train_enc : encoder input for training (X_train)
+train_dec : decoder input for training (Y_train)
+test_enc : encoder input for evaluation (X_test)
+test_dec : decoder input for evaluation (Y_test)
+enc_vocabulary_size : size of vocabulary on encoder side (I choose 20000)
+dec_vocabulary_size : size of vocabulary on decoder side (same here)
+tokenizer : None - uses basic_tokenizer function in data_utils.py
+'''
+def prepare_custom_data(working_directory, train_enc, train_dec, test_enc, test_dec, enc_vocabulary_size, dec_vocabulary_size, tokenizer=None):
+
+    # Create vocabularies of the appropriate sizes.
+    enc_vocab_path = os.path.join(working_directory, "vocab%d.enc" % enc_vocabulary_size)
+    dec_vocab_path = os.path.join(working_directory, "vocab%d.dec" % dec_vocabulary_size)
+    create_vocabulary(enc_vocab_path, train_enc, enc_vocabulary_size, tokenizer)
+    create_vocabulary(dec_vocab_path, train_dec, dec_vocabulary_size, tokenizer)
+
+    # Create token ids for the training data.
+    enc_train_ids_path = train_enc + (".ids%d" % enc_vocabulary_size)
+    dec_train_ids_path = train_dec + (".ids%d" % dec_vocabulary_size)
+    data_to_token_ids(train_enc, enc_train_ids_path, enc_vocab_path, tokenizer)
+    data_to_token_ids(train_dec, dec_train_ids_path, dec_vocab_path, tokenizer)
+
+    # Create token ids for the development data.
+    enc_dev_ids_path = test_enc + (".ids%d" % enc_vocabulary_size)
+    dec_dev_ids_path = test_dec + (".ids%d" % dec_vocabulary_size)
+    data_to_token_ids(test_enc, enc_dev_ids_path, enc_vocab_path, tokenizer)
+    data_to_token_ids(test_dec, dec_dev_ids_path, dec_vocab_path, tokenizer)
+
+    return (enc_train_ids_path, dec_train_ids_path, enc_dev_ids_path, dec_dev_ids_path, enc_vocab_path, dec_vocab_path)
+{% endhighlight %}
 
 
 
