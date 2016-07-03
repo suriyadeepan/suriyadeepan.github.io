@@ -17,7 +17,6 @@ What will I do differently this time? To keep the blog alive, I need to log an e
 1. Transhumanism
 2. Artificial Intelligence
 3. Cognitive Architectures
-4. The Multiverse theory and the Anthropic Principle
-5. Mesh Networking and Community Networks
-6. Utopian Dream : Smart Cities, Solar Power
-7. Peer Production
+4. Mesh Networking and Community Networks
+5. Utopian Dream : Smart Solar-powered cities
+6. Peer Production
