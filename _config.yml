@@ -23,6 +23,7 @@ description: My personal blog!
 
 # List of links in the navigation bar
 navbar-links:
+  Walden: "pages/walden"
   About Me: "aboutme"
   Resources:
     - Mesh Network Slides: "http://pymeshnet.gitlab.io/slides/bangpypermeet/software/"
