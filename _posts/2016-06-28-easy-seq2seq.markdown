@@ -230,10 +230,23 @@ if (__name__ == "__main__"):
 {% endhighlight %}
 
 
-<center><img src="http://i.imgur.com/6jRMYYl.gif" alt="Sample Conversation" style="width: 450; height: 600;"/></center>
+<center><img src="http://i.imgur.com/6jRMYYl.gif" alt="Sample Conversation"></center>
 
 
 
 ## Reference
 
-
+1. [Telegram Bots : An introduction for developers](https://core.telegram.org/bots)
+2. [Botfather](https://telegram.me/botfather)
+3. [Mitsuku](http://www.mitsuku.com/)
+4. [Deep Learning for Chatbots : Introduction](http://www.wildml.com/2016/04/deep-learning-for-chatbots-part-1-introduction/)
+5. [Understanding LSTMS](http://colah.github.io/posts/2015-08-Understanding-LSTMs/)
+6. [Padding and Bucketing](https://www.tensorflow.org/versions/r0.9/tutorials/seq2seq/index.html)
+7. [On word embeddings - Part 1](http://sebastianruder.com/word-embeddings-1/)
+8. Sampled Softmax : [On word embeddings - Part 2](http://sebastianruder.com/word-embeddings-softmax/index.html)
+9. [Attention and Memory in Deep Learning and NLP](http://www.wildml.com/2016/01/attention-and-memory-in-deep-learning-and-nlp/)
+10. [easy_seq2seq](https://github.com/suriyadeepan/easy_seq2seq)
+11. [English-Frnch Translation in Tensorflow](https://www.tensorflow.org/versions/r0.9/tutorials/seq2seq/index.html)
+12. [Cornell Movie Dialog Corpus](http://www.cs.cornell.edu/~cristian/Cornell_Movie-Dialogs_Corpus.html)
+13. [Cornell Movie Dialog Corpus - Preprocessed](https://github.com/suriyadeepan/datasets/tree/master/seq2seq/cornell_movie_corpus)
+14. [Flask : Quick Start](http://suriyadeepan.github.io/2016-06-07-flask-intro/)
