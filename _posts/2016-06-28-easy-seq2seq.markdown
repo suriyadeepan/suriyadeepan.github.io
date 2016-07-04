@@ -192,6 +192,4 @@ def prepare_custom_data(working_directory, train_enc, train_dec, test_enc, test_
 {% endhighlight %}
 
 
-
-
-
+I have renamed *translate.py* to *execute.py* and modified the *train( )* to use our *prepare_custom_data( )* function. Instead of passing arguments as flags, I've used **ConfigParser** to read from *seq2seq.ini*, which contains various options to configure the model, like the size of vocabulary, number of layers of LSTM, etc,. The next section explains all the configurations in detail. The file *seq2seq_model.py* remains unchanged.  
