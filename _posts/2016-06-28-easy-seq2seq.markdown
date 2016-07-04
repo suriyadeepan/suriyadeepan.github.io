@@ -235,7 +235,7 @@ if (__name__ == "__main__"):
 {% endhighlight %}
 
 <center>
-![](http://i.imgur.com/6jRMYYl.gif)
+<img src="http://i.imgur.com/6jRMYYl.gif" height="800" width="600">
 </center>
 
 
