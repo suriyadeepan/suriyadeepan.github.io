@@ -26,10 +26,12 @@ Read [Deep Learning For Chatbots](http://www.wildml.com/2016/04/deep-learning-fo
 Sequence To Sequence model introduced in [Learning Phrase Representations using RNN Encoder-Decoder for Statistical Machine Translation](http://arxiv.org/abs/1406.1078) has since then, become the Go-To model for Dialogue Systems and Machine Translation. It consists of two [RNNs](http://colah.github.io/posts/2015-08-Understanding-LSTMs/)(Recurrent Neural Networks) : An Encoder and a decoder. The encoder takes a sequence(sentence) as input and processes one symbol(word) at each timestep. Its objective is to convert a sequence of symbols into a fixed size feature vector that encodes only the important information in the sequence while losing the unnecessary information. You can visualize data flow in the encoder along the time axis, as the flow of local information from one end of the sequence to another. 
 
 ![](/img/seq2seq/seq2seq1.png)
+*Image borrowed from [farizrahman4u/seq2seq](https://github.com/farizrahman4u/seq2seq)*
 
 Each hidden state influences the next hidden state and the final hidden state can be seen as the summary of the sequence. This state is called the context or thought vector, as it represents the intention of the sequence. From the context, the decoder generates another sequence, one symbol(word) at a time. Here, at each time step, the decoder is influenced by the context and the previously generated symbols.
 
 ![](/img/seq2seq/seq2seq2.png)
+*Image borrowed from [Deep Learning for Chatbots : Part 1](http://www.wildml.com/2016/04/deep-learning-for-chatbots-part-1-introduction/)*
 
 
 There are a few challenges in using this model. The most disturbing one is that the model cannot handle variable length sequences. It is disturbing because almost all the sequence-to-sequence applications, involve variable length sequences. The next one is the vocabulary size. The decoder has to run softmax over a large vocabulary of say 20,000 words, for each word in the output. That is going to slow down the training process, even if your hardware is capable of handling it. Representation of words is of great importance. How do you represent the words in the sequence? Use of one-hot vectors means we need to deal with large sparse vectors due to large vocabulary and there is no semantic meaning to words encoded into one-hot vectors. Lets look into how we can face these challenges, one by one. 
@@ -76,6 +78,7 @@ Word Embedding is a technique for learning dense representation of words in a lo
 *The vector difference between paris and france captures the concept of capital city.*
 
 ![](/img/seq2seq/we1.png)
+*Image borrowed from [Home Depot Product Search Relevance, Winners' Interview](https://blog.kaggle.com/2016/05/18/home-depot-product-search-relevance-winners-interview-1st-place-alex-andreas-nurlan/)*
 
 Word Embedding is typically done in the first layer of the network : Embedding layer, that maps a word (index to word in vocabulary) from vocabulary to a dense vector of given size. In the seq2seq model, the weights of the embedding layer are jointly trained with the other parameters of the model. Follow this [tutorial](http://sebastianruder.com/word-embeddings-1/) by Sebastian Ruder to learn about different models used for word embedding and its importance in NLP.
 
@@ -94,9 +97,11 @@ Word Embedding is typically done in the first layer of the network : Embedding l
 
 ## Attention Mechanism
 
-One of the limitations of seq2seq framework is that the entire information in the input sentence should be encoded into a fixed length vector, **context**. As the length of the sequence gets larger, we start losing considerable amount of information. This is why the basic seq2seq model doesn't work well in decoding large sequences. The attention mechanism, introduced in this [paper](Neural Machine Translation by Jointly Learning to Align and Translate), allows the decoder to selectively look at the input sequence while decoding. This takes the pressure off the encoder to encode every useful information from the input. 
+One of the limitations of seq2seq framework is that the entire information in the input sentence should be encoded into a fixed length vector, **context**. As the length of the sequence gets larger, we start losing considerable amount of information. This is why the basic seq2seq model doesn't work well in decoding large sequences. The attention mechanism, introduced in this paper, [Neural Machine Translation by Jointly Learning to Align and Translate](https://arxiv.org/abs/1409.0473), allows the decoder to selectively look at the input sequence while decoding. This takes the pressure off the encoder to encode every useful information from the input. 
 
 ![](/img/seq2seq/attention1.png)
+*Image borrowed from [Neural Machine Translation by Jointly Learning to Align and Translate](https://arxiv.org/abs/1409.0473)*
+
 
 How does it work? During each timestep in the decoder, instead of using a fixed context (last hidden state of encoder), a distinct context vector $$ c_i $$ is used for generating word $$ y_i $$. This context vector $$ c_i $$ is basically the weighted sum of hidden states of the encoder. 
 
