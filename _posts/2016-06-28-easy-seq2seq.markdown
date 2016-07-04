@@ -142,10 +142,13 @@ Each hidden state in the encoder encodes information about the local context in 
 
 ## Code
 
-The code is available in this repository, [suriyadeepan/easy_seq2seq](https://github.com/suriyadeepan/easy_seq2seq). It is based on Tensorflow's [English-French translation](https://www.tensorflow.org/versions/r0.9/tutorials/seq2seq/index.html) example. I borrowed the files *data_utils.py*, *seq2seq_model.py* and *translate.py* from it. *data_utils.py* consists of functions for preprocessing the dataset. We will be working with [Cornell Movie Dialog Corpus](http://www.cs.cornell.edu/~cristian/Cornell_Movie-Dialogs_Corpus.html). 
+The code is available in this repository, [suriyadeepan/easy_seq2seq](https://github.com/suriyadeepan/easy_seq2seq). It is based on Tensorflow's [English-French translation](https://www.tensorflow.org/versions/r0.9/tutorials/seq2seq/index.html) example. I borrowed the files *data_utils.py*, *seq2seq_model.py* and *translate.py* from it. *data_utils.py* consists of functions for preprocessing the dataset. We will be working with [Cornell Movie Dialog Corpus](http://www.cs.cornell.edu/~cristian/Cornell_Movie-Dialogs_Corpus.html). The function *prepare_custom_data( )* takes as input, files containing questions and responses, separated into training and test data. Read the comments for a detailed description. 
 
 {% highlight python %}
 '''
+	converts raw sentences into token id's and returns 
+		the path to vocabulary and tokenzied sentences
+
 working_directory : directory where vocabulary files will be stored
 train_enc : encoder input for training (X_train)
 train_dec : decoder input for training (Y_train)
