@@ -257,4 +257,4 @@ if (__name__ == "__main__"):
 {% endhighlight %}
 
 
-<center><img src="http://i.imgur.com/6jRMYYl.gif" alt="Sample Conversation" style="width: 455; height: 608;"/></center>
+<center><img src="http://i.imgur.com/6jRMYYl.gif" alt="Sample Conversation" style="width: 390; height: 520;"/></center>
