@@ -26,11 +26,10 @@ As I am writing this blog post, my GTX960 is training a 2-layered LSTM based Seq
 - [x] Bootstrapping easy_seq2seq
 	- [x] Dataset : Preprocessing
 	- [x] Configuration : ConfigParser
-- [-] Web Interface
-	- [ ] Setup Flask
-	- [ ] Run : Gif of results
-- [ ] Reference : 1. Understanding RNN, 2. Chatbot platforms, 3. 
-- [ ] Image Credits 
+- [x] Web Interface
+	- [x] Setup Flask
+	- [x] Run : Gif of results
+- [ ] Reference 
 
 {% comment %} Chatbots Intro {% endcomment %}
 
@@ -212,7 +211,6 @@ We are using Cornell Movie Dialog Corpus for training our model. The preprocesse
 | test_dec  | decoder inputs file for testing  (Y_test)  |  data/test.dec |
 | working_directory | folder where checkpoints, vocabulary, temporary data will be stored | data/ |
 | pretrained_model | previously trained model saved to file | - |
-| pretrained_model | previously trained model saved to file | - |
 | enc_vocab_size | encoder vocabulary size | 20000 |
 | dec_vocab_size | decoder vocabulary size | 20000 |
 | num_layers | number of layers | 2 |
@@ -228,7 +226,7 @@ We are using Cornell Movie Dialog Corpus for training our model. The preprocesse
 
 ## Web Interface
 
-This blog post, [Flask : Quick Start](http://suriyadeepan.github.io/2016-06-07-flask-intro/) should help you setup flask in virtual environment. I've built a tiny Flask app that provides a chat interface to the user, to interact with our *seq2seq* model. It is so tiny, that I'm putting it here as a code snippet. The reply method in the code is called via an AJAX request from [index.js](https://github.com/suriyadeepan/easy_seq2seq/blob/master/ui/static/js/index.js). It sends the text from user to our seq2seq model via the decode_line method, which returns a reply. The reply is passed to *index.js* and rendered as text in the chatbox.
+[Flask : Quick Start](http://suriyadeepan.github.io/2016-06-07-flask-intro/) should help you setup flask in virtual environment. I've built a tiny Flask app that provides a chat interface to the user, to interact with our *seq2seq* model. It is so tiny, that I'm putting it here as a code snippet. The reply method in the code is called via an AJAX request from [index.js](https://github.com/suriyadeepan/easy_seq2seq/blob/master/ui/static/js/index.js). It sends the text from user to our seq2seq model via the decode_line method, which returns a reply. The reply is passed to *index.js* and rendered as text in the chatbox.
 
 {% highlight python %}
 from flask import Flask, render_template, request
@@ -258,3 +256,5 @@ if (__name__ == "__main__"):
 
 {% endhighlight %}
 
+
+![](http://i.imgur.com/6jRMYYl.gif)
