@@ -249,7 +249,7 @@ if (__name__ == "__main__"):
 5. [Understanding LSTMS](http://colah.github.io/posts/2015-08-Understanding-LSTMs/)
 6. [Padding and Bucketing](https://www.tensorflow.org/versions/r0.9/tutorials/seq2seq/index.html)
 7. [On word embeddings - Part 1](http://sebastianruder.com/word-embeddings-1/)
-8. Sampled Softmax : [On word embeddings - Part 2](http://sebastianruder.com/word-embeddings-softmax/index.html)
+8. [On word embeddings - Part 2 (sampled softmax)](http://sebastianruder.com/word-embeddings-softmax/index.html)
 9. [Attention and Memory in Deep Learning and NLP](http://www.wildml.com/2016/01/attention-and-memory-in-deep-learning-and-nlp/)
 10. [easy_seq2seq](https://github.com/suriyadeepan/easy_seq2seq)
 11. [English-Frnch Translation in Tensorflow](https://www.tensorflow.org/versions/r0.9/tutorials/seq2seq/index.html)
