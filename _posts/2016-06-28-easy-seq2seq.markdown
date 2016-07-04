@@ -25,7 +25,7 @@ As I am writing this blog post, my GTX960 is training a 2-layered LSTM based Seq
 - [x] Code Overview
 - [-] Bootstrapping easy_seq2seq
 	- [x] Dataset : Preprocessing
-	- [ ] Configuration : ConfigParser
+	- [x] Configuration : ConfigParser
 - [ ] Web Interface
 	- [ ] Setup Flask
 	- [ ] Run : Gif of results
@@ -199,4 +199,34 @@ I have renamed *translate.py* to *execute.py* and modified the *train( )* to use
 ## Bootstrapping easy_seq2seq
 
 We are using Cornell Movie Dialog Corpus for training our model. The preprocessed dataset is available [here](https://github.com/suriyadeepan/datasets/tree/master/seq2seq/cornell_movie_corpus/processed_data), which you can get by running the script *pull_data.sh* available at the *data/* folder. But you might want to preprocess it yourself in order to modify the number of sentences in training and test set. You can make use of *prepare_data.py* script, available [here](https://github.com/suriyadeepan/datasets/blob/master/seq2seq/cornell_movie_corpus/scripts/prepare_data.py) for preprocessing the raw corpus. It generates 4 files containing queries and replies, for training and testing. 
+
+
+### Configuration
+
+| Switch | Purpose | Default |
+| :--------- | :--------- | :--------- |
+| mode | train, test (interactive sessin), serve (Flask app) | test |
+| train_enc | encoder inputs file for training (X_train) | data/train.enc |
+| train_dec | decoder inputs file for training (Y_train) | data/train.dec |
+| test_enc  | encoder inputs file for testing  (X_test)  |  data/test.enc |
+| test_dec  | decoder inputs file for testing  (Y_test)  |  data/test.dec |
+| working_directory | folder where checkpoints, vocabulary, temporary data will be stored | data/ |
+| pretrained_model | previously trained model saved to file | - |
+| pretrained_model | previously trained model saved to file | - |
+| enc_vocab_size | encoder vocabulary size | 20000 |
+| dec_vocab_size | decoder vocabulary size | 20000 |
+| num_layers | number of layers | 2 |
+| layer_size | number of units in a layer | 512 |
+| max_train_data_size | limit count of training data | 0 (no limit) |
+| batch_size | batch size for training; modify this based on your hardware specs | 64 | 
+| steps_per_checkpoint | At a checkpoint, parameters are saved, model is evaluated | 200 | 
+| learning_rate | Learning rate | 0.5 |
+| learning_rate_decay_factor | Learning rate decay factor | 0.99 |
+| max_gradient_norm | Gradient clipping threshold | 5.0 |
+ 
+
+
+## Web Interface
+
+
 
