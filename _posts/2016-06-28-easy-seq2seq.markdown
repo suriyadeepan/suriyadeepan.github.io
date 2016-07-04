@@ -22,9 +22,9 @@ As I am writing this blog post, my GTX960 is training a 2-layered LSTM based Seq
 	- [ ] Sampled Softmax
 	- [x] Reference
 - [x] Attention : Jointly Learning to Align and Translate
-- [ ] Code Overview
-- [ ] Bootstrapping easy_seq2seq
-	- [ ] Dataset : Preprocessing
+- [x] Code Overview
+- [-] Bootstrapping easy_seq2seq
+	- [x] Dataset : Preprocessing
 	- [ ] Configuration : ConfigParser
 - [ ] Web Interface
 	- [ ] Setup Flask
@@ -193,3 +193,10 @@ def prepare_custom_data(working_directory, train_enc, train_dec, test_enc, test_
 
 
 I have renamed *translate.py* to *execute.py* and modified the *train( )* to use our *prepare_custom_data( )* function. Instead of passing arguments as flags, I've used **ConfigParser** to read from *seq2seq.ini*, which contains various options to configure the model, like the size of vocabulary, number of layers of LSTM, etc,. The next section explains all the configurations in detail. The file *seq2seq_model.py* remains unchanged.  
+
+
+
+## Bootstrapping easy_seq2seq
+
+We are using Cornell Movie Dialog Corpus for training our model. The preprocessed dataset is available [here](https://github.com/suriyadeepan/datasets/tree/master/seq2seq/cornell_movie_corpus/processed_data), which you can get by running the script *pull_data.sh* available at the *data/* folder. But you might want to preprocess it yourself in order to modify the number of sentences in training and test set. You can make use of *prepare_data.py* script, available [here](https://github.com/suriyadeepan/datasets/blob/master/seq2seq/cornell_movie_corpus/scripts/prepare_data.py) for preprocessing the raw corpus. It generates 4 files containing queries and replies, for training and testing. 
+
