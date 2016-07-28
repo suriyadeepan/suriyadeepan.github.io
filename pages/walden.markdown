@@ -1,8 +1,10 @@
 ---
 layout: page
-title: Walden
-subtitle: Henry David Thoreaux
+title: Beauty in Chaos
+subtitle: Everything that made me smile
 ---
+
+## Walden, Henry David Thoreau
 
 *Where I Lived, and What I Lived for*
 
@@ -12,3 +14,11 @@ subtitle: Henry David Thoreaux
 > but it is far more glorious to carve and paint the very atmosphere and medium through which we look, which morally we can do.
 > To affect the quality of the day, that is the highest of arts. 
 > Every man is tasked to make his life, even in its details, worth of the contemplation of his most elevated and critical hour.
+
+
+## Time of Eve ( Eve no Jikan )
+
+> Sometime in future Japan, androids have been involved in every aspect of people's lives. One day, upon checking his android's behavioral log, Rikuo, a student, noticed his android's returning times have been odd recently. With his friend Masaki, they found out the place where his android, Sammy, have been visiting: a small cafe called Eve no Jikan where androids and human are not seen as different. Upon talking with the "people" in the cafe and discovering more of Sammy's behavior, Rikuo changed his view about androids and treat them as friends rather than tools. At the same time, elsewhere in Japan, the Ethics committee is trying to impose policies to reduce the involvement and use of androids in society.
+
+
+
