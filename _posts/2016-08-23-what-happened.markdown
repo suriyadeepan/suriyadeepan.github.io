@@ -19,7 +19,7 @@ More on that later.
 
 ## RF planning tool for Mesh Networks
 
-This is a relatively recent development. We are building an RF planning tool, similar to [CloudRF](https://cloudrf.com/), which is partly open. Check out this [video demonstration](https://www.youtube.com/watch?v=i-pcIFWOkpQ) by CloudRF, to understand what I mean by RF planning. Our code is hosted here : [pymeshnet/FreeRF](https://gitlab.com/pymeshnet/FreeRF/). The infographics created by Ganesh, will speak louder than my words.
+This is a relatively recent development. We are building an RF planning tool, a free alternative to [CloudRF](https://cloudrf.com/) (cloudrf is partly open). Check out this [video demonstration](https://www.youtube.com/watch?v=i-pcIFWOkpQ) by CloudRF, to understand what I mean by RF planning. Our code is hosted here : [pymeshnet/FreeRF](https://gitlab.com/pymeshnet/FreeRF/). The infographics created by Ganesh, will speak louder than my words.
 
 ![](https://crabgrass.riseup.net/assets/322193/RF+Planning+%26+Link+Budgeting+3.png)
 ![](https://crabgrass.riseup.net/assets/322195/RF+Planning+%26+Link+Budgeting+6.png)
@@ -33,7 +33,30 @@ Python is a beautiful language. It lets you express yourself, without having to 
 
 But the pros outweigh the cons. 
 
-I taught the fundamentals of python to college kids at [Villupuram camp](https://fsftn.org/events/sc/2016/vpm/) and [Chennai camp](https://fsftn.org/events/sc/2016/chn/), organized by Free Software Foundation, Tamilnadu. Teaching, like learning, is also rewarding. The exercises are available in this repository : [suriyadeepan/python3](https://github.com/suriyadeepan/python3) and the slides are available [here](https://raw.githubusercontent.com/FSFTN/Annual-Camp-2K16-Presentations/master/python3/Python3.pdf) for download. I got to learn some interesting python constructs, that I missed, like generators, regular expressions, the infamous map-reduce-filter tools, zip, lambda, custom key sort, multiprocessing module and more. I will write a separate blog post on explaining these constructs. 
+I taught the fundamentals of python to college kids at [Villupuram camp](https://fsftn.org/events/sc/2016/vpm/) and [Chennai camp](https://fsftn.org/events/sc/2016/chn/), organized by Free Software Foundation, Tamilnadu. Teaching, like learning, is also rewarding. I got to learn some interesting python constructs, that I missed, like generators, regular expressions, the infamous map-reduce-filter tools, zip, lambda, custom key sort, the multiprocessing module and more. I will write a separate blog post explaining these constructs. The exercises are available in this repository : [suriyadeepan/python3](https://github.com/suriyadeepan/python3) and the slides are available [here](https://raw.githubusercontent.com/FSFTN/Annual-Camp-2K16-Presentations/master/python3/Python3.pdf) for download. 
+
+
+## Pandas
+
+Last week I started learning pandas. Pandas is a python libray that provides easy-to-use, high level data structures and operations, for data analysis. I am following [sentdex's](https://www.youtube.com/user/sentdex/featured) video tutorial series : [Data Analysis with Python and Pandas](https://www.youtube.com/playlist?list=PLQVvvaa0QuDc-3szzjeP6N6b0aDrrKyL-). It is the best pandas tutorial out there, as far as I know. I have completed these sections:
+
+1. Pandas Basics
+2. IO basics
+3. Building Dataset
+4. Concatenating and Appending Dataframes
+5. Joining and Mergin Dataframes
+
+Find my Jupyter notebok here : [suriyadeepan/pandas](https://github.com/suriyadeepan/pandas/blob/master/notebooks/Data%20Analysis%20with%20Python%20and%20Pandas%20Tutorial.ipynb)
+
+
+
+
+
+
+
+
+
+
 
 
 
