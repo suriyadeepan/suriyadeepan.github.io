@@ -6,7 +6,7 @@ tags: ["life", "activities", "camp"]
 published: true
 ---
 
-It has been 55 days since my last post. A lot has happened. I handled python sessions at this year's summer camps, held at Villupuram and Chennai, conducted by Free Software Foundation, Tamilnadu. As a result, my python skills have improved considerably. It is a shame that we were unable to conduct a camp at my home town, Puducherry. But there is still hope. 
+It has been 55 days since my last post. A lot has happened. I handled python sessions at this year's summer camps, held at Villupuram and Chennai, conducted by Free Software Foundation, Tamilnadu. As a result, my python skills have improved considerably. It is a shame that we were unable to conduct a camp at my home town, Puducherry. But there is still hope. I digress. I tried to summarize the events of last 2 months in this post.
 
 ## Web scraping
 
