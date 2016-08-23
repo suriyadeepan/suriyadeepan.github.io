@@ -44,12 +44,19 @@ Last week I started learning pandas. Pandas is a python libray that provides eas
 2. IO basics
 3. Building Dataset
 4. Concatenating and Appending Dataframes
-5. Joining and Mergin Dataframes
+5. Joining and Merging Dataframes
 
 Find my Jupyter notebok here : [suriyadeepan/pandas](https://github.com/suriyadeepan/pandas/blob/master/notebooks/Data%20Analysis%20with%20Python%20and%20Pandas%20Tutorial.ipynb)
 
 
+## Painless Recurrent Neural Network  
 
+No. It isn't another variant of Recurrent Neural Network. I just learned to build an RNN in a painless fashion, unlike the masochists at [Google](https://www.tensorflow.org/versions/r0.10/tutorials/recurrent/index.html). I found this amazing place, where deep learning enthusiasts share their models, datasets, papers and more : [tensorhub](https://tensorhub.com/). [aymericdamien](https://github.com/aymericdamien) uses LSTM to classify MNIST digits, in this [tutorial](https://tensorhub.com/aymericdamien/tensorflow-rnn). It is simple and straightforward. It does not require you to manually construct the gates in LSTM. I tried it and here is the [result](https://github.com/suriyadeepan/TF/blob/master/RNN/TensorFlow%20Example%20-%20Recurrent%20Neural%20Network.ipynb).
+
+
+## AutoReveal
+
+I hate working on large files. Like this one. Yeah, the [source](https://raw.githubusercontent.com/suriyadeepan/suriyadeepan.github.io/master/_posts/2016-08-23-what-happened.markdown) of this blog post is a large (debatable) markdown file. I like my code to be modular. When I was working on the python slides with reveal.js, I wrote a markdown file for each section. Then I had to integrate it into one .html file. I decided to write a script that'll grab the contents of all the markdown files and put them in the .html file intelligently, based on a template. And here it is, [autoreveal.py](https://github.com/suriyadeepan/python3/blob/master/slides/autoreveal.py). Check out the settings file, [python3.ini](https://github.com/suriyadeepan/python3/blob/master/slides/python3.ini). May be I am a masochist. I did use arch once. 
 
 
 
