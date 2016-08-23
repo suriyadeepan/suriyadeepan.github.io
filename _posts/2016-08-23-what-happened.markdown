@@ -19,4 +19,8 @@ More on that later.
 
 ## RF planning tool for Mesh Networks
 
-This is a relatively recent development. We are building a RF planning tool, similar to [CloudRF](https://cloudrf.com/), which is partly open. 
+This is a relatively recent development. We are building an RF planning tool, similar to [CloudRF](https://cloudrf.com/), which is partly open. Check out this [video demonstration](https://www.youtube.com/watch?v=i-pcIFWOkpQ) by CloudRF, to understand what I mean by RF planning. Our code is hosted here : [pymeshnet/FreeRF](https://gitlab.com/pymeshnet/FreeRF/). The infographics created by Ganesh, will speak louder than my words.
+
+![](https://crabgrass.riseup.net/assets/322193/RF+Planning+%26+Link+Budgeting+3.png)
+![](https://crabgrass.riseup.net/assets/322195/RF+Planning+%26+Link+Budgeting+6.png)
+
