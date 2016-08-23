@@ -181,5 +181,4 @@ if (__name__ == "__main__"):
 
 This tutorial covers the bare essentials of Flask. To learn more, go to [Discover Flask](https://github.com/realpython/discover-flask) that contains video tutorials covering pretty much everything in Flask. Also follow this [thread](https://discuss.fsftn.org/t/event-training-session-on-flask-python/742) for more Flask resources. 
 
-As always, you are welcome to leave a comment below. 
-
+Feel free to leave a comment.
