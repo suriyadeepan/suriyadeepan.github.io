@@ -14,7 +14,7 @@ The pretty HTML5 documents you see on the internet consist of structured data. I
 
 ![](https://raw.githubusercontent.com/suriyadeepan/wiki-graph/master/lowres.jpg)
 
-More on that later.
+*What did I just see?* More on that later.
 
 
 ## RF planning tool for Mesh Networks
@@ -59,16 +59,19 @@ No. It isn't another variant of Recurrent Neural Network. I just learned to buil
 I hate working on large files. Like this one. Yeah, the [source](https://raw.githubusercontent.com/suriyadeepan/suriyadeepan.github.io/master/_posts/2016-08-23-what-happened.markdown) of this blog post is a large (debatable) markdown file. I like my code to be modular. When I was working on the python slides with reveal.js, I wrote a markdown file for each section. Then I had to integrate it into one .html file. I decided to write a script that'll grab the contents of all the markdown files and put them in the .html file intelligently, based on a template. And here it is, [autoreveal.py](https://github.com/suriyadeepan/python3/blob/master/slides/autoreveal.py). Check out the settings file, [python3.ini](https://github.com/suriyadeepan/python3/blob/master/slides/python3.ini). May be I am a masochist. I did use arch once. 
 
 
+## FSHM's "Untitled" event
+
+This is the most recent event to happen. Last weekend, we conducted a small scale event to invite new students into FSHM, Free Software Hardware Movement, Puducherry. In spite of the last minute planning, the event went better than expected. We invited member of Chennai Meshnet Community to join us, for the afternoon session on Mesh networks.
+
+![](/img/event/pymeet00.png)
+
+Selva explained the basics of networking and the difference between traditional routing protocols and that of P2P networks. Ganesh took over and talked about spectrum, antennas and most importantly, the strategy for moving forward with mesh networks. 
+
+> Wireless Networking enables a individual to empower and also empowers a community or local social group.
+
+He went on to talk about what we lack as an organization and how individual contribution adds up to a collective effort. He explained the [RF planning tool](https://gitlab.com/pymeshnet/FreeRF/), that we are working on, with a few *cool* infographics. You can find them [here](https://crabgrass.riseup.net/chennaimeshnetworkcommunity/beehive-for-developers#a-proposal-for-free-open-tool-for-radio-planning-l) and [here](https://crabgrass.riseup.net/chennaimeshnetworkcommunity/community-guide#how-to-ease-the-commons-to-contribute-to-the-mesh-).
 
 
+I think that pretty much covers the last two months. Too much information? It is okay to be a narcissist. That is what I keep telling myself.
 
-
-
-
-
-
-
-
-
-
-
+Feel free to drop a comment. 
