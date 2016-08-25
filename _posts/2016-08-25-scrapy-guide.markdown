@@ -2,7 +2,7 @@
 layout: post
 title: "Web scraping with Scrapy and Beautiful Soup"
 subtitle: "A Practical Guide to Web scraping"
-tags: ["life", "activities", "camp"]
+tags: ["web scraping", "scrapy", "Beautiful Soup"]
 published: true
 ---
 
@@ -13,4 +13,7 @@ Web scraping is a technique to extract information from web pages. There are mor
 
 I don't know why people scrape the web. I just know why I do it. I am a Machine Learning researcher. My models are data-hungry. More the data, better the model. Web scraping goes hand in hand with Machine Learning. For people working in Natural Language Processing, the Internet is a gold mine. You just need the right tools, to get it to cough up the good stuff.
 
-### What will I learn from this?
+
+This blog post will cover the worflow of scraping a website, step by step. **Reconnaisance** After deciding the kind of information we want, We find a page where we can start. We will then inspect the elements that matter to us and find out their tag (div, p, etc) and the class if necessary. Open up a scrapy shell and try to get the information we need, by accessing the corresponding element using *xpath*. **Crawling** Then, we use this logic in our code, to extract data recursively. Typically we will jump from page to page, by extracting links that match a pattern, while downloading any useful information we need, say text, images, etc, (**Aquisition**).
+
+
