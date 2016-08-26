@@ -51,34 +51,15 @@ Open up the page, right click anywhere inside table of contents and inspect. It 
 
 ![](/img/scrapy/wiki_img1.png)
 
-{% highlight python %}
-from bs4 import BeautifulSoup
-import requests
-
-url = 'https://en.wikipedia.org/wiki/Transhumanism'
-
-# get contents from url
-content = requests.get(url).content
-# get soup
-soup = BeautifulSoup(content,'lxml') # choose lxml parser
-# find the tag : <div class="toc">
-tag = soup.find('div', {'class' : 'toc'}) # id="toc" also works
-# get all the links
-links = tag.findAll('a') # <a href='/path/to/div'>topic</a>
-# print them 
-for link in links:
-	print(link.text) # get text from <a>
-{% endhighlight %}
+{% gist fa31820275e02b0c5d1ba301bb484fdc %}
 
 
 ### Get all the images
 
-Inspect an image element. You will find the tag <img src='....'>
+Inspect an image element. You will find the 'img' tag behind it, which contains the image url in its 'src' attribute.
 
-{% gist fa31820275e02b0c5d1ba301bb484fdc %}
+{% gist b940caf6cba552527613c1f93e26cc80 %}
 
-file_name = str(url.split('/')[-1])
-        return ureq.urlretrieve(url, file_name), None
 
 ### Get all the references
 
