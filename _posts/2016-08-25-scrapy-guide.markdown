@@ -49,7 +49,7 @@ In this set of exercises, we will identify the elements in a wiki page that we n
 
 Open up the page, right click anywhere inside table of contents and inspect. It will open up chrome/firefox dev tools. Notice the hierarchy of HTML tags. Now we know which element to fetch. The *div* of class *toc* contains the table of contents. Lets grab it using BeautifulSoup.
 
-![](/img/scrapy/wiki_im1.png)
+![](/img/scrapy/wiki_img1.png)
 
 {% highlight python %}
 from bs4 import BeautifulSoup
