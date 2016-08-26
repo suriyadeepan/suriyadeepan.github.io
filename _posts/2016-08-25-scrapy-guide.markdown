@@ -71,9 +71,18 @@ for link in links:
 {% endhighlight %}
 
 
-2. Get all the keywords (words in bold) from the same page
-3. Get all the references
-4. Get all the links to other wiki pages, with Title
+### Get all the images
+
+Inspect an image element. You will find the tag <img src='....'>
+
+{% gist fa31820275e02b0c5d1ba301bb484fdc %}
+
+file_name = str(url.split('/')[-1])
+        return ureq.urlretrieve(url, file_name), None
+
+### Get all the references
+
+### Get all the links to other wiki pages, with Title
 
 
 ## Reference
