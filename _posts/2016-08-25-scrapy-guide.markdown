@@ -30,10 +30,23 @@ I started web scraping with Beautiful Soup. I tried gather content from 4 or 5 s
 
 Scrapy is powerful and extensible. With just a few modifications, I can create a spider to crawl any website, within minutes. It has a ton of features that will make your job as a programmer, easier.
 
-1. **Spider** : includes the logic for crawling (following links) and scraping
-2. **Item** : a container for the scraped data
-3. **Item Pipeline** : sequence of processing steps that the item objects will go through before being saved to disk
-4. **Shell** : interactive shell for trying out your scraping code
+1. [**Spider**](http://doc.scrapy.org/en/latest/topics/spiders.html) : includes the logic for crawling (following links) and scraping
+2. [**Item**](http://doc.scrapy.org/en/latest/topics/items.html) : a container for the scraped data
+3. [**Item Pipeline**](http://doc.scrapy.org/en/latest/topics/item-pipeline.html) : sequence of processing steps that the item objects will go through before being saved to disk
+4. [**Selectors**](http://doc.scrapy.org/en/latest/topics/selectors.html) : extract data from HTML content; I use Beautiful Soup as my selector
+5. [**Shell**](http://doc.scrapy.org/en/latest/topics/shell.html) : interactive shell for trying out your scraping code
+
+Apart from these, there are a lot more features in scrapy. Find the list of all the features and services provided by scrapy, [here](http://doc.scrapy.org/en/latest/#basic-concepts).
+
+
+Lets learn the workflow of scraping a website, by completing a few trivial exercises.
+
+## Experiment 1
+
+1. Get the table of contents from this wiki page : [Transhumanism](https://en.wikipedia.org/wiki/Transhumanism)
+2. Get all the keywords (words in bold) from the same page
+3. Get all the references
+4. Get all the links to other wiki pages, with Title
 
 
 ## Reference
