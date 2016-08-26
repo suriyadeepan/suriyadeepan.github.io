@@ -63,7 +63,15 @@ Inspect an image element. You will find the 'img' tag behind it, which contains 
 
 ### Get all the references
 
+Inspect the items(span) in the **References** section.
+
+{% gist 1361cf391517aeb11d271b97b15f7fc0 %}
+
 ### Get all the links to other wiki pages, with Title
+
+This task is a bit trickier. We need to filter out all the unnecessary links. We just need the links to other wiki articles. Our search will be focused on just 'p' tags. We will choose only the 'a' tags that contain *title* and *href* attributes. 
+
+{% gist f2c4baeccb7a0f5eb74ab4b3ab716997 %}
 
 
 ## Reference
