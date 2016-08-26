@@ -41,9 +41,36 @@ Apart from these, there are a lot more features in scrapy. Find the list of all 
 
 Lets learn the workflow of scraping a website, by completing a few trivial exercises.
 
-## Experiment 1
+## Exercise set 1
 
-1. Get the table of contents from this wiki page : [Transhumanism](https://en.wikipedia.org/wiki/Transhumanism)
+In this set of exercises, we will identify the elements in a wiki page that we need, and then try to grab it from an *ipython* console. 
+
+### Get the table of contents from this [wiki page](https://en.wikipedia.org/wiki/Transhumanism)
+
+Open up the page, right click anywhere inside table of contents and inspect. It will open up chrome/firefox dev tools. Notice the hierarchy of HTML tags. Now we know which element to fetch. The *div* of class *toc* contains the table of contents. Lets grab it using BeautifulSoup.
+
+![](/img/scrapy/wiki_im1.png)
+
+{% highlight python %}
+from bs4 import BeautifulSoup
+import requests
+
+url = 'https://en.wikipedia.org/wiki/Transhumanism'
+
+# get contents from url
+content = requests.get(url).content
+# get soup
+soup = BeautifulSoup(content,'lxml') # choose lxml parser
+# find the tag : <div class="toc">
+tag = soup.find('div', {'class' : 'toc'}) # id="toc" also works
+# get all the links
+links = tag.findAll('a') # <a href='/path/to/div'>topic</a>
+# print them 
+for link in links:
+	print(link.text) # get text from <a>
+{% endhighlight %}
+
+
 2. Get all the keywords (words in bold) from the same page
 3. Get all the references
 4. Get all the links to other wiki pages, with Title
