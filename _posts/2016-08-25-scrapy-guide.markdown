@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "Web scraping with Scrapy and Beautiful Soup"
-subtitle: "A Practical Guide to Web scraping"
+title: "A Practical Guide to Web scraping"
+subtitle: "Web scraping with Scrapy and Beautiful Soup"
 tags: ["web scraping", "scrapy", "Beautiful Soup"]
 published: true
 ---
@@ -22,7 +22,7 @@ This blog post will cover the workflow of scraping a website, step by step.
 
 > Beautiful Soup is a Python library for pulling data out of HTML and XML files. It works with your favorite parser to provide idiomatic ways of navigating, searching, and modifying the parse tree. It commonly saves programmers hours or days of work.
 
-I started web scraping with Beautiful Soup. I gathered content from 4 or 5 sites. I had to manually handle a lot of tasks, like rules for crawling, parallel downloads, designing a class for items that I want to extract from site, etc,. Soon I realized that Beautiful Soup wasn't enough. I needed something more powerful. A tool that will handle all the trivialities and lets me work on the logic.
+I started web scraping with Beautiful Soup. I tried gather content from 4 or 5 sites. I had to manually handle a lot of tasks, like rules for crawling, parallel downloads, designing a class for items that I want to extract from site, etc,. Soon I realized that Beautiful Soup wasn't enough. I needed something more powerful. A tool that will handle all the trivialities and lets me work on the logic.
 
 ## Scrapy
 
@@ -30,7 +30,12 @@ I started web scraping with Beautiful Soup. I gathered content from 4 or 5 sites
 
 Scrapy is powerful and extensible. With just a few modifications, I can create a spider to crawl any website, within minutes. It has a ton of features that will make your job as a programmer, easier.
 
-1. **Spider**  
-2. **Item**
-3. **Item Pipeline**
-4. **Shell**
+1. **Spider** : includes the logic for crawling (following links) and scraping
+2. **Item** : a container for the scraped data
+3. **Item Pipeline** : sequence of processing steps that the item objects will go through before being saved to disk
+4. **Shell** : interactive shell for trying out your scraping code
+
+
+## Reference
+
+1. [Scrapy Documentatin](http://doc.scrapy.org/en/latest/)
