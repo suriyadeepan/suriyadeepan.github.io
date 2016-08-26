@@ -30,11 +30,11 @@ I started web scraping with Beautiful Soup. I tried gather content from 4 or 5 s
 
 Scrapy is powerful and extensible. With just a few modifications, I can create a spider to crawl any website, within minutes. It has a ton of features that will make your job as a programmer, easier.
 
-1. [**Spider**](http://doc.scrapy.org/en/latest/topics/spiders.html) : includes the logic for crawling (following links) and scraping
-2. [**Item**](http://doc.scrapy.org/en/latest/topics/items.html) : a container for the scraped data
-3. [**Item Pipeline**](http://doc.scrapy.org/en/latest/topics/item-pipeline.html) : sequence of processing steps that the item objects will go through before being saved to disk
-4. [**Selectors**](http://doc.scrapy.org/en/latest/topics/selectors.html) : extract data from HTML content; I use Beautiful Soup as my selector
-5. [**Shell**](http://doc.scrapy.org/en/latest/topics/shell.html) : interactive shell for trying out your scraping code
+1. [Spider](http://doc.scrapy.org/en/latest/topics/spiders.html) : includes the logic for crawling (following links) and scraping
+2. [Item](http://doc.scrapy.org/en/latest/topics/items.html) : a container for the scraped data
+3. [Item Pipeline](http://doc.scrapy.org/en/latest/topics/item-pipeline.html) : sequence of processing steps that the item objects will go through before being saved to disk
+4. [Selectors](http://doc.scrapy.org/en/latest/topics/selectors.html) : extract data from HTML content; I use Beautiful Soup as my selector
+5. [Shell](http://doc.scrapy.org/en/latest/topics/shell.html) : interactive shell for trying out your scraping code
 
 Apart from these, there are a lot more features in scrapy. Find the list of all the features and services provided by scrapy, [here](http://doc.scrapy.org/en/latest/#basic-concepts).
 
@@ -79,12 +79,20 @@ This task is a bit trickier. We need to filter out all the unnecessary links. We
 Now you know how to extract anything from a page. Lets make it more interesting. You have seen how to extract links to other wiki articles. What if I want to jump to one these articles and extract the articles linked to it? What if I want to do it recursively? Let do just that.
 
 
-#### Get a list of 5000 articles, each containing its own title and the title of another article linked to it
+**Get a list of 5000 articles, each containing its own title and the title of another article linked to it**
 
 ![](/img/scrapy/wiki_rec.gif)
 
-{% gist 295ea86cf8f6d6556b1487ffed59939f %}
+These are steps involved.
 
+1. Gather all the article links from the Transhumanism page
+2. Iterate through the list of articles
+3. Grab the article links from the content of each article
+4. Do this recursively
+5. Stop when the list of items exceeds 5000
+6. Save to file
+
+{% gist 295ea86cf8f6d6556b1487ffed59939f %}
 
 
 ## Reference
