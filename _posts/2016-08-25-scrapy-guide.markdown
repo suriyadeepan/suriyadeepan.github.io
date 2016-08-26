@@ -45,29 +45,29 @@ Lets learn the workflow of scraping a website, by completing a few trivial exerc
 
 In this set of exercises, we will identify the elements in a wiki page that we need, and then try to grab it from an *ipython* console. 
 
-### Get the table of contents from this [wiki page](https://en.wikipedia.org/wiki/Transhumanism)
-
-Open up the page, right click anywhere inside table of contents and inspect. It will open up chrome/firefox dev tools. Notice the hierarchy of HTML tags. Now we know which element to fetch. The *div* of class *toc* contains the table of contents. Lets grab it using BeautifulSoup.
+**Get the table of contents from this [wiki page](https://en.wikipedia.org/wiki/Transhumanism)**
 
 ![](/img/scrapy/wiki_img1.png)
+
+Open up the page, right click anywhere inside table of contents and inspect. It will open up chrome/firefox dev tools. Notice the hierarchy of HTML tags. Now we know which element to fetch. The *div* of class *toc* contains the table of contents. Lets grab it using BeautifulSoup.
 
 {% gist fa31820275e02b0c5d1ba301bb484fdc %}
 
 
-### Get all the images
+**Get all the images**
 
 Inspect an image element. You will find the 'img' tag behind it, which contains the image url in its 'src' attribute.
 
 {% gist b940caf6cba552527613c1f93e26cc80 %}
 
 
-### Get all the references
+**Get all the references**
 
 Inspect the items(span) in the **References** section.
 
 {% gist 1361cf391517aeb11d271b97b15f7fc0 %}
 
-### Get all the links to other wiki pages, with Title
+**Get all the links to other wiki pages, with Title**
 
 This task is a bit trickier. We need to filter out all the unnecessary links. We just need the links to other wiki articles. Our search will be focused on just 'p' tags. We will choose only the 'a' tags that contain *title* and *href* attributes. 
 
