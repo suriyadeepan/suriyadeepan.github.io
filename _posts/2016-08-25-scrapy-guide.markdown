@@ -41,7 +41,7 @@ Apart from these, there are a lot more features in scrapy. Find the list of all 
 
 Lets learn the workflow of scraping a website, by completing a few trivial exercises.
 
-## Exercise set 1
+## Exercise Set 1
 
 In this set of exercises, we will identify the elements in a wiki page that we need, and then try to grab it from an *ipython* console. 
 
@@ -72,6 +72,19 @@ Inspect the items(span) in the **References** section.
 This task is a bit trickier. We need to filter out all the unnecessary links. We just need the links to other wiki articles. Our search will be focused on just 'p' tags. We will choose only the 'a' tags that contain *title* and *href* attributes. 
 
 {% gist f2c4baeccb7a0f5eb74ab4b3ab716997 %}
+
+
+## Exercise Set 2
+
+Now you know how to extract anything from a page. Lets make it more interesting. You have seen how to extract links to other wiki articles. What if I want to jump to one these articles and extract the articles linked to it? What if I want to do it recursively? Let do just that.
+
+
+#### Get a list of 5000 articles, each containing its own title and the title of another article linked to it
+
+![](/img/scrapy/wiki_rec.gif)
+
+{% gist 295ea86cf8f6d6556b1487ffed59939f %}
+
 
 
 ## Reference
