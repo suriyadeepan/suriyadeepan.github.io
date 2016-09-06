@@ -27,6 +27,7 @@ navbar-links:
   About Me: "aboutme"
   Resources:
     - Mesh Network Slides: "http://pymeshnet.gitlab.io/slides/bangpypermeet/software/"
+    - Python 3 : "https://suriyadeepan.github.io/python3"
   Links:
     - Neural Network Basics: "https://github.com/ChatAI/_nn_"
     - Recurrent Neural Network: "https://github.com/ChatAI/_rnn_"
