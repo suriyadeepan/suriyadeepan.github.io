@@ -25,7 +25,7 @@ description: My personal blog!
 navbar-links:
   Walden: "pages/walden"
   About Me: "aboutme"
-  Resources:
+  Slides:
     - Mesh Network Slides: "http://pymeshnet.gitlab.io/slides/bangpypermeet/software/"
     - Python 3 : "https://suriyadeepan.github.io/python3"
   Links:
