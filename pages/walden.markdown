@@ -35,5 +35,6 @@ subtitle: Everything that made me smile
 *Walden Connection, Anna Catley*
 
 > Kris, having been infected with the words of Thoreau's Walden, kills the sampler or the creator in a violent declaration of autonomy.
+
 [![](/img/upstream-color.jpg)](https://vimeo.com/92652144)
 
