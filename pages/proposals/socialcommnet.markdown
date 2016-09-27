@@ -19,9 +19,9 @@ There are incidents in India, where people are arrested for criticizing politici
 
 ## Use cases
 
-1. Report a flaw (Poorly laid roads, open drains, Improper Chemical waste disposal, 
+1. Report a flaw (Poorly laid roads, open drains, Improper Chemical waste disposal, etc,.)
 2. Report an incident (Unauthorized cut down of trees, Noise pollution)
-3. TODO : add more use cases
+3. 
 
 ## Medium
 
@@ -31,7 +31,7 @@ There are incidents in India, where people are arrested for criticizing politici
 
 ## Network Model
 
-1. Leaf Nodes <- User
+1. Leaf Nodes <- Mobile phones/Commons Infrastructure
 2. Processing Nodes
 3. Gateway Nodes -> Internet
 
@@ -49,4 +49,13 @@ Stack overflow like Social Networking application.
 
 ## Administrative Model
 
-Puducherry city is divided into municipalities. Each municipality has a counselor who handles the local problems. 
+Puducherry city is divided into 8 communes. Each commune is provided with a municipal council (Mayors, Deputy Mayors and Councillors) for the administration of affairs[[wiki](https://en.wikipedia.org/wiki/Pondicherry_Municipal_Council)].
+
+1. Muthialpet
+2. Rajbhavan
+3. Uppalam
+4. Orleanpet
+5. Nellithope
+6. Mudaliarpet
+7. Villianur
+8. Ariyankuppam
