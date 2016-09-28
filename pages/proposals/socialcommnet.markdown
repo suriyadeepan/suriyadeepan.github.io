@@ -12,7 +12,7 @@ This project is based on the following principles.
 
 1. Every individual voice deserves to be heard
 2. People should play an active role in a democracy; more than just voting
-3. Member of different communities should connect with each other directly, not through a medium
+3. Members of different communities should connect with each other directly, not through a medium
 
 ## Anonymity
 
@@ -41,25 +41,27 @@ How does the government solve a problem? A think tank is formed : A team of expe
 1. Report a flaw (Poorly laid roads, open drains, Improper Chemical waste disposal, etc,.)
 2. Report an incident (Unauthorized cut down of trees, Noise pollution)
 
-## Medium
+## Architecture
+
+### Medium
 
 1. Internet
 2. SMS
 3. Community Networks
 
-## Network Model
+### Network Model
 
 1. Leaf Nodes <- Mobile phones/Commons Infrastructure
 2. Processing Nodes (Beaglebone)
 3. Gateway Nodes -> Internet
 
-## Data model
+### Data model
 
 1. Timestamp
 2. Location : GPS coordinates [ municipality, counselor ]
 3. Flaw/Incident
 
-## Common Platform
+### Common Platform
 
 Stack overflow like Social Networking application.
 
