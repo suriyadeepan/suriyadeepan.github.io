@@ -3,10 +3,22 @@ layout: page
 title: Social Community Network
 subtitle: A Social Network for the Common People
 ---
+## Abstract
+
+The social networking sites like Twitter, Facebook and Instagram are flourishing throughout the world. Along with the growth of social networks, the number of researchers involved in Social Network Analysis has increased. Opinion Mining in Twitter data is a hot topic in NLP and Machine Learning, as 98% of twitter data is in public domain and easily available. Researchers have analyzed people's opinion on complex issues like Syria Refugee Crisis, Brexit, etc,. Although the existing social networks have proved as valuable tools, for people to express their opinions, it is inaccurate to claim that the social networks reflect the opinion of the general population. On a global scale, there exists a huge divide between people who have access to internet and those do not. In India, roughly 15% of the population has access to internet. As a result, 85% of the population is excluded from the digital world. They do not have a platform for free speech and debate.  We address the digital divide in India and propose a long-term solution that gradually bridges this divide. Our system, once implemented, will encourage people to take up an active role in the development of their community. We propose to do this by making it easier for people to discuss and share their opinion on issues and through incentives.  It will increase awareness among people, about regional conflicts by facilitating direct interaction with people from other communities, instead of involving third party commercial service, like newspapers, media, etc,. In a developing country, there are a large number of unresolved issues, like lack of infrastructure, poor sanitation, frequent power cuts, etc,. By reporting these issues and logging them in a transparent platform, it makes it easier for common people and the expert teams, to localize the problem and understand it and possibly lead to a solution. The system that we propose, is fundamentally a community network, jointly owned and maintained by the community, without a central authority. We believe, the proposed system if implemented carefully in an incremental fashion, can bring about significant social and economic changes in the society, by bridging people together.
+
+
+## Introduction
+
+
 
 I recently studied a few papers on Sentiment Analysis on Twitter data. Most of the researcher in the field of NLP, feel that Twitter is a gold mine for opinion mining. Because it reflects the mind set of the general population. Twitter serves as a safe bubble for people to exercise their right to free speech. By looking at the twitter feed for hash tags, say for example **#iphone7**, we can get an idea whether Apple is offering what they advertised. People are honest and carefree on twitter. And that is the essence of free speech.
 
-The claim that twitter reflects the opinion of the people, is not entirely accurate. There is a huge divide between people who have access to internet and those who do not. It is safe to assume that twitter reflects the opinion of the urban crowd. The voices of rural people go unheard. The objective of this project is to empower the rural people to participate in free speech.
+Twitter data has also proved as a valuable tool for providing critical information during disasters like Earthquakes, floods, etc,. The Disaster Management Services have made efficient use of twitter feeds, to make plans to mitigate the effect of disasters.
+
+The claim that twitter reflects the opinion of the people, is not entirely accurate. There is a huge divide between people who have access to internet and those who do not. It is safe to assume that twitter reflects the opinion of the urban folks. The voices of rural people go unheard. The objective of this project is to empower the rural people to participate in free speech.
+
+## Motivation
 
 This project is based on the following principles.
 
