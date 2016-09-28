@@ -16,8 +16,6 @@ There are incidents in India, where people are arrested for criticizing politici
 
 > Give a man a mask and he will tell you truth. 
 
-**Localization**
-
 ## Solutions
 
 How does the government solve a problem? A think tank is formed : A team of experts who study the problem and provide an optimal solution. The knowledge of the common people is more valuable than any expert. The local people not only understand the problem, they also understand the circumstances and consequences. We propose a common platform, where people are encouraged to discuss existing social problem and propose their solutions collaboratively. This solution will provide useful insights to the team of experts and help them implement a solution efficiently, with the consent of the local people.
@@ -26,7 +24,6 @@ How does the government solve a problem? A think tank is formed : A team of expe
 
 1. Report a flaw (Poorly laid roads, open drains, Improper Chemical waste disposal, etc,.)
 2. Report an incident (Unauthorized cut down of trees, Noise pollution)
-3. 
 
 ## Medium
 
@@ -51,14 +48,12 @@ How does the government solve a problem? A think tank is formed : A team of expe
 Stack overflow like Social Networking application.
 
 
-## Administrative Model
-
-TODO : fill in administrative model of Puducherry
-
-
 > People who understand the social problems and are willing to talk about it, do not have a proper platform available for sharing. The primary goal of this project, is to empower the community minded <*rephrase*> individuals and make sure that their voice is heard.
 
-The network that we are proposing should grow oganically. Our objective is to kickstart this network of networks, by bootstraping the initial leaf nodes and to facilitate this growth.
+The network that we are proposing should grow oganically. Our objective is to kickstart this network of networks by bootstraping the initial leaf nodes and to facilitate this growth.
 
 
+## TODO
 
+1. [ ] Localization
+2. [ ] Administrative Model of Puducherry
