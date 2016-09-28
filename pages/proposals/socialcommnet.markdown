@@ -36,7 +36,7 @@ The proposed system is built on top of the following principles.
 
 The proposed system consists of a central server that maintains the messages from users in a database. It provides a feed of recent messages. Multiples interfaces are provided for the clients to post messages. Users that have access to the internet, can directly post messages, via their dashboard. The users who do not have access to the internet, must find a nearby leaf node (explained in the next section) to post their messages using a client application in their smartphone. There is another interface to the server, where users with ordinary mobile phones can post a message, via SMS.
 
-Each message consists of a user name, time stamp, message text and a location, where user name and location are optional. In contrast to existing social networks, we encourage the users to stay anonymous by using pseudonyms as their handle. Users can also choose to post zombie messages i.e. a message without a handle. These zombie messages contain a time stamp, message text and optionally a location. Messages sent via SMS are by default zombie messages. The central server maintains a history of all the messages. This data is publicly available for anyone to access and analyze. 
+Each message consists of a user name, time stamp, message content and a location, where user name and location are optional. Multimedia content like images and videos are supported. In contrast to existing social networks, we encourage the users to stay anonymous by using pseudonyms as their handle. Users can also choose to post zombie messages i.e. a message without a handle. These zombie messages contain a time stamp, message content and optionally a location. Messages sent via SMS are by default zombie messages. The central server maintains a history of all the messages. This data is publicly available for anyone to access and analyze.
 
 The network model the enables offline users to share information, is the key idea in our proposal. It consists of a mesh network of **leaf** nodes. The leaf nodes act as the receptors that connect the user to the network. The leaf nodes are strategically placed around a gateway node, in order to maximize radio coverage. A gateway node connects the mesh network to the internet. The gateway node is also connected to a processor (**processing node**) that stores, processes and pushes bulk messages to the internet. A low power, low cost tiny computer like **beaglebone** can be used as the processing node. An SMS gateway is established that will accumulate messages received from mobile phones and pushes them to the central server.
 
@@ -45,8 +45,11 @@ An android application is provided for smartphone users, which serves as the cli
 
 ## Use cases
 
-1. Report a flaw (Poorly laid roads, open drains, Improper Chemical waste disposal, etc,.)
-2. Report an incident (Unauthorized cut down of trees, Noise pollution)
+From the initial deployment to full organic growth of the network, there are a great many number of use cases. Peers can report physical flaws like poorly laid roads, open drains, improper chemical waste disposal, etc, as soon as they encounter it. This report will contain a GPS location, a time stamp and a message with possibly few images. The message is stored in user's smartphone and it is pushed to the network once the phone comes in contact with a leaf node, or if it is connected to the internet. Similarly illegal activities can be reported, like unauthorized cut down of trees, hunting of birds, etc,. Once these incidents pile up, a report can be made summarizing the events and identifying the location of incidents. Based on which, the perpetrators can be identified and held accountable and preventive measures can be taken. 
+
+Apart from these, there are more complex issues, like construction of nuclear power plants, which call for rigorous discussion considering not just the pros and cons, but also ecological and ethical concerns. Our system will provide a platform for people to engage in healthy criticism of government policies and debate complex social issues. This will increase awareness among people as they are directly involved. 
+
+Using Machine Learning techniques like Sentiment Analysis and Topic Modeling, we can analyze the textual information from the database, to auto-generate reports on critical issues. Along with Geographical Information System, we can use these reports to create and maintain records that are rich in information, to track the overall progress of a region.
 
 ## Conclusion
 
