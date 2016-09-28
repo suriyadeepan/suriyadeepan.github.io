@@ -6,15 +6,31 @@ subtitle: A Social Network for the Common People
 
 I recently studied a few papers on Sentiment Analysis on Twitter data. Most of the researcher in the field of NLP, feel that Twitter is a gold mine for opinion mining. Because it reflects the mind set of the general population. Twitter serves as a safe bubble for people to exercise their right to free speech. By looking at the twitter feed for hash tags, say for example **#iphone7**, we can get an idea whether Apple is offering what they advertised. People are honest and carefree on twitter. And that is the essence of free speech.
 
-## The Great Internet Asymmetry
-
 The claim that twitter reflects the opinion of the people, is not entirely accurate. There is a huge divide between people who have access to internet and those who do not. It is safe to assume that twitter reflects the opinion of the urban crowd. The voices of rural people go unheard. The objective of this project is to empower the rural people to participate in free speech.
+
+This project is based on the following principles.
+
+1. Every individual voice deserves to be heard
+2. People should play an active role in a democracy; more than just voting
+3. Member of different communities should connect with each other directly, not through a medium
 
 ## Anonymity
 
 There are incidents in India, where people are arrested for criticizing politicians on Facebook. This calls for anonymity. Every whistle-blower will be ensured anonymity.
 
 > Give a man a mask and he will tell you truth. 
+
+## Problems facing Developing Countries
+
+1. Infrastructure : roads, highways, schools, primary healthcare
+2. Access to Clean Water
+3. Sanitation : Public health, diseases
+4. Electricity : frequent power cuts
+5. Unemployment
+6. Industrial Waste Management
+7. Garbage Disposal
+8. Frequent accidents : Risk zones
+
 
 ## Solutions
 
