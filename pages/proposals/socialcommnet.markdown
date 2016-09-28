@@ -5,27 +5,32 @@ subtitle: A Social Network for the Common People
 ---
 ## Abstract
 
-The social networking sites like Twitter, Facebook and Instagram are flourishing throughout the world. Along with the growth of social networks, the number of researchers involved in Social Network Analysis has increased. Opinion Mining in Twitter data is a hot topic in NLP and Machine Learning, as 98% of twitter data is in public domain and easily available. Researchers have analyzed people's opinion on complex issues like Syria Refugee Crisis, Brexit, etc,. Although the existing social networks have proved as valuable tools, for people to express their opinions, it is inaccurate to claim that the social networks reflect the opinion of the general population. On a global scale, there exists a huge divide between people who have access to internet and those do not. In India, roughly 15% of the population has access to internet. As a result, 85% of the population is excluded from the digital world. They do not have a platform for free speech and debate.  We address the digital divide in India and propose a long-term solution that gradually bridges this divide. 
-
-Our system, once implemented, will encourage people to take up an active role in the development of their community. We propose to do this by making it easier for people to discuss and share their opinion on issues and through incentives.  It will increase awareness among people, about regional conflicts by facilitating direct interaction with people from other communities, instead of involving third party commercial service, like newspapers, media, etc,. In a developing country, there are a large number of unresolved issues, like lack of infrastructure, poor sanitation, frequent power cuts, etc,. By reporting these issues and logging them in a transparent platform, it makes it easier for common people and the expert teams, to localize the problem and understand it and possibly lead to a solution. The system that we propose, is fundamentally a community network, jointly owned and maintained by the community, without a central authority. We believe, the proposed system if implemented carefully in an incremental fashion, can bring about significant social and economic changes in the society, by bridging people together.
-
-
-## Introduction
-
-I recently studied a few papers on Sentiment Analysis on Twitter data. Most of the researcher in the field of NLP, feel that Twitter is a gold mine for opinion mining. Because it reflects the mind set of the general population. Twitter serves as a safe bubble for people to exercise their right to free speech. By looking at the twitter feed for hash tags, say for example **#iphone7**, we can get an idea whether Apple is offering what they advertised. People are honest and carefree on twitter. And that is the essence of free speech.
-
-Twitter data has also proved as a valuable tool for providing critical information during disasters like Earthquakes, floods, etc,. The Disaster Management Services have made efficient use of twitter feeds, to make plans to mitigate the effect of disasters.
-
-The claim that twitter reflects the opinion of the people, is not entirely accurate. There is a huge divide between people who have access to internet and those who do not. It is safe to assume that twitter reflects the opinion of the urban folks. The voices of rural people go unheard. The objective of this project is to empower the rural people to participate in free speech.
+On a global scale, there exists a huge divide between people who have access to internet and those do not. In India, roughly 15% of the population has access to internet. As a result, 85% of the population is excluded from the digital world. They do not have a platform for free speech and debate.  We address the digital divide in India and propose a long-term solution that gradually bridges this divide. Our system, once implemented, will encourage people to take up an active role in the development of their community. We propose to do this by making it easier for people to discuss and share their opinion on issues and through incentives.  It will increase awareness among people, about regional conflicts by facilitating direct interaction with people from other communities, instead of involving third party commercial services, like newspapers, media, etc,. In a developing country, there are a large number of unresolved issues, like lack of infrastructure, poor sanitation, frequent power cuts, etc,. By reporting these issues and logging them in a transparent platform, it makes it easier for common people and the expert teams, to localize the problem and understand it and possibly lead to a solution. The system that we propose, is fundamentally a community network, jointly owned and maintained by the community, without a central authority. We believe, the proposed system if implemented carefully in an incremental fashion, can bring about significant social and economic changes in the society, by bridging people together.
 
 ## Motivation
 
-This project is based on the following principles.
+Internet is a pipe dream for 85% of Indian people. This is mostly due to the fact that the infrastructure of internet worldwide, is owned and maintained by a small group of commercial organizations. Creating infrastructures for internet access in rural areas is not profitable, as most people will not be able to afford it. A solution to this, is introduction of community networks. A network jointly owned and maintained by people. People who are well off, can contribute, by donating routers and other network infrastructure. A peer with internet access can share it with others via this network. 
+
+Using community networks, we can create awareness among people, about social issues and current affairs. This will increase people's participation in democracy. A platform is provided for people to talk about the challenges faced by common people **TODO: rephrase**. This platform opens doors to healthy debate online, which might lead to interesting results.
+
+A developing country like India faces many challenges. Some of them are listed below.
+
+1. Infrastructure : roads, highways, schools, primary healthcare
+2. Access to Clean Water
+3. Sanitation : Public health, diseases
+4. Electricity : frequent power cuts
+5. Unemployment
+6. Industrial Waste Management
+7. Garbage Disposal
+
+When people start reporting (logging) the problems they face directly, instead of using a middleman like newspapers, media, etc, it becomes convenient for others to understand the problem, localize it and possibly solve it. This type of transparent collaborative, problem solving technique, will eventually create a rich collection of strategies that can be applied to different scenarios. The transparency of the whole process, enables anyone to contribute, thus leading to the most optimal solution.
+
+
+The proposed system is built on top of the following principles.
 
 1. Every individual voice deserves to be heard
 2. People should play an active role in a democracy; more than just voting
 3. Members of different communities should connect with each other directly, not through a medium
-
 
 ## Architecture
 
@@ -37,21 +42,6 @@ The network model the enables offline users to share information, is the key ide
 
 An android application is provided for smartphone users, which serves as the client. It stores the messages from users and then pushes them to a leaf node when it comes in contact with one or directly to the server if connected to the internet. In addition to that, other smartphones that use the same application are used as data mules for storing and forwarding the users messages, without exposing them.
 
-## Problems facing Developing Countries
-
-1. Infrastructure : roads, highways, schools, primary healthcare
-2. Access to Clean Water
-3. Sanitation : Public health, diseases
-4. Electricity : frequent power cuts
-5. Unemployment
-6. Industrial Waste Management
-7. Garbage Disposal
-8. Frequent accidents : Risk zones
-
-
-## Solutions
-
-How does the government solve a problem? A think tank is formed : A team of experts who study the problem and provide an optimal solution. The knowledge of the common people is more valuable than any expert. The local people not only understand the problem, they also understand the circumstances and consequences. We propose a common platform, where people are encouraged to discuss existing social problem and propose their solutions collaboratively. This solution will provide useful insights to the team of experts and help them implement a solution efficiently, with the consent of the local people.
 
 ## Use cases
 
