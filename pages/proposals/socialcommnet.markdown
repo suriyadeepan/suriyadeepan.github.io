@@ -53,10 +53,12 @@ Using Machine Learning techniques like Sentiment Analysis and Topic Modeling, we
 
 ## Evolution of Network
 
-It is impossible for any non-profit organization to compete with the ISPs. Our network does not try to replace the existing infrastructure. The goal of our project is to kickstart a network of community networks by bootstrapping the initial leaf nodes and facilitate the organic growth of the network. The growth of the network is depicted in figure below **TODO : need figure below**. In the initial phase, we deploy one or two leaf nodes in a region, connected to a gateway node. We then, conduct a local community meeting, in which we introduce our system and its use cases. We encourage people to get involved in the network, by using it and hosting their own leaf nodes, by providing special incentives, like domain names, hosting services, etc, to node owners. As more users become node owners, the network grows gradually and connects with neighboring networks. We believe, this type of natural growth of the network, will eventually enable it to become standalone, without the need of multiple gateways.
+It is impossible for any non-profit organization to compete with the ISPs. Our network does not try to replace the existing infrastructure. The goal of our project is to kickstart a network of community networks by bootstrapping the initial leaf nodes and facilitate the organic growth of the network. The growth of the network is depicted in figure below **TODO : need figure below**. In the initial phase, we deploy one or two leaf nodes in a region, connected to a gateway node. We then, conduct a local community meeting, in which we introduce our system and its use cases. We encourage people to get involved in the network, by using it and hosting their own leaf nodes, by providing special incentives, like domain names, hosting services, etc, to node owners. As more users become node owners, the network grows gradually and connects with neighboring networks. We believe, this type of natural growth of the network, will eventually enable it to become standalone, without the need of multiple gateways. Such a massive mesh network raises several challenges like scalability and performance, which need to be tackled head on. But it also provides a valuable infrastructure, which offers infinite possibilities for its users.
 
 
-## Conclusion
+## Summary
+
+This project is an attempt to create a network that realizes the vision [[article](https://www.internetsociety.org/sites/default/files/the-internet-is-for-everyone.pdf)] of Vint Cerf, one of the fathers of Internet, an internet for everyone - affordable, unrestricted and unregulated. We aim to remove the middleman - ISPs, from the network and connect people with each other. We propose to achieve this by focusing on the socioeconomic issues influencing the society and by empowering local communities to report, understand and solve their own issues.
 
 
 ## TODO
@@ -69,3 +71,4 @@ It is impossible for any non-profit organization to compete with the ISPs. Our n
 * [ ] Maintenance : Through local communities
 * [ ] Budget : AR-300, Beaglebone
 * [ ] Geolocation Planning : Choose a specific region ideal for kickstarting (bootstrap) the project
+* [ ] Mock list of reports/messages (10)
