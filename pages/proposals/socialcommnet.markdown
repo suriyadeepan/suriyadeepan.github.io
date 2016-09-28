@@ -48,17 +48,17 @@ An android application is provided for smartphone users, which serves as the cli
 1. Report a flaw (Poorly laid roads, open drains, Improper Chemical waste disposal, etc,.)
 2. Report an incident (Unauthorized cut down of trees, Noise pollution)
 
-### Common Platform
+## Conclusion
 
-Stack overflow like Social Networking application.
-
-
-> People who understand the social problems and are willing to talk about it, do not have a proper platform available for sharing. The primary goal of this project, is to empower the community minded <*rephrase*> individuals and make sure that their voice is heard.
-
-The network that we are proposing should grow oganically. Our objective is to kickstart this network of networks by bootstraping the initial leaf nodes and to facilitate this growth.
+The network that we are proposing should grow organically. Our objective is to kickstart this network of networks by bootstrapping the initial leaf nodes and to facilitate its growth.
 
 
 ## TODO
 
-* [ ] Localization
-* [ ] Administrative Model of Puducherry
+* [ ] Pictorial depiction of Architecture
+* [ ] Image depicting overlay of mesh network over map
+* [ ] Fabricated screenshot of Android application (client), Web Interface (dashboard) and SMS screen
+* [ ] Project Planning : Phases of deployment (Refer to [ieg](https://meta.wikimedia.org/wiki/Grants:IEG/Wiki_Mesh_Network_Community))
+* [ ] Maintenance : Through local communities
+* [ ] Budget : AR-300, Beaglebone
+* [ ] Geolocation Planning : Choose a specific region ideal for kickstarting (bootstrap) the project
