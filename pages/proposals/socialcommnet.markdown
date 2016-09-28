@@ -51,17 +51,21 @@ Apart from these, there are more complex issues, like construction of nuclear po
 
 Using Machine Learning techniques like Sentiment Analysis and Topic Modeling, we can analyze the textual information from the database, to auto-generate reports on critical issues. Along with Geographical Information System, we can use these reports to create and maintain records that are rich in information, to track the overall progress of a region.
 
-## Conclusion
+## Evolution of Network
 
-The network that we are proposing should grow organically. Our objective is to kickstart this network of networks by bootstrapping the initial leaf nodes and to facilitate its growth.
+It is impossible for any non-profit organization to compete with the ISPs. Our network does not try to replace the existing infrastructure. The goal of our project is to kickstart a network of community networks by bootstrapping the initial leaf nodes and facilitate the organic growth of the network. The growth of the network is depicted in figure below **TODO : need figure below**. In the initial phase, we deploy one or two leaf nodes in a region, connected to a gateway node. We then, conduct a local community meeting, in which we introduce our system and its use cases. We encourage people to get involved in the network, by using it and hosting their own leaf nodes, by providing special incentives, like domain names, hosting services, etc, to node owners. As more users become node owners, the network grows gradually and connects with neighboring networks. We believe, this type of natural growth of the network, will eventually enable it to become standalone, without the need of multiple gateways.
+
+
+## Conclusion
 
 
 ## TODO
 
 * [ ] Pictorial depiction of Architecture
+* [ ] Image depicting growth of leaf nodes, resulting in connection between two different networks
 * [ ] Image depicting overlay of mesh network over map
 * [ ] Fabricated screenshot of Android application (client), Web Interface (dashboard) and SMS screen
-* [ ] Project Planning : Phases of deployment (Refer to [ieg](https://meta.wikimedia.org/wiki/Grants:IEG/Wiki_Mesh_Network_Community))
+* [ ] Project Planning : Phases of deployment (Refer [ieg](https://meta.wikimedia.org/wiki/Grants:IEG/Wiki_Mesh_Network_Community))
 * [ ] Maintenance : Through local communities
 * [ ] Budget : AR-300, Beaglebone
 * [ ] Geolocation Planning : Choose a specific region ideal for kickstarting (bootstrap) the project
