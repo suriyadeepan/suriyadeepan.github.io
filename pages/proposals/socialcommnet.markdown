@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Social Community Network
-subtitle: A Network for the common people
+subtitle: A Social Network for the Common People
 ---
 
 I recently studied a few papers on Sentiment Analysis on Twitter data. Most of the researcher in the field of NLP, feel that Twitter is a gold mine for opinion mining. Because it reflects the mind set of the general population. Twitter serves as a safe bubble for people to exercise their right to free speech. By looking at the twitter feed for hash tags, say for example **#iphone7**, we can get an idea whether Apple is offering what they advertised. People are honest and carefree on twitter. And that is the essence of free speech.
@@ -55,5 +55,5 @@ The network that we are proposing should grow oganically. Our objective is to ki
 
 ## TODO
 
-1. [ ] Localization
-2. [ ] Administrative Model of Puducherry
+* [ ] Localization
+* [ ] Administrative Model of Puducherry
