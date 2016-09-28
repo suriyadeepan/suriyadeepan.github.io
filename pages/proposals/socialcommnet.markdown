@@ -14,8 +14,13 @@ The claim that twitter reflects the opinion of the people, is not entirely accur
 
 There are incidents in India, where people are arrested for criticizing politicians on Facebook. This calls for anonymity. Every whistle-blower will be ensured anonymity.
 
+> Give a man a mask and he will tell you truth. 
+
 **Localization**
 
+## Solutions
+
+How does the government solve a problem? A think tank is formed : A team of experts who study the problem and provide an optimal solution. The knowledge of the common people is more valuable than any expert. The local people not only understand the problem, they also understand the circumstances and consequences. We propose a common platform, where people are encouraged to discuss existing social problem and propose their solutions collaboratively. This solution will provide useful insights to the team of experts and help them implement a solution efficiently, with the consent of the local people.
 
 ## Use cases
 
@@ -32,7 +37,7 @@ There are incidents in India, where people are arrested for criticizing politici
 ## Network Model
 
 1. Leaf Nodes <- Mobile phones/Commons Infrastructure
-2. Processing Nodes
+2. Processing Nodes (Beaglebone)
 3. Gateway Nodes -> Internet
 
 ## Data model
@@ -43,19 +48,17 @@ There are incidents in India, where people are arrested for criticizing politici
 
 ## Common Platform
 
-Stack overflow like Social Networking application. 
+Stack overflow like Social Networking application.
 
-> Give a man, a mask and he will speak the truth. 
 
 ## Administrative Model
 
-Puducherry city is divided into 8 communes. Each commune is provided with a municipal council (Mayors, Deputy Mayors and Councillors) for the administration of affairs[[wiki](https://en.wikipedia.org/wiki/Pondicherry_Municipal_Council)].
+TODO : fill in administrative model of Puducherry
 
-1. Muthialpet
-2. Rajbhavan
-3. Uppalam
-4. Orleanpet
-5. Nellithope
-6. Mudaliarpet
-7. Villianur
-8. Ariyankuppam
+
+> People who understand the social problems and are willing to talk about it, do not have a proper platform available for sharing. The primary goal of this project, is to empower the community minded <*rephrase*> individuals and make sure that their voice is heard.
+
+The network that we are proposing should grow oganically. Our objective is to kickstart this network of networks, by bootstraping the initial leaf nodes and to facilitate this growth.
+
+
+
