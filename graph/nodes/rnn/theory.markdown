@@ -23,9 +23,9 @@ The RNN *unfolds* into a deep feed forward network with one layer for each time 
 
 ## Training RNN
 
-RNNs are notoriously difficult to train. Why? It is difficult to *remember* long-term dependencies because of **exploding** and **vanishing** gradients problem. While processing a sequence, during every time step, the value of $$W_{hh}$$ in figure below, remains constant. As a result, the gradients while backpropagation will either explode or vanish at some point depending on the value of $$|W_{hh}|$$.
+RNNs are notoriously difficult to train. Why? It is difficult to *remember* long-term dependencies because of **exploding** and **vanishing** gradients problem. While processing a sequence, during every time step, the value of $$W_{hh}$$ in figure below, remains constant. As a result, the gradients while backpropagation will either explode or vanish at some point depending on the value of \|$$W_{hh}$$\|.
 
-![](/img/graph/rrn_gradient.png)
+![](/img/graph/rnn_gradient.png)
 
 $$
 \delta \to \infty if |W_{hh}| > 1\\
