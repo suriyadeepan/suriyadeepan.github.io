@@ -54,22 +54,9 @@ iter_x(x_val)
 ## References
 
 * [Understanding scan() in Theano](http://nbviewer.jupyter.org/gist/triangleinequality/1350873eebea33973e41)
+* [Documentation](http://deeplearning.net/software/theano/library/scan.html)
 
 
 ## TODO
 
 - [ ] Newton's Method
-- [ ] Sequences
-
-
-
-
-
-
-
-
-
-
-
-
-
