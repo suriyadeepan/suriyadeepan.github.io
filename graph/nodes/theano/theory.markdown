@@ -32,7 +32,7 @@ Let us try to incorporate flow control in scan. Instead of using *_func*, let us
 def step(a,b):
 	return a+b, theano.scan_module.until(a+b < 0)
 
-results, updates = theano.scan(fn=_func, outputs_info= [ { 'initial' : x0, 'taps' : [-2,-1] } ], n_steps = n)
+results, updates = theano.scan(fn=step, outputs_info= [ { 'initial' : x0, 'taps' : [-2,-1] } ], n_steps = n)
 fibo = theano.function([x0,n], results, updates=updates)
 # call
 fibo([0,1], 50)
