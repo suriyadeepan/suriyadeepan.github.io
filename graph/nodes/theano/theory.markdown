@@ -1,3 +1,8 @@
+---
+layout: page
+title: Theano
+---
+
 ## scan
 
 ```python
