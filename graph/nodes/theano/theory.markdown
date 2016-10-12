@@ -40,6 +40,16 @@ fibo([0,1], 50)
 
 *theano.scan_module.until* provides us, a means to stop the loop given a condition, which in this case is, stop the loop when the result is negative.
 
+Now, let us try iterating through a **sequence** (array/tensor). 
+
+```python
+x = T.vector('x')
+results, updates = theano.scan(fn=lambda a,b : a, outputs_info=0.0, sequences=x)
+iter_x = theano.function([x], results, updates=updates) 
+
+x_val = np.array([4,8,29,1,3,8,1,3]).astype(np.float32)
+iter_x(x_val)
+```
 
 ## References
 
