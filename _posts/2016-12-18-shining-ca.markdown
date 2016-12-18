@@ -1,5 +1,5 @@
 ---
-published: false
+published: true
 title: "All work and no play makes Jack a dull boy"
 layout: post
 subtitle: "When you are doing Cellular Automata while watching The Shining"
