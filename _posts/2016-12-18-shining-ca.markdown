@@ -6,4 +6,4 @@ subtitle: "When you are doing Cellular Automata while watching The Shining"
 tags: ["cellular automata", "hedonism"]
 ---
 
-<iframe width="1280" height="720" src="https://www.youtube.com/embed/gJZ9ZeGcJVM" frameborder="0" allowfullscreen></iframe>
+<iframe width="853" height="480" src="https://www.youtube.com/embed/gJZ9ZeGcJVM" frameborder="0" allowfullscreen></iframe>
