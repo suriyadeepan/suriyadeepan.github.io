@@ -245,9 +245,9 @@ We use another high level function *sequence\_loss*, to get the expression for l
 
 {% highlight python %}
 loss_weights = [ tf.ones_like(label, dtype=tf.float32) 
-  for label in self.labels ]
+	for label in self.labels ]
 self.loss = tf.nn.seq2seq.sequence_loss(self.decode_outputs, 
-  self.labels, loss_weights, yvocab_size)
+	self.labels, loss_weights, yvocab_size)
 self.train_op = tf.train.AdamOptimizer(learning_rate=lr).minimize(self.loss)
 {% endhighlight %}
 
