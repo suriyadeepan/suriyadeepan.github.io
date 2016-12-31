@@ -140,7 +140,7 @@ metadata = {
 
 **How to choose the vocabulary?**
 
-It makes sense to have a vocabulary of the most frequent words. But how to choose the size of vocabulary? I have plotted the frequency vs words (most frequent to least frequent). I have chosen a vocabulary that covers most the area under the curve. Any word not in the vocabulary will be replace with the UNK="unk" token.
+It makes sense to have a vocabulary of the most frequent words. But how to choose the size of vocabulary? I have plotted the frequency vs words (most frequent to least frequent). I have chosen a vocabulary that covers most the area under the curve. Any word not in the vocabulary will be replaced with the UNK token.
 
 ![](/img/seq2seq/freqdist.png)
 
