@@ -6,7 +6,7 @@ tags: ["tensorflow", "machine learning", "seq2seq", "NLP", "chatbot"]
 published: true
 ---
 
-In my last article, I talked a bit about the theoretical aspect of the famous Sequence to Sequence Model. I shared my the code for my implementation of seq2seq - [easy_seq2seq](https://github.com/suriyadeepan/easy_seq2seq). I have adopted most of the code from [en-fr translation](https://www.tensorflow.org/tutorials/seq2seq/) example provided by Google. Hence, most parts of the code, that dealt with data preprocessing, model evaluation were black boxes to me and to the readers. To make matters worse, the model trained on Cornell Movie Dialog corpus performed poorly. A lot of people complained about this. After training the model for days, most of the responses were gibberish. I apologize for wasting your time.
+In my [last article](http://suriyadeepan.github.io/2016-06-28-easy-seq2seq/), I talked a bit about the theoretical aspect of the famous Sequence to Sequence Model. I shared my the code for my implementation of seq2seq - [easy_seq2seq](https://github.com/suriyadeepan/easy_seq2seq). I have adopted most of the code from [en-fr translation](https://www.tensorflow.org/tutorials/seq2seq/) example provided by Google. Hence, most parts of the code, that dealt with data preprocessing, model evaluation were black boxes to me and to the readers. To make matters worse, the model trained on Cornell Movie Dialog corpus performed poorly. A lot of people complained about this. After training the model for days, most of the responses were gibberish. I apologize for wasting your time.
 
 The objective of this article is two-fold; to provide the readers with a pre-trained model that actually works and to describe how to build and train such a model from (almost) scratch.
 
@@ -58,9 +58,8 @@ git clone https://github.com/suriyadeepan/practical_seq2seq
 # pull the pretrained model
 cd practical_seq2seq/ckpt/twitter/
 ./pull # extract the archive
-cd ../../
 # this will take some time ~830 MB
-#
+cd ../../
 # then you need the datasets to test the model
 cd datasets/twitter/
 ./pull # this wont take long
@@ -68,7 +67,6 @@ cd datasets/twitter/
 cd ../../
 # instead you could just test with your own queries
 #  in that case you could just skip the step above
-
 # now.. open up jupyter notebook and run "03-Twitter-chatbot.ipynb"
 #  the (pieces of) code is fairly intuitive
 #   figure out how to use it
@@ -108,16 +106,11 @@ def index_(tokenized_sentences, vocab_size):
     return index2word, word2index, freq_dist
 
 # other functions
-#
 # def filter_data(sequences)
 #  - filter dataset based on limits on length of sequences
-#
 # def zero_pad(qtokenized, atokenized, word2index) 
 #  - creates zero padded ndarrays
-#
-
 # steps in involved in processing
-
 # read from file
 lines = read_lines(filename=FILENAME) 
 # change to lower case
@@ -171,14 +164,12 @@ We have processed the data, changed it from raw lines of text stored in a file, 
 #
 # split the dataset into train/valid/test sets
 #  def split_dataset(x, y, ratio = [0.7, 0.15, 0.15] )
-#
 # generate batches, by random sampling a bunch of items
 #  yield (x_gen, y_gen)
 def rand_batch_gen(x, y, batch_size):
     while True:
         sample_idx = sample(list(np.arange(len(x))), batch_size)
         yield x[sample_idx].T, y[sample_idx].T
-
 # a generic decode function 
 #  inputs : sequence, lookup
 def decode(sequence, lookup, separator=''): 
@@ -219,12 +210,10 @@ To build the graph, we create a bunch of placeholders for feeding input sequence
 self.enc_ip = [ tf.placeholder(shape=[None,], 
                 dtype=tf.int64, 
                 name='ei_{}'.format(t)) for t in range(xseq_len) ]
-
 #  labels that represent the real outputs
 self.labels = [ tf.placeholder(shape=[None,], 
                 dtype=tf.int64, 
                 name='ei_{}'.format(t)) for t in range(yseq_len) ]
-
 #  decoder inputs : 'GO' + [ y1, y2, ... y_t-1 ]
 self.dec_ip = [ tf.zeros_like(self.enc_ip[0], dtype=tf.int64, name='GO') ] 
     + self.labels[:-1]
@@ -275,11 +264,9 @@ import numpy as np
 import seq2seq_wrapper
 from datasets.twitter import data
 import data_utils
-
 # load data from pickle and npy files
 metadata, idx_q, idx_a = data.load_data(PATH='datasets/twitter/')
 (trainX, trainY), (testX, testY), (validX, validY) = data_utils.split_dataset(idx_q, idx_a)
-
 # parameters 
 xseq_len = trainX.shape[-1]
 yseq_len = trainY.shape[-1]
@@ -287,7 +274,6 @@ batch_size = 32
 xvocab_size = len(metadata['idx2w'])  
 yvocab_size = xvocab_size
 emb_dim = 1024
-
 model = seq2seq_wrapper.Seq2Seq(xseq_len=xseq_len,
                                yseq_len=yseq_len,
                                xvocab_size=xvocab_size,
@@ -296,10 +282,8 @@ model = seq2seq_wrapper.Seq2Seq(xseq_len=xseq_len,
                                emb_dim=emb_dim,
                                num_layers=3
                                )
-
 val_batch_gen = data_utils.rand_batch_gen(validX, validY, 32)
 train_batch_gen = data_utils.rand_batch_gen(trainX, trainY, batch_size)
-
 #sess = model.restore_last_session()
 sess = model.train(train_batch_gen, val_batch_gen)
 # to continue training after interrupting,
