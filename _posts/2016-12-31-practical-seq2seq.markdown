@@ -24,7 +24,7 @@ The Sequence to Sequence model (seq2seq) consists of two RNNs - an encoder and a
 
 The context can be provided as the initial state of the decoder RNN or it can be connected to the hidden units at each time step. Now our objective is to jointly maximize the log probability of the output sequence conditioned on the input sequence.
 
-Read these papers for a more deeper understanding of seq2seq - [Learning Phrase Representations using RNN Encoder-Decoder for Statistical Machine Translation](http://arxiv.org/abs/1406.1078), [Sequence to Sequence Learning with Neural Networks](http://arxiv.org/abs/1409.3215), [Neural Machine Translation by Jointly Learning to Align and Translate](https://arxiv.org/abs/1409.0473), [A Neural Conversational Model](http://arxiv.org/abs/1506.05869). 
+Read these papers for a deeper understanding of seq2seq - [Learning Phrase Representations using RNN Encoder-Decoder for Statistical Machine Translation](http://arxiv.org/abs/1406.1078), [Sequence to Sequence Learning with Neural Networks](http://arxiv.org/abs/1409.3215), [Neural Machine Translation by Jointly Learning to Align and Translate](https://arxiv.org/abs/1409.0473), [A Neural Conversational Model](http://arxiv.org/abs/1506.05869). 
 
 ## A Working Model
 
