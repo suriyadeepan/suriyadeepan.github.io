@@ -6,6 +6,9 @@ tags: ["tensorflow", "machine learning", "seq2seq", "NLP"]
 published: true
 ---
 
+**Update 01.01.2017**
+Part II of Sequence to Sequence Learning is available - [Practical seq2seq](http://suriyadeepan.github.io/2016-12-31-practical-seq2seq/) <br />
+
 Last year, Telegram released its [bot API](https://core.telegram.org/bots/api), providing an easy way for developers, to create bots by interacting with a bot, the [Bot Father](https://telegram.me/botfather). Immediately people started creating abstractions in nodejs, ruby and python, for building bots. We (Free Software Community) created a group for interacting with the bots we built. I created [Myshkin](https://github.com/suriyadeepan/myshkin) in nodejs that answers any query with a quote. The program uses the linux utility [fortune](https://en.wikipedia.org/wiki/Fortune_(Unix)), a pseudorandom message generator. It was dumb. But it was fun to see people willingly interact with a program that I've created. Someone made a **Hodor bot**. You probably figured out what it does. Then I encountered another bot, [Mitsuku](http://www.mitsuku.com/) which seemed quite intelligent. It is written in **AIML** (Artificial Intelligence Markup Language); an XML based "language" that lets developers write rules for the bot to follow. Basically, you write a PATTERN and a TEMPLATE, such that when the bot encounters that pattern in a sentence from user, it replies with one of the templates. Let us call this model of bots, **Rule based model**.
 
 Rule based models make it easy for anyone to create a bot. But it is incredibly difficult to create a bot that answers complex queries. The pattern matching is kind of weak and hence, AIML based bots suffer when they encounter a sentence that doesn't contain any known patterns. Also, it is time consuming and takes a lot of effort to write the rules manually. What if we can build a bot that learns from existing conversations (between humans). This is where *Machine Learning* comes in. 
@@ -256,3 +259,7 @@ if (__name__ == "__main__"):
 * [Cornell Movie Dialog Corpus](http://www.cs.cornell.edu/~cristian/Cornell_Movie-Dialogs_Corpus.html)
 * [Cornell Movie Dialog Corpus - Preprocessed](https://github.com/suriyadeepan/datasets/tree/master/seq2seq/cornell_movie_corpus)
 * [Flask : Quick Start](http://suriyadeepan.github.io/2016-06-07-flask-intro/)
+
+<br />
+Part II of Sequence to Sequence Learning is available - [Practical seq2seq](http://suriyadeepan.github.io/2016-12-31-practical-seq2seq/) 
+
