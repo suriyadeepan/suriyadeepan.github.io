@@ -244,8 +244,10 @@ self.decode_outputs, self.decode_states
 We use another high level function *sequence\_loss*, to get the expression for loss. Then, we build a *train* operation that minimizes the loss.
 
 {% highlight python %}
-loss_weights = [ tf.ones_like(label, dtype=tf.float32) for label in self.labels ]
-self.loss = tf.nn.seq2seq.sequence_loss(self.decode_outputs, self.labels, loss_weights, yvocab_size)
+loss_weights = [ tf.ones_like(label, dtype=tf.float32) 
+  for label in self.labels ]
+self.loss = tf.nn.seq2seq.sequence_loss(self.decode_outputs, 
+  self.labels, loss_weights, yvocab_size)
 self.train_op = tf.train.AdamOptimizer(learning_rate=lr).minimize(self.loss)
 {% endhighlight %}
 
