@@ -144,7 +144,7 @@ It makes sense to have a vocabulary of the most frequent words. But how to choos
 
 ![](/img/seq2seq/freqdist.png)
 
-The number of UNK tokens in the dataset make a big difference. If there are too many unknown tokens, the model learns to generate more UNK tokens. I have reduced the overall percentage of unknown tokens in the dataset to 3%, by increasing the vocabulary size and by removing sentences with too many unknown words (rare words) from the dataset. It is advisable to keep it less than 5%.
+The number of UNK tokens in the dataset make a big difference. If there are too many unknown tokens, the model learns to output UNK tokens more than the words in our limited vocabulary. I have reduced the overall percentage of unknown tokens in the dataset to 3%, by increasing the vocabulary size and by removing sentences with too many unknown words (rare words) from the dataset. It is advisable to keep it less than 5%.
 
 {% highlight python %}
 # count of unknowns
