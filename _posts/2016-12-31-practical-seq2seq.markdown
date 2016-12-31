@@ -241,22 +241,23 @@ basic_cell = tf.nn.rnn_cell.DropoutWrapper(
         output_keep_prob=self.keep_prob)
 # stack cells together : n layered model
 stacked_lstm = tf.nn.rnn_cell.MultiRNNCell([basic_cell]*num_layers, state_is_tuple=True)
-{% endhighlight python %}
+{% endhighlight %}
 
 Now we use a high level function - *embedding_rnn\_seq2seq* provided by tensorflow's seq2seq module, to create a seq2seq model, which does word embedding internally. A copy of the same model is created for testing, which uses the same parameters but has *feed_previous* switch enabled. This causes the decoder of the model to use the output of previous timestep as input to the current timestep, while during training, the input to a timestep (in the decoder) is taken from the labels sequence (the real output sequence). 
 
 {% highlight python %}
-self.decode_outputs, self.decode_states = tf.nn.seq2seq.embedding_rnn_seq2seq(self.enc_ip,self.dec_ip, stacked_lstm,
-                                                    xvocab_size, yvocab_size, emb_dim)
+self.decode_outputs, self.decode_states 
+	= tf.nn.seq2seq.embedding_rnn_seq2seq(
+	self.enc_ip,self.dec_ip, stacked_lstm,
+	xvocab_size, yvocab_size, emb_dim)
 {% endhighlight %}
 
 We use another high level function *sequence\_loss*, to get the expression for loss. Then, we build a *train* operation that minimizes the loss.
 
 {% highlight python %}
 loss_weights = [ tf.ones_like(label, dtype=tf.float32) for label in self.labels ]
-        self.loss = tf.nn.seq2seq.sequence_loss(self.decode_outputs, self.labels, loss_weights, yvocab_size)
-        # train op to minimize the loss
-        self.train_op = tf.train.AdamOptimizer(learning_rate=lr).minimize(self.loss)
+self.loss = tf.nn.seq2seq.sequence_loss(self.decode_outputs, self.labels, loss_weights, yvocab_size)
+self.train_op = tf.train.AdamOptimizer(learning_rate=lr).minimize(self.loss)
 {% endhighlight %}
 
 
