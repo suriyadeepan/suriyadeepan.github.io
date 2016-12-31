@@ -76,7 +76,7 @@ Are you happy with the results? Is the pretrained model working well for you? If
 
 ## Understanding the Code
 
- Let us move on to more interesting things. What are the steps involved in building such a bot? Any project in Machine Learning follows this pattern. Study and analyse the data, proprocess the data to make it compatible with the model, split it into train, valid, and test sets, create a model, feed the training data, let it overfit, reduce the depth/width of the model  and train again(which I usually skip), evaluate the model periodically to look for overfitting/underfitting.
+ Let us move on to more interesting things. What are the steps involved in building such a bot? Any project in Machine Learning follows this pattern. Study and analyse the data, preprocess the data to make it compatible with the model, split it into train, valid, and test sets, create a model, feed the training data, let it overfit, reduce the depth/width of the model  and train again(which I usually skip), evaluate the model periodically to look for overfitting/underfitting.
 
 ### Data Preprocessing
 
