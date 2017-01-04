@@ -14,4 +14,4 @@ tags: ["cellular automata", "hedonism", "p5.js", "genetic algorithms"]
 ## Genetic Algorithms
 
 
-<a href="https://asciinema.org/a/9npa6lwf8ucpjvynkdvfxzs8v" target="_blank"><img src="https://asciinema.org/a/9npa6lwf8ucpjvynkdvfxzs8v.png" /></a>
+<a href="https://asciinema.org/a/9npa6lwf8ucpjvynkdvfxzs8v?data-size=big" target="_blank"><img src="https://asciinema.org/a/9npa6lwf8ucpjvynkdvfxzs8v.png" /></a>
