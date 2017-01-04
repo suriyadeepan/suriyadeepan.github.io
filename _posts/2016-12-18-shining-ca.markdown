@@ -2,7 +2,7 @@
 published: true
 title: "All work and no play makes Jack a dull boy"
 layout: post
-subtitle: "Cellular Automata, Genetic Algorithms"
+subtitle: "Cellular Automata, Genetic Algorithm"
 tags: ["cellular automata", "hedonism", "p5.js", "genetic algorithms"]
 ---
 
