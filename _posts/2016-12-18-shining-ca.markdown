@@ -2,8 +2,16 @@
 published: true
 title: "All work and no play makes Jack a dull boy"
 layout: post
-subtitle: "When you are doing Cellular Automata while watching The Shining"
-tags: ["cellular automata", "hedonism"]
+subtitle: "Cellular Automata, Genetic Algorithms"
+tags: ["cellular automata", "hedonism", "p5.js", "genetic algorithms"]
 ---
 
+## Elementary Cellular Automata
+
+
 <iframe width="853" height="480" src="https://www.youtube.com/embed/gJZ9ZeGcJVM" frameborder="0" allowfullscreen></iframe>
+
+## Genetic Algorithms
+
+
+<a href="https://asciinema.org/a/9npa6lwf8ucpjvynkdvfxzs8v" target="_blank"><img src="https://asciinema.org/a/9npa6lwf8ucpjvynkdvfxzs8v.png" /></a>
