@@ -123,7 +123,7 @@ So far, we have seen a typical RNN, which takes an input at each step and produc
 The context, 'x' influcences the network by acting as the new "bias" parameter - $$ x^{T}R $$.
 
 
-## Encoder-Decoder/Seq2Seq Architecture 
+## Seq2Seq Architecture 
 
 There are applications where we might need to map a sequence to another sequence of different length. Recall from previous discussions that a traditional RNN emits one output for one input, at each step. Take Machine Translation for example. A sentence in English doesn't necessarily translates to a French sentence of the same length. The Encoder-Decoder model or the Sequence to Sequence (seq2seq) model, consists of two RNNs : an encoder and a decoder. The encoder processes the input sequence. The encoder doesn't emit an output at each step. Instead, it just takes the input sequence, one word at a time and tries to capture task-relevant information from the sequence, in it's internal state. The final hidden state should ideally be a task-relevant summary of the input sequence. This final hidden state, is called the context or thought vector. 
 
@@ -143,7 +143,7 @@ At step i, we have 2 hidden states - $$ h_i $$ and $$ g_i $$. $$ h_i $$ captures
 
 In speech recognition, we may need to pick a phoneme at step i, based on inputs from i+1, i+2,... We may even have to look futher ahead, and gather information from words in the future steps, in order for the phoneme at step i, to make linguistic sense.
 
-## Deep RNN
+## Going Deeper
 
 We need to be careful visualizing depth in an RNN. An RNN when unrolled can be seen as a deep feed-forward neural network. From this perspective, depth equals the number of timesteps. Now consider a single timestep 't'. 
 
