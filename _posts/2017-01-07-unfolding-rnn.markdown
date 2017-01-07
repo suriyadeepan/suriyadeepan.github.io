@@ -100,7 +100,7 @@ The estimate, $$ \hat{y_{t}} $$ is typically a normalized probability over ouput
 
 Loss at time step 't' is expressed as negative log likelihood of $$ y_t $$, given the input sequence till 't', $$ { x_1, ..., x_t } $$.
 
-$$ L = \sum_{t} L_t = - \sum_{t} log P_{model}(y_t | {x_1, ..., x_t}) $$
+$$ L = \sum_{t} L_t = - \sum_{t} log P_{model}(y_t \mid {x_1, ..., x_t}) $$
 
 
 ## [Being Markovian](#markov)
@@ -108,7 +108,7 @@ $$ L = \sum_{t} L_t = - \sum_{t} log P_{model}(y_t | {x_1, ..., x_t}) $$
 > A stochastic process has the Markov property if the conditional probability distribution of future states of the process (conditional on both past and present states) depends only upon the present state, not on the sequence of events that preceded it. A process with this property is called a Markov process.
 
 
-The fixed-size hidden units used to represent the state of the network at each timestep, is essentially a lossy summary of task-relevant aspects of the past sequence of inputs. RNNs are Markovian (ie.) the future states of the system, at any time 't', depend entirely on the present state, not the past. In other words, the current state captures everything necessary from the past. During each timestep, the internal state captures what is absolutely necessary to accomplish the task. What task? the task of maximising the conditional likelihood of output sequence given the input sequence, $$ log P(y_1, y_2,.. | x_1, x_2,..) $$.
+The fixed-size hidden units used to represent the state of the network at each timestep, is essentially a lossy summary of task-relevant aspects of the past sequence of inputs. RNNs are Markovian (ie.) the future states of the system, at any time 't', depend entirely on the present state, not the past. In other words, the current state captures everything necessary from the past. During each timestep, the internal state captures what is absolutely necessary to accomplish the task. What task? the task of maximising the conditional likelihood of output sequence given the input sequence, $$ log P(y_1, y_2,.. \mid x_1, x_2,..) $$.
 
 
 ## Vector to sequence
