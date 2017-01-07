@@ -6,7 +6,7 @@ tags: ["machine learning", "deep learning", "rnn", "theory"]
 published: true
 ---
 
-RNN is one of those toys that eluded me for a long time. I just couldn't figure out how to make it work. Ever since I read Andrej Karpathy's blog post on the [Unreasonable Effectiveness of RNNs](http://karpathy.github.io/2015/05/21/rnn-effectiveness/), I was fascinated by what RNNs are capable of, and at the same time confused by how they actually worked. I couldn't follow his code for text generation (Language Modeling). Then, I came across Denny Britz's [blog](http://www.wildml.com/2015/09/recurrent-neural-networks-tutorial-part-1-introduction-to-rnns/), from which I understood how exactly they worked and how to build them. This blog post is addressed to my past self that was confused about the internals of RNN. Through this post, I hope to help people interested in RNNs, develop a basic understanding of what they are, how they work, different variants of RNN and applications.
+RNN is one of those toys that eluded me for a long time. I just couldn't figure out how to make it work. Ever since I read Andrej Karpathy's blog post on the [Unreasonable Effectiveness of RNNs](http://karpathy.github.io/2015/05/21/rnn-effectiveness/), I have been fascinated by what RNNs are capable of, and at the same time confused by how they actually worked. I couldn't follow his code for text generation (Language Modeling). Then, I came across Denny Britz's [blog](http://www.wildml.com/2015/09/recurrent-neural-networks-tutorial-part-1-introduction-to-rnns/), from which I understood how exactly they worked and how to build them. This blog post is addressed to my past self that was confused about the internals of RNN. Through this post, I hope to help people interested in RNNs, develop a basic understanding of what they are, how they work, different variants of RNN and applications.
 
 
 **Warning** : I have organized this post based on the structure of Chapter 10 of [Ian Goodfellow's book](http://www.deeplearningbook.org/). Most concepts are directly taken from that chapter, which I have presented along with my comments. Do not be alarmed when you notice the similarities.
@@ -20,17 +20,17 @@ Another interesting property of RNNs, is **parameter sharing**. Parameter sharin
 
 ## Recurrence
 
-Feed-forward neural networks and it's variants like Convolutional Networks, can be easily understood because of their static architecture. A simple feed-forward neural network with a hidden layer, can be built by stacking one layer on top of another layer. The output at the last layer, $$ \hat{y} $$ is a non-linear funciton of the input $$ x $$, $$ \hat{y} = f(x) $$. f can be decomposed into layer-wise transformations as follows.
+Feed-forward neural networks and it's variants like Convolutional Networks, can be easily understood because of their static architecture. A simple feed-forward neural network with a hidden layer, can be built by stacking one layer on top of another layer. The output at the last layer, $$ \hat{y} $$ is a non-linear funciton of the input, $$ \hat{y} = f(x) $$. *f* can be decomposed into layer-wise transformations as follows.
 
 $$
-h1 = tanh(W_1x + b_1)
-o  = tanh(W_2h1 + b_2)
-\hat{y}  = softmax(o)
+h1 = tanh(W_1x + b_1)\\
+o  = tanh(W_2h1 + b_2)\\
+\hat{y}  = softmax(o)\\
 $$
 
 At each layer, we apply an affine transformation, followed by a non-linearity (sigmoid, hyperbolic tangent or ReLU). Finally, at the output layer, we apply softmax function, which provides normalized probabilities over output classes. We can express a neural network as a Directed Acyclic Graph(DAG), to understand the architecture and data flow.
 
-**Note** : Unless otherwise mentioned explicitly, assume data flow from left to right, in the graphs below. Drawing arrows is a nightmare in Inkscape.
+**Note** : Unless otherwise mentioned explicitly, assume data flow from left to right, in the graphs below. Drawing arrows in Inkscape is a nightmare.
 
 ![](/img/rnn/ff1.png)
 
@@ -59,6 +59,7 @@ $$ s_{t} = f( s_{t-1}, x_{t}; \theta ) $$
 The system takes a signal $$ x_{t} $$ as input during time step 't', updates it's state based on the influence of $$ x_t $$ and the previous state, $$ s_{t-1} $$.  Now, let's try to think of such a system as a neural network. The state of the system can be seen as the hidden units of a neural network. The signal 'x' at each time step, can be seen as a sequence of inputs given to the neural network, one input per time step. At this point, you should know that we are using the term "time step" interchangeably with steps in a sequence. 
 
 The state of such a neural network can be represented with hidden layer $$ h_{t} $$, as follows:
+
 $$ h_{t} = f( h_{t-1}, x_{t}; \theta ) $$
 
 
@@ -72,12 +73,14 @@ The neural network we just described, has recursion/recurrence in it. Let's star
 
 Let $$ g_{t} $$ be the function that represents the unfolded graph after 't' timesteps.
 
-Now we can express the hidden state at time 't' two ways:
+Now we can express the hidden state at time 't', two ways:
 
 - as a **recurrence relation**, as we have seen before
+
 $$ h_{t} = f( h_{t-1}, x_{t}; \theta ) $$
 
 - as an **unfolded graph**
+
 $$ h_{t} = g_{t}(x_{t}, x_{t-1}, ... x_{1}) $$
 
 
@@ -95,14 +98,15 @@ estimate of y, $$ \hat{y_{t}} = softmax(o_{t}) $$
 
 The estimate, $$ \hat{y_{t}} $$ is typically a normalized probability over ouput classes. The loss compares the estimate with the ground truth (target). 
 
-Loss, $$ L = \sum_{t} L_t = - \sum_{t} log P_{model}(y_t | {x_1,...x_t}) $$
+Loss at time step 't' is expressed as negative log likelihood of $$ y_t $$, given the input sequence till 't', $$ { x_1, ..., x_t } $$.
 
-TODO : explain the probability term; good luck with that ;) 
+$$ L = \sum_{t} L_t = - \sum_{t} log P_{model}(y_t | {x_1, ..., x_t}) $$
 
 
-## Being Markovian
+## [Being Markovian](#markov)
 
 > A stochastic process has the Markov property if the conditional probability distribution of future states of the process (conditional on both past and present states) depends only upon the present state, not on the sequence of events that preceded it. A process with this property is called a Markov process.
+
 
 The fixed-size hidden units used to represent the state of the network at each timestep, is essentially a lossy summary of task-relevant aspects of the past sequence of inputs. RNNs are Markovian (ie.) the future states of the system, at any time 't', depend entirely on the present state, not the past. In other words, the current state captures everything necessary from the past. During each timestep, the internal state captures what is absolutely necessary to accomplish the task. What task? the task of maximising the conditional likelihood of output sequence given the input sequence, $$ log P(y_1, y_2,.. | x_1, x_2,..) $$.
 
