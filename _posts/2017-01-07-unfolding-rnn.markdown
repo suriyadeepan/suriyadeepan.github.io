@@ -86,7 +86,7 @@ $$ h_{t} = g_{t}(x_{t}, x_{t-1}, ... x_{1}) $$
 
 ## Forward Propagation
 
-Now that we have a good picture of how RNNs function, let's move on to more concrete aspects of it. Given a sequence of inputs $$ {x_1, x_2,... x_t} $$, how do you propagate it through an RNN? How do we handle the input, update the state and produce output at each step?
+Now that we have a good picture of how RNNs function, let's move on to more concrete aspects of it. Given a sequence of inputs $$ \{x_1, x_2,... x_t\} $$, how do you propagate it through an RNN? How do we handle the input, update the state and produce output at each step?
 
 ![](/img/rnn/unfold.png)
 
@@ -110,7 +110,7 @@ $$ L = \sum_{t} L_t = - \sum_{t} log P_{model}(y_t \mid {x_1, ..., x_t}) $$
 > A stochastic process has the Markov property if the conditional probability distribution of future states of the process (conditional on both past and present states) depends only upon the present state, not on the sequence of events that preceded it. A process with this property is called a Markov process.
 
 
-The fixed-size hidden units used to represent the state of the network at each time step, is essentially a lossy summary of task-relevant aspects of the past sequence of inputs. RNNs are Markovian (ie.) the future states of the system, at any time 't', depend entirely on the present state, not the past. In other words, the current state captures everything necessary from the past. During each time step, the internal state captures what is absolutely necessary to accomplish the task. What task? The task of maximising the conditional likelihood of output sequence given the input sequence, $$ log P( { y_1, y_2,.. } \mid { x_1, x_2,.. } ) $$. We'll revisit this in the next post, when I talk more about the objective function.
+The fixed-size hidden units used to represent the state of the network at each time step, is essentially a lossy summary of task-relevant aspects of the past sequence of inputs. RNNs are Markovian (ie.) the future states of the system, at any time 't', depend entirely on the present state, not the past. In other words, the current state captures everything necessary from the past. During each time step, the internal state captures what is absolutely necessary to accomplish the task. What task? The task of maximising the conditional likelihood of output sequence given the input sequence, $$ log P( \{ y_1, y_2,.. \} \mid \{ x_1, x_2,.. \} ) $$. We'll revisit this in the next post, when I talk more about the objective function.
 
 
 ## Vector to sequence
