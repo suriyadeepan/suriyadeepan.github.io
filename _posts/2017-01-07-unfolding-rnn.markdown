@@ -92,9 +92,11 @@ Now that we have a good picture of how RNNs function, let's move on to more conc
 
 What do we know? The output at each step depends only on the state at each step, as the state captures everything necessary. The state is dependent on the current input and the previous state. The state at time 't', $$ h_t $$  can be written as a function of previous state, $$ h_{t-1} $$ and current input $$ x_t $$ as follows:
 
-$$ h_{t} = tanh ( Wh_{t-1} + Ux_{t} + b) $$\\
-output at 't', $$ o_{t} = Vh_{t} + c $$\\
-estimate of y, $$ \hat{y_{t}} = softmax(o_{t}) $$\\
+$$
+state, h_{t} = tanh ( Wh_{t-1} + Ux_{t} + b )\\ 
+output, o_{t} = Vh_{t} + c\\
+estimate, \hat{y_{t}} = softmax(o_{t})\\ 
+$$
 
 The estimate, $$ \hat{y_{t}} $$ is typically a normalized probability over ouput classes. The loss compares the estimate with the ground truth (target). 
 
