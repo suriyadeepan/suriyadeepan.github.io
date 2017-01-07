@@ -65,7 +65,7 @@ TODO : complete this thread of thought
 
 An RNN can be compactly represented as a cyclic circuit diagram, where the input signal is processed with a delay. This can be unfolded into a computational graph, as a series of steps. Notice the repeated appliation of function 'f'.
 
-![](/img/unfold0.png)
+![](/img/rnn/unfold0.png)
 
 Let $$ g_{t} $$ be the function that represents the unfolded graph after 't' timesteps.
 
@@ -82,7 +82,7 @@ $$ h_{t} = f( h_{t-1}, x_{t}; \theta ) $$
 
 Now that we have an intuition about how RNNs function, let us move on to more concrete aspects of it. Given a sequence of inputs $$ {x_1, x_2,... x_t} $$, how do you propagate it through an RNN? How do we handle the input, update the state and produce output at each step?
 
-![](/img/unfold.png)
+![](/img/rnn/unfold.png)
 
 What do we know? The output at each step only depends on the state at each step, as the state captures everything necessary. The state is dependent on the current input and the previous state. The state at time 't', $$ h_t $$  can be written as a function of previous state, $$ h_{t-1} $$ and current input $$ x_t $$ as follows:
 
