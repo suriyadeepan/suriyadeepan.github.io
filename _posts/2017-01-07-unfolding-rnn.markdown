@@ -100,7 +100,7 @@ $$
 
 The estimate, $$ \hat{y_{t}} $$ is typically a normalized probability over output classes. The loss compares the estimate with the ground truth (target). 
 
-Loss at time step 't' is expressed as negative log likelihood of $$ y_t $$, given the input sequence till 't', $$ { x_1, ..., x_t } $$.
+Loss at time step 't' is expressed as negative log likelihood of $$ y_t $$, given the input sequence till 't', $$ \{ x_1, ..., x_t \} $$.
 
 $$ L = \sum_{t} L_t = - \sum_{t} log P_{model}(y_t \mid {x_1, ..., x_t}) $$
 
