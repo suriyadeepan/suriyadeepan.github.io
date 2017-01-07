@@ -37,7 +37,7 @@ Here, the state at time 't', $$s_{t}$$  is a function (f) of previous state, par
 
 $$ s_{3} = f( s_{2}; \theta ) = f( f( s_{1}; \theta ) \theta ) $$
 
-TODO : insert DAG of unfolded equation
+![](/img/rnn/unfold-1.png)
 
 ## External Signal, X
 
