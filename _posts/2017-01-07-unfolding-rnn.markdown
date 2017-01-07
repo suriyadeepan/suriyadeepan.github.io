@@ -90,7 +90,7 @@ Now that we have a good picture of how RNNs function, let's move on to more conc
 
 ![](/img/rnn/unfold.png)
 
-What do we know? The output at each step depends only on the state at each step, as the state captures everything necessary ([It does?](#markov)). The state is dependent on the current input and the previous state. The state at time 't', $$ h_t $$  can be written as a function of previous state, $$ h_{t-1} $$ and current input $$ x_t $$ as follows:
+What do we know? The output at each step depends only on the state at each step, as the state captures everything necessary. The state is dependent on the current input and the previous state. The state at time 't', $$ h_t $$  can be written as a function of previous state, $$ h_{t-1} $$ and current input $$ x_t $$ as follows:
 
 $$ h_{t} = tanh ( Wh_{t-1} + Ux_{t} + b) $$
 output at 't', $$ o_{t} = Vh_{t} + c $$
@@ -103,7 +103,7 @@ Loss at time step 't' is expressed as negative log likelihood of $$ y_t $$, give
 $$ L = \sum_{t} L_t = - \sum_{t} log P_{model}(y_t \mid {x_1, ..., x_t}) $$
 
 
-## [Being Markovian](#markov)
+## Being Markovian
 
 > A stochastic process has the Markov property if the conditional probability distribution of future states of the process (conditional on both past and present states) depends only upon the present state, not on the sequence of events that preceded it. A process with this property is called a Markov process.
 
