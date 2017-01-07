@@ -2,6 +2,7 @@
 layout: post
 title: "Unfolding RNNs"
 subtitle: "RNN : Concepts and Architectures"
+bigimg: /img/rnn/cover-cropped.png
 tags: ["machine learning", "deep learning", "rnn", "theory"] 
 published: true
 ---
