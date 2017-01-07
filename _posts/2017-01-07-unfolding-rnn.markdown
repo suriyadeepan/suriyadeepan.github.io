@@ -155,6 +155,6 @@ We can make computation at each time step, deeper by introducing more hidden lay
 
 1. [Unreasonable Effectiveness of RNNs](http://karpathy.github.io/2015/05/21/rnn-effectiveness/)
 2. [Introduction to RNNs](http://www.wildml.com/2015/09/recurrent-neural-networks-tutorial-part-1-introduction-to-rnns/)
-3. [[Ian Goodfellow's book](http://www.deeplearningbook.org/)
+3. [Ian Goodfellow's book](http://www.deeplearningbook.org/)
 4. [Deep Learning Book - chapter 10](http://www.deeplearningbook.org/contents/rnn.html)
 5. [Parameter Sharing in CNN](http://cs231n.github.io/convolutional-networks/)
