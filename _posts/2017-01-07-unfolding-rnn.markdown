@@ -1,12 +1,12 @@
 ---
 layout: post
 title: "Unfolding RNNs"
-subtitle: "RNN : theory, concepts and architectures"
-tags: ["machine learning", "deep learning", "rnn"] 
-published: false
+subtitle: "RNN : Concepts and Architectures"
+tags: ["machine learning", "deep learning", "rnn", "theory"] 
+published: true
 ---
 
-When I came to know about the mind-blowing accomplishments of deep neural networks, I was like a kid in a candy store. RNN was one of the shiniest toys, that caught my eye. I read Andrej Karpathy's blog post on the [Unreasonable Effectiveness of RNNs](http://karpathy.github.io/2015/05/21/rnn-effectiveness/), but I couldn't follow his code for text generation (Language Modeling). I was fascinated by what RNNs are capable of, and at the same time confused by how they worked. Then came the bloggers (they were always there; I just didn't notice). I came across Denny Britz's [blog](http://www.wildml.com/2015/09/recurrent-neural-networks-tutorial-part-1-introduction-to-rnns/), from which I understood how exactly an RNN works. This blog post is addressed to my past self that was confused about the internals of RNN. Through this post, I hope to help people interested in RNNs, get an intuitive understanding of what it is, how it works, different versions of it and which version can be applied where.
+RNN is one of those toys that eluded me for a long time. I just couldn't figure out how to make it work. Ever since I read Andrej Karpathy's blog post on the [Unreasonable Effectiveness of RNNs](http://karpathy.github.io/2015/05/21/rnn-effectiveness/), I was fascinated by what RNNs are capable of, and at the same time confused by how they actually worked. I couldn't follow his code for text generation (Language Modeling). Then, I came across Denny Britz's [blog](http://www.wildml.com/2015/09/recurrent-neural-networks-tutorial-part-1-introduction-to-rnns/), from which I understood how exactly they worked and how to build them. This blog post is addressed to my past self that was confused about the internals of RNN. Through this post, I hope to help people interested in RNNs, develop a basic understanding of what they are, how they work, different variants of RNN and applications.
 
 
 **Warning** : I have organized this post based on the structure of Chapter 10 of [Ian Goodfellow's book](http://www.deeplearningbook.org/). Most concepts are directly taken from that chapter, which I have presented along with my comments. Do not be alarmed when you notice the similarities.
