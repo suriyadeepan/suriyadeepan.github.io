@@ -2,7 +2,6 @@
 layout: post
 title: "Unfolding RNNs"
 subtitle: "RNN : Concepts and Architectures"
-bigimg: /img/rnn/cover-cropped.png
 tags: ["machine learning", "deep learning", "rnn", "theory"] 
 published: true
 ---
@@ -35,7 +34,7 @@ At each layer, we apply an affine transformation, followed by a non-linearity (s
 
 ![](/img/rnn/ff1.png)
 
-Pretty simple right? The input x, a vector of real numbers, is passed through multiple nodes of operations and tranformed into class probabilities that we need for classification.
+Pretty simple right? The input x, a vector of real numbers, is passed through multiple nodes of operations and transformed into class probabilities that we need for classification.
 
 How are recurrent neural networks different from this network? Why can't we draw an RNN as a DAG?
 
@@ -72,7 +71,7 @@ The neural network we just described, has recursion/recurrence in it. Let's star
 *Notice the repeated appliation of function 'f'.*
 
 
-Let $$ g_{t} $$ be the function that represents the unfolded graph after 't' timesteps.
+Let $$ g_{t} $$ be the function that represents the unfolded graph after 't' time steps.
 
 Now we can express the hidden state at time 't', two ways:
 
@@ -99,7 +98,7 @@ output, o_{t} = Vh_{t} + c\\
 estimate, \hat{y_{t}} = softmax(o_{t})\\ 
 $$
 
-The estimate, $$ \hat{y_{t}} $$ is typically a normalized probability over ouput classes. The loss compares the estimate with the ground truth (target). 
+The estimate, $$ \hat{y_{t}} $$ is typically a normalized probability over output classes. The loss compares the estimate with the ground truth (target). 
 
 Loss at time step 't' is expressed as negative log likelihood of $$ y_t $$, given the input sequence till 't', $$ { x_1, ..., x_t } $$.
 
@@ -111,12 +110,14 @@ $$ L = \sum_{t} L_t = - \sum_{t} log P_{model}(y_t \mid {x_1, ..., x_t}) $$
 > A stochastic process has the Markov property if the conditional probability distribution of future states of the process (conditional on both past and present states) depends only upon the present state, not on the sequence of events that preceded it. A process with this property is called a Markov process.
 
 
-The fixed-size hidden units used to represent the state of the network at each timestep, is essentially a lossy summary of task-relevant aspects of the past sequence of inputs. RNNs are Markovian (ie.) the future states of the system, at any time 't', depend entirely on the present state, not the past. In other words, the current state captures everything necessary from the past. During each timestep, the internal state captures what is absolutely necessary to accomplish the task. What task? the task of maximising the conditional likelihood of output sequence given the input sequence, $$ log P(y_1, y_2,.. \mid x_1, x_2,..) $$.
+The fixed-size hidden units used to represent the state of the network at each time step, is essentially a lossy summary of task-relevant aspects of the past sequence of inputs. RNNs are Markovian (ie.) the future states of the system, at any time 't', depend entirely on the present state, not the past. In other words, the current state captures everything necessary from the past. During each time step, the internal state captures what is absolutely necessary to accomplish the task. What task? The task of maximising the conditional likelihood of output sequence given the input sequence, $$ log P( { y_1, y_2,.. } \mid { x_1, x_2,.. } ) $$. We'll revisit this in the next post, when I talk more about the objective function.
 
 
 ## Vector to sequence
 
 So far, we have seen a typical RNN, which takes an input at each step and produces an output at each step. There is a special category of RNN that takes a fixed-length vector as input and produces a series of outputs. An application of this architecture of RNN, is the task of image captioning. Given a fixed length vector which is typically the feature vector of the input image (we can use an MLP or a CNN to extract features of an image), our RNN need to generate a proper caption, word by word. The next word depends on the previous words and also the feature vector of the image (context vector). 
+
+$$ h_{t} = Uy_{t-1} + Wh_{t-1} + x^{T}R $$
 
 ![](/img/rnn/vec2seq.png)
 
@@ -145,7 +146,7 @@ In speech recognition, we may need to pick a phoneme at step i, based on inputs 
 
 ## Going Deeper
 
-We need to be careful visualizing depth in an RNN. An RNN when unrolled can be seen as a deep feed-forward neural network. From this perspective, depth equals the number of timesteps. Now consider a single timestep 't'. 
+We need to be careful visualizing depth in an RNN. An RNN when unrolled can be seen as a deep feed-forward neural network. From this perspective, depth equals the number of time steps. Now consider a single time step 't'. 
 
 ![](/img/rnn/depth.png)
 
@@ -159,3 +160,14 @@ We can make computation at each time step, deeper by introducing more hidden lay
 3. [Ian Goodfellow's book](http://www.deeplearningbook.org/)
 4. [Deep Learning Book - chapter 10](http://www.deeplearningbook.org/contents/rnn.html)
 5. [Parameter Sharing in CNN](http://cs231n.github.io/convolutional-networks/)
+
+
+That's it for now. I have covered the basics of RNN, selectively omitting a few important sections, like attention mechanism and teacher forcing, which we'll visit in the future posts. In the next post, I will try to focus on the following:
+
+- Sequence Loss
+- Backpropagation through time
+- Computing the gradient
+- LSTM and GRU units
+- Memory Networks
+
+Don't think twice about leaving a comment! Just do! 
