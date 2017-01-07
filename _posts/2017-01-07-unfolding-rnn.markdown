@@ -2,10 +2,9 @@
 layout: post
 title: "Unfolding RNNs"
 subtitle: "RNN : theory, concepts and architectures"
-tags: ["tensorflow", "machine learning", "seq2seq", "NLP", "chatbot"]
+tags: ["machine learning", "deep learning", "rnn"] 
 published: false
 ---
-*RNN : Theory, Mechanisms and Architectures*
 
 When I came to know about the mind-blowing accomplishments of deep neural networks, I was like a kid in a candy store. RNN was one of the shiniest toys, that caught my eye. I read Andrej Karpathy's blog post on the [Unreasonable Effectiveness of RNNs](http://karpathy.github.io/2015/05/21/rnn-effectiveness/), but I couldn't follow his code for text generation (Language Modeling). I was fascinated by what RNNs are capable of, and at the same time confused by how they worked. Then came the bloggers (they were always there; I just didn't notice). I came across Denny Britz's [blog](http://www.wildml.com/2015/09/recurrent-neural-networks-tutorial-part-1-introduction-to-rnns/), from which I understood how exactly an RNN works.
 
@@ -66,7 +65,7 @@ TODO : complete this thread of thought
 
 An RNN can be compactly represented as a cyclic circuit diagram, where the input signal is processed with a delay. This can be unfolded into a computational graph, as a series of steps. Notice the repeated appliation of function 'f'.
 
-TODO : insert unfolding diagram
+![](/img/unfold0.png)
 
 Let $$ g_{t} $$ be the function that represents the unfolded graph after 't' timesteps.
 
@@ -83,12 +82,9 @@ $$ h_{t} = f( h_{t-1}, x_{t}; \theta ) $$
 
 Now that we have an intuition about how RNNs function, let us move on to more concrete aspects of it. Given a sequence of inputs $$ {x_1, x_2,... x_t} $$, how do you propagate it through an RNN? How do we handle the input, update the state and produce output at each step?
 
+![](/img/unfold.png)
 
-TODO : insert the whole unfolding diagram
-
-TODO : insert RNN equations
-
-What do we know? The output at each step only depends on the state at each step, as the state captures everything necessary. The state is dependent on the current input and the previous state. The state at time 't', h\_t can be written as a function of previous state, h\_t-1 and current input x\_t as follows:
+What do we know? The output at each step only depends on the state at each step, as the state captures everything necessary. The state is dependent on the current input and the previous state. The state at time 't', $$ h_t $$  can be written as a function of previous state, $$ h_{t-1} $$ and current input $$ x_t $$ as follows:
 
 $$ h_{t} = tanh ( Wh_{t-1} + Ux_{t} + b) $$
 output at 't', $$ o_{t} = Vh_{t} + c $$
@@ -104,7 +100,7 @@ TODO : explain the probability term; good luck with that ;)
 
 So far, we have seen a typical RNN, which takes an input at each step and produces an output at each step. There is a special category of RNN that takes a fixed-length vector as input and produces a series of outputs. An application of this architecture of RNN, is the task of image captioning. Given a fixed length vector which is typically the feature vector of the input image (we can use an MLP or a CNN to extract features of an image), our RNN need to generate a proper caption, word by word. The next word depends on the previous words and also the feature vector of the image (context vector). 
 
-TODO : insert "sequence conditioned on context" image
+![](/img/rnn/vec2seq.png)
 
 The context, 'x' influcences the network by acting as the new "bias" parameter - (x^T)R.
 
@@ -115,7 +111,7 @@ There are applications where we might need to map a sequence to another sequence
 
 The context acts as the only input to the decoder. It can be connected to the decoder in multiple ways. The initial state of the decoder can be set as a function of the context or the context can be connected to the hidden states at every time step, or both. It is important to note that the hyperparameters of the encoder and decoder can be different, depending on the type of input and output sequences. For example, we can set the number of hidden units for encoder to be different than that of the decoder. 
 
-TODO : insert seq2seq diagram
+![](/img/rnn/seq2seq.png)
 
 
 ## Bidirectional RNN
@@ -124,12 +120,14 @@ The RNNs we have seen so far, have a "causal" structures, (ie.) the present is i
 
 At step i, we have 2 hidden states - $$ h_i $$ and $$ g_i $$. $$ h\_i $$ captures the flow of information from left to right $$ {x_1,x_2,...x_i} $$, while $$g_i$$ captures the information from right to left $$ {x_{i+1}, ... x_n} $$. This kind of RNN, capable of capturing information from the whole sequence, is known as a Bi-directional RNN. As the name says, it has 2 RNNs in it, for processing the sequence from either directions. At each step i, we have information from the whole sequence. Where is this applicable?
 
+![](/img/rnn/bi.png)
+
 In speech recognition, we may need to pick a phoneme at step i, based on inputs from i+1, i+2,... We may even have to look futher ahead, and gather information from words in the future steps, in order for the phoneme at step i, to make linguistic sense.
 
 ## Deep RNN
 
 We need to be careful visualizing depth in an RNN. An RNN when unrolled can be seen as a deep feed-forward neural network. From this perspective, depth equals the number of timesteps. Now consider a single timestep 't'. 
 
-TODO : insert unrolled graph, single time step - side by side
+![](/img/rnn/depth.png)
 
 We can make computation at each time step, deeper by introducing more hidden layers. This type of RNN is known as Stacked RNN or more commonly, deep RNN. Typically, we have multiple layers of non-linear transformations, between hidden to hidden connections. This enables the RNN to capture higher level information (features composed of simpler features) from the input sequence, and store it as the state of the system. With great depth comes greater difficulty in training. Deeper RNNs take more time to train. But they are better in any of the tasks we have discussed, than shallow RNNs. And hence, in practice most people tend to use Stacked (multi-layer) RNNs.
