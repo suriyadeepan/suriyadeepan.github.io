@@ -51,7 +51,7 @@ Find my Jupyter notebok here : [suriyadeepan/pandas](https://github.com/suriyade
 
 ## Painless Recurrent Neural Network  
 
-No. It isn't another variant of Recurrent Neural Network. I just learned to build an RNN in a painless fashion, unlike the masochists at [Google](https://www.tensorflow.org/versions/r0.10/tutorials/recurrent/index.html). I found this amazing place, where deep learning enthusiasts share their models, datasets, papers and more : [tensorhub](https://tensorhub.com/). [aymericdamien](https://github.com/aymericdamien) uses LSTM to classify MNIST digits, in this [tutorial](https://tensorhub.com/aymericdamien/tensorflow-rnn). It is simple and straightforward. It does not require you to manually construct the gates in LSTM. I tried it and here is the [result](https://github.com/suriyadeepan/TF/blob/master/RNN/TensorFlow%20Example%20-%20Recurrent%20Neural%20Network.ipynb).
+No. It isn't another variant of Recurrent Neural Network. I just learned to build an RNN in a painless fashion. I found this amazing place, where deep learning enthusiasts share their models, datasets, papers and more : [tensorhub](https://tensorhub.com/). [aymericdamien](https://github.com/aymericdamien) uses LSTM to classify MNIST digits, in this [tutorial](https://tensorhub.com/aymericdamien/tensorflow-rnn). It is simple and straightforward. It does not require you to manually construct the gates in LSTM. I tried it and here is the [result](https://github.com/suriyadeepan/TF/blob/master/RNN/TensorFlow%20Example%20-%20Recurrent%20Neural%20Network.ipynb).
 
 
 ## AutoReveal
