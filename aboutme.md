@@ -4,9 +4,7 @@ title: About me
 subtitle: Timeline of Events
 ---
 
-I am Suriyadeepan Ramamoorthy, from Puducherry, India. 
-
-An Independent Researcher, interested in 
+I am Suriyadeepan Ramamoorthy, from Puducherry, India. An Independent Researcher, interested in 
 
 - Artificial Intelligence
 - Natural Language Processing
@@ -18,7 +16,11 @@ An Independent Researcher, interested in
 [Education, Skills, Publications](http://suriya.strikingly.com/)
 
 
-### Current Projects
+### 2017
+
+- (*incomplete*) Generative Dialog Systems based on seq2seq, memory networks and reinforcement.
+
+- [Language Modeling or RNN Hallucinations with tensorflow](https://github.com/suriyadeepan/language-modeling)
 
 
 ### 2016
