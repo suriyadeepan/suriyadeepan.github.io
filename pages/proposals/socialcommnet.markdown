@@ -59,16 +59,3 @@ It is impossible for any non-profit organization to compete with the ISPs. Our n
 ## Summary
 
 This project is an attempt to create a network that realizes the vision [[article](https://www.internetsociety.org/sites/default/files/the-internet-is-for-everyone.pdf)] of Vint Cerf, one of the fathers of Internet, an internet for everyone - affordable, unrestricted and unregulated. We aim to remove the middleman - ISPs, from the network and connect people with each other. We propose to achieve this by focusing on the socioeconomic issues influencing the society and by empowering local communities to report, understand and solve their own issues.
-
-
-## TODO
-
-* [ ] Pictorial depiction of Architecture
-* [ ] Image depicting growth of leaf nodes, resulting in connection between two different networks
-* [ ] Image depicting overlay of mesh network over map
-* [ ] Fabricated screenshot of Android application (client), Web Interface (dashboard) and SMS screen
-* [ ] Project Planning : Phases of deployment (Refer [ieg](https://meta.wikimedia.org/wiki/Grants:IEG/Wiki_Mesh_Network_Community))
-* [ ] Maintenance : Through local communities
-* [ ] Budget : AR-300, Beaglebone
-* [ ] Geolocation Planning : Choose a specific region ideal for kickstarting (bootstrap) the project
-* [ ] Mock list of reports/messages (10)
