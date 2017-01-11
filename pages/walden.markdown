@@ -1,7 +1,7 @@
 ---
 layout: page
-title: Beauty in Chaos
-subtitle: Everything that made me smile
+title: "Beauty in Chaos"
+subtitle: "Sun is but a morning star"
 ---
 
 ## Walden, Henry David Thoreau
