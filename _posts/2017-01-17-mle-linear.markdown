@@ -41,19 +41,19 @@ We can sample from this distribution. It can be written as, $$x \sim \mathcal{N}
 
 The 2D gaussian distribution or bivariate distribution, consists of 2 random variables x1 and x2. It can have many different shapes. The shape depends on the covariance matrix, $$\Sigma$$. The Multivariate Gaussian Distribution is a generalization of bivariate distribution, for 'n' dimensions.
 
+$$
+p(y) = \vert 2\pi\Sigma \vert^{-1/2}e^{-1/2(y-\mu)^T\Sigma^{-1}(y-\mu)}
+$$
+
+
+In the above expression, **y** and **$$ \mu $$** are vectors of n dimensions, and $$ \Sigma $$ is a matrix of shape nxn.
+
 
 The figure below presents the top view of bivariate gaussian. The circles denote the data points sampled from the distribution. Notice the variation in the shape of the gaussian with $$\Sigma$$. The mean of x1 and x2 ($$\mu_1$$ and $$\mu_2$$) determine the center of the gaussian, while $$\Sigma$$ determines the shape.
 
 ![](/img/mle/bivariate-shapes.png)
 
 
-### Multivariate Gaussian
-
-The Multivariate Gaussian Distribution is a generalization of bivariate distribution, for 'n' dimensions. It is given by,
-
-TODO : insert multivariate gaussian expression
-
-In the above expression, **y** and **$$ \mu $$** are vectors of n dimensions, and $$ \Sigma $$ is a matrix of shape nxn.
 
 ## Maximum Likelihood
 
