@@ -3,10 +3,8 @@ layout: post
 title: "The Principle of Maximum Likelihood"
 subtitle: "Linear Regression : The Probabilistic Perspective"
 tags: ["machine learning", "probability", "maximum likelihood", "theory", "mle"] 
-published: true
+published: false
 ---
-**incomplete**
-
 
 TODO : Motivation
 
@@ -46,7 +44,7 @@ p(y) = \vert 2\pi\Sigma \vert^{-1/2}e^{-1/2(y-\mu)^T\Sigma^{-1}(y-\mu)}
 $$
 
 
-In the above expression, **y** and **$$ \mu $$** are vectors of n dimensions, and $$ \Sigma $$ is a matrix of shape nxn.
+In the above expression, **y** and **$$ \mu $$** are vectors of 'n' dimensions, and $$ \Sigma $$ is a matrix of shape 'nxn'.
 
 
 The figure below presents the top view of bivariate gaussian. The circles denote the data points sampled from the distribution. Notice the variation in the shape of the gaussian with $$\Sigma$$. The mean of x1 and x2 ($$\mu_1$$ and $$\mu_2$$) determine the center of the gaussian, while $$\Sigma$$ determines the shape.
@@ -57,7 +55,7 @@ The figure below presents the top view of bivariate gaussian. The circles denote
 
 ## Maximum Likelihood
 
-I am borrowing this amazing toy example from Nando de Fretais's [lecture](#), to illustrate MLE. Consider 3 data points, y1=1, y2=0.5, y3=1.5, which are independent and drawn from a guassian with unknown mean $$\theta$$ and variance 1. Let's say we have two choices for $$\theta$$ : {1, 2.5}. Which would you choose? Which model ($$\theta$$) would explain the data better?
+I am borrowing this amazing toy example from Nando de Fretais's [lecture](https://www.youtube.com/watch?v=voN8omBe2r4), to illustrate MLE. Consider 3 data points, y1=1, y2=0.5, y3=1.5, which are independent and drawn from a guassian with unknown mean $$\theta$$ and variance 1. Let's say we have two choices for $$\theta$$ : {1, 2.5}. Which would you choose? Which model ($$\theta$$) would explain the data better?
 
 In general, any data point drawn from a gaussian with mean $$\theta$$ and and variance 1, can be written as,
 
@@ -71,8 +69,7 @@ as y1, y2, y3 are independent.
 
 ![](/img/mle/toy-eg.png)
 
-From the figure, we see that the likelihood, product of probabilities of data given model, is basically the product of heights of green lines. It is obvious that the likelihood of model $$\theta = 1$$ is higher.
-We choose the model ($$ \theta $$), that maximizes the likelihood.
+From the figure, we see that the likelihood, product of probabilities of data given model, is basically the product of heights of dotted lines. It is obvious that the likelihood of model $$\theta = 1$$ is higher. We choose the model ($$ \theta $$), that maximizes the likelihood.
 
 
 ## Linear Regression
