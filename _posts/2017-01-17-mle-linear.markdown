@@ -24,8 +24,8 @@ The gaussian distribution is a means to measure the uncertainty of a variable th
 ![](/img/mle/normal1.png)
 
 $$ 
-p(x) = \frac{1}{{\sigma \sqrt {2\pi } }}e^{{{ - \left( {x - \mu } \right)^2 } \mathord{\left/ {\vphantom {{ - \left( {x - \mu } \right)^2 } {2\sigma ^2 }}} \right. \kern-\nulldelimiterspace} {2\sigma ^2 }}}\\
-\int_{-\infty}^{+\infty} p(x) dx = 1
+p(x) = \frac{1}{\sigma\sqrt{2\pi}}e^{-(x-\mu)^2/2\sigma^2}\\
+\int_{-\infty}^{+\infty} p(x) dx = 1\\
 $$
 
 ### Random Sampling
