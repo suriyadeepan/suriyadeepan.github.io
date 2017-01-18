@@ -3,21 +3,21 @@ layout: post
 title: "The Principle of Maximum Likelihood"
 subtitle: "Linear Regression : The Probabilistic Perspective"
 tags: ["machine learning", "probability", "maximum likelihood", "theory", "mle"] 
-published: false
+published: true
 ---
 
 TODO : Motivation
 
 The principle of Maximum Likelihood is at the heart of Machine Learning. It guides us to find the best model in a search space of all models. In simple terms, Maximum Likelihood Estimation or MLE lets us choose a model (parameters) that explains the data (training set) better than all other models. For any given neural network architecture, the loss/cost/objective function is derived based on the principle of Maximum Likelihood.
 
-MLE is a tool based on probability. There are few concepts in probability, that should be understood before diving into MLE. Probability is a framework for meauring and managing uncertainty. In machine learning, every inference we make has some degree of uncertainty associated with it. It is essential for us to quantify this uncertainty. Let us start with the Gaussian Distribution.
+MLE is a tool based on probability. There are a few concepts in probability, that should be understood before diving into MLE. Probability is a framework for meauring and managing uncertainty. In machine learning, every inference we make has some degree of uncertainty associated with it. It is essential for us to quantify this uncertainty. Let us start with the Gaussian Distribution.
 
 
 ## Gaussian Distribution
 
 A probability distribution is a function that provides us the probabilities of all possible outcomes of a stochastic process. It can be thought of as a description of the stochastic process, in terms of the probabilities of events. The most common probability distribution is the Gaussian Distribution or the Normal Distribution. 
 
-The gaussian distribution is a way of measuring the uncertainty for a variable that is continuous between $ -\infty $ and $ +\infty $. The distribution is centered at mean, $ \mu $. The width depends on the parameter $ \sigma $, the standard deviation (variance - $ \sigma^{2} $). Naturally, area under the curve equals 1. 
+The gaussian distribution is a means to measure the uncertainty of a variable that is continuous between $ -\infty $ and $ +\infty $. The distribution is centered at mean, $ \mu $. The width depends on the parameter $ \sigma $, the standard deviation (variance - $ \sigma^{2} $). Naturally, area under the curve equals 1. 
 
 ![](/img/mle/normal1.png)
 
@@ -28,7 +28,7 @@ $
 
 ### Random Sampling
 
-We can sample a value from this distribution. It can be written as, $ x \sim \mathcal{N}(\mu, \simga^{2}) $. 'x' is a value sampled or generated or simulated from the guassian distribution. As we sample from this distribution, most samples will fall around the center, near the mean, because of higher probability density in the center.
+We can sample from this distribution. It can be written as, $ x \sim \mathcal{N}(\mu, \simga^{2}) $. 'x' is a value sampled or generated or simulated from the guassian distribution. As we sample from this distribution, most samples will fall around the center, near the mean, because of higher probability density in the center.
 
 ![](/img/mle/sampling1.png)
 
@@ -37,7 +37,7 @@ We can sample a value from this distribution. It can be written as, $ x \sim \ma
 
 ![](/img/mle/bivariate3d.png)
 
-The 2D gaussian distribution or bivariate distribution, consists of 2 random variables x1 and x2. It can have many different shapes. The shape depends on the correlation between the random variables x1 and x2.
+The 2D gaussian distribution or bivariate distribution, consists of 2 random variables x1 and x2. It can have many different shapes. The shape depends on the covariance matrix, $\Sigma$. Notice the variation in the shape of the gaussian with $\Sigma$, in the figure below. The mean of x1 and x2 ($\mu_1$ and $\mu_2$) determine the center of the gaussian, while $\Sigma$ determines the shape.
 
 ![](/img/mle/bivariate-shapes.png)
 
@@ -52,24 +52,9 @@ y, $ \mu $, $ \simga $ - random vector
 $ \simga $ - shape of the curve
 ```
 
-In the above expression, **y** and **$ \mu $** are vectors of n dimensions, and $ \sumof $ is a matrix of shape nxn. Consider the case of n = 2, that is, the bivariate distribution. Observe in the figure below, how the shape of the distribution changes with $ \sumof $. 
+In the above expression, **y** and **$ \mu $** are vectors of n dimensions, and $ \sumof $ is a matrix of shape nxn.
 
-TODO : insert images [bivariate top view : correlation - {independent, positive, negative}, **along with sigma**]
-
-____
-
-Consider two independent univariate gaussian variables, x1, x2. 
-
-$
-x_1 = \mathcal{N}(\mu_{1}, \sigma^{2})\
-x_2 = \mathcal{N}(\mu_{2}, \sigma^{2})\
-Joint distribution, p(x_1, x_2) = p(x1)p(x2)\
-=
-$
-
-TODO : insert bivariate image [with x1, x2 as independent]
-
------
+## Maximum Likelihood
 
 I am borrowing this amazing toy example from Nando de Fretais's [lecture](#), to illustrate MLE. Consider 3 data points, y1=1, y2=0.5, y3=1.5, which are independent and drawn from a guassian with unknown mean $ \theta $ and variance 1. Let's say we have two choices for $ \theta $ - 1, 2.5. Which would you choose? Which model ($\theta$) would explain the data better?
 
