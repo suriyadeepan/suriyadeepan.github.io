@@ -5,6 +5,8 @@ subtitle: "Linear Regression : The Probabilistic Perspective"
 tags: ["machine learning", "probability", "maximum likelihood", "theory", "mle"] 
 published: true
 ---
+**incomplete**
+
 
 TODO : Motivation
 
@@ -17,7 +19,7 @@ MLE is a tool based on probability. There are a few concepts in probability, tha
 
 A probability distribution is a function that provides us the probabilities of all possible outcomes of a stochastic process. It can be thought of as a description of the stochastic process, in terms of the probabilities of events. The most common probability distribution is the Gaussian Distribution or the Normal Distribution. 
 
-The gaussian distribution is a means to measure the uncertainty of a variable that is continuous between $$ -\infty$$and $$ +\infty $. The distribution is centered at mean, $$ \mu $. The width depends on the parameter$$\sigma $, the standard deviation (variance -$$\sigma^{2} $). Naturally, area under the curve equals 1. 
+The gaussian distribution is a means to measure the uncertainty of a variable that is continuous between $$ -\infty$$and $$ +\infty $$. The distribution is centered at mean, $$ \mu $. The width depends on the parameter$$\sigma $$, the standard deviation (variance -$$\sigma^{2} $). Naturally, area under the curve equals 1. 
 
 ![](/img/mle/normal1.png)
 
@@ -28,7 +30,7 @@ $$
 
 ### Random Sampling
 
-We can sample from this distribution. It can be written as,$$x \sim \mathcal{N}(\mu, \simga^{2}) $. 'x' is a value sampled or generated or simulated from the guassian distribution. As we sample from this distribution, most samples will fall around the center, near the mean, because of higher probability density in the center.
+We can sample from this distribution. It can be written as,$$x \sim \mathcal{N}(\mu, \simga^{2}) $$. 'x' is a value sampled or generated or simulated from the guassian distribution. As we sample from this distribution, most samples will fall around the center, near the mean, because of higher probability density in the center.
 
 ![](/img/mle/sampling1.png)
 
@@ -37,7 +39,7 @@ We can sample from this distribution. It can be written as,$$x \sim \mathcal{N}(
 
 ![](/img/mle/bivariate3d.png)
 
-The 2D gaussian distribution or bivariate distribution, consists of 2 random variables x1 and x2. It can have many different shapes. The shape depends on the covariance matrix, $\Sigma$. Notice the variation in the shape of the gaussian with $\Sigma$, in the figure below. The mean of x1 and x2 ($\mu_1$ and $\mu_2$) determine the center of the gaussian, while $\Sigma$ determines the shape.
+The 2D gaussian distribution or bivariate distribution, consists of 2 random variables x1 and x2. It can have many different shapes. The shape depends on the covariance matrix, $$\Sigma$$. Notice the variation in the shape of the gaussian with $$\Sigma$$, in the figure below. The mean of x1 and x2 ($$\mu_1$ and $\mu_2$$) determine the center of the gaussian, while $$\Sigma$$ determines the shape.
 
 ![](/img/mle/bivariate-shapes.png)
 
@@ -86,7 +88,7 @@ $$ y_i = \mathcal{N}(x_i^{T}\theta, \sigma^{2}) = x_i^{T}\theta + \mathcal{N}(0,
 
 ![](/img/mle/lr1.png)
 
-As the data points are independent, we can write the joint probability distribution of $y, \theta, \sigma$ as,
+As the data points are independent, we can write the joint probability distribution of $$y, \theta, \sigma$$ as,
 
 $$
 p(y \vert X, \theta, \sigma) = \prod_{i=1}^{n} p(y_i \vert x_i, \theta, \sigma)\
@@ -96,7 +98,7 @@ TODO : complete this
 
 ![](/img/mle/lr2.png)
 
-Each point $y_i$ is gaussian distributed, the process of learning is the process of maximizing the product of the green bars.
+Each point $$y_i$$ is gaussian distributed, the process of learning is the process of maximizing the product of the green bars.
 
 Typically in MLE, we maximize the log of maximum likelihood. 
 
@@ -107,9 +109,9 @@ l(\theta) =
 $$
 TODO : complete this
 
-Observe that the first term does not depend on $\theta$. And the second term is a quadratic function of \theta, which can be drawn as a parabola.
+Observe that the first term does not depend on $\theta$. And the second term is a quadratic function of $$\theta$$, which can be drawn as a parabola.
 
-The maxima can be found by equating the derivative of $\l(\theta)$ to zero. 
+The maxima can be found by equating the derivative of $$\l(\theta)$$ to zero. 
 
 $$
 \frac{dl(\theta)}{d\theta} = 0
@@ -117,7 +119,7 @@ $$
 $$
 TODO : complete this
 
-Similarly, we can get the maximum likelihood of $\sigma$ (measure of uncertainty).
+Similarly, we can get the maximum likelihood of $$\sigma$$ (measure of uncertainty).
 
 $$
 \sigma^2 = frac{1}{n} 
