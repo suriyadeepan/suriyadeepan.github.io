@@ -19,7 +19,7 @@ MLE is a tool based on probability. There are a few concepts in probability, tha
 
 A probability distribution is a function that provides us the probabilities of all possible outcomes of a stochastic process. It can be thought of as a description of the stochastic process, in terms of the probabilities of events. The most common probability distribution is the Gaussian Distribution or the Normal Distribution. 
 
-The gaussian distribution is a means to measure the uncertainty of a variable that is continuous between $$ -\infty$$and $$ +\infty $$. The distribution is centered at mean, $$ \mu $. The width depends on the parameter$$\sigma $$, the standard deviation (variance -$$\sigma^{2} $). Naturally, area under the curve equals 1. 
+The gaussian distribution is a means to measure the uncertainty of a variable that is continuous between $$ -\infty $$ and $$ +\infty $$. The distribution is centered at mean, $$ \mu $$. The width depends on the parameter $$ \sigma $$, the standard deviation (variance -$$ \sigma^{2} $$). Naturally, area under the curve equals 1. 
 
 ![](/img/mle/normal1.png)
 
