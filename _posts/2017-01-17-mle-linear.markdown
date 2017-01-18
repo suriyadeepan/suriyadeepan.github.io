@@ -24,29 +24,32 @@ The gaussian distribution is a means to measure the uncertainty of a variable th
 ![](/img/mle/normal1.png)
 
 $$ 
-p(x) = \frac{1}{\sqrt{2\pi\sigma^{2}}}\\
+p(x) = \frac{1}{{\sigma \sqrt {2\pi } }}e^{{{ - \left( {x - \mu } \right)^2 } \mathord{\left/ {\vphantom {{ - \left( {x - \mu } \right)^2 } {2\sigma ^2 }}} \right. \kern-\nulldelimiterspace} {2\sigma ^2 }}}\\
 \int_{-\infty}^{+\infty} p(x) dx = 1
 $$
 
 ### Random Sampling
 
-We can sample from this distribution. It can be written as,$$x \sim \mathcal{N}(\mu, \sigma^{2}) $$. 'x' is a value sampled or generated or simulated from the guassian distribution. As we sample from this distribution, most samples will fall around the center, near the mean, because of higher probability density in the center.
+We can sample from this distribution. It can be written as, $$x \sim \mathcal{N}(\mu, \sigma^{2}) $$. 'x' is a value sampled or generated or simulated from the guassian distribution. As we sample from this distribution, most samples will fall around the center, near the mean, because of higher probability density in the center.
 
 ![](/img/mle/sampling1.png)
 
 
-### Bivariate Gaussian
+### Multivariate Gaussian
 
 ![](/img/mle/bivariate3d.png)
 
-The 2D gaussian distribution or bivariate distribution, consists of 2 random variables x1 and x2. It can have many different shapes. The shape depends on the covariance matrix, $$\Sigma$$. Notice the variation in the shape of the gaussian with $$\Sigma$$, in the figure below. The mean of x1 and x2 ($$\mu_1$$ and $$\mu_2$$) determine the center of the gaussian, while $$\Sigma$$ determines the shape.
+The 2D gaussian distribution or bivariate distribution, consists of 2 random variables x1 and x2. It can have many different shapes. The shape depends on the covariance matrix, $$\Sigma$$. The Multivariate Gaussian Distribution is a generalization of bivariate distribution, for 'n' dimensions.
+
+
+The figure below presents the top view of bivariate gaussian. The circles denote the data points sampled from the distribution. Notice the variation in the shape of the gaussian with $$\Sigma$$. The mean of x1 and x2 ($$\mu_1$$ and $$\mu_2$$) determine the center of the gaussian, while $$\Sigma$$ determines the shape.
 
 ![](/img/mle/bivariate-shapes.png)
 
 
 ### Multivariate Gaussian
 
-The Multivariate Gaussian Distribution is a generalization of bivariate distribution, for n dimensions. It is given by,
+The Multivariate Gaussian Distribution is a generalization of bivariate distribution, for 'n' dimensions. It is given by,
 
 TODO : insert multivariate gaussian expression
 
