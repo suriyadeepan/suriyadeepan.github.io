@@ -5,6 +5,9 @@ title: "2016"
 
 Feed-forward Neural Networks or Multilayer Perceptrons(MLP) are the most common kind of neural networks. An MLP is capable of great many things. With increase in depth, the MLP can learn features from high dimensional data. There are 2 functions performed by the network, and hence it can be perceived as having 2 forms. Firstly, an MLP learns representation of data. It learns to capture the features in the data, from lower level details like edges, corners, small shapes, to higher level details like objects, faces, etc,. Secondly, it learns a function that maps the input to the output. Neural networks are universal function approximators. They can, in theory, learn to implement any function. Based on the noisy distribution P(x,y) represented by the training examples, the network learns to capture the original data generating distribution, without overfitting on the noise.
 
+<iframe height='345' scrolling='no' title='first pen' src='//codepen.io/suriyadeepan/embed/vgxgMd/?height=345&theme-id=light&default-tab=result&embed-version=2' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='http://codepen.io/suriyadeepan/pen/vgxgMd/'>first pen</a> by Suriyadeepan Ramamoorthy (<a href='http://codepen.io/suriyadeepan'>@suriyadeepan</a>) on <a href='http://codepen.io'>CodePen</a>.
+</iframe>
+
 The linear model of neural network, works well with the existing techniques for learning. The cost function, stays convex and hence converges to a global minimum everytime. The serious limiation of such a network, is their inability to capture non-linearity in data. To be exact, the interaction between the components of x, cannot be taken into account, by a linear model. So, no matter how many layers are stacked together, the network, as a whole remains linear. Consider a network that learns the XOR function.
 
 TODO : write more about the inability of linear models
