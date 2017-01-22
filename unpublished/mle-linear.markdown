@@ -47,9 +47,9 @@ The process of sampling from a normal distribution is expressed as, $$x \sim \ma
 
 ### Multivariate Gaussian
 
-![](/img/mle/bivariate3d.png)
-
 The 2D gaussian distribution or bivariate distribution, consists of 2 random variables $$x_1$$ and $$x_2$$. It can have many different shapes. The shape depends on the covariance matrix, $$\Sigma$$. The Multivariate Gaussian Distribution is a generalization of bivariate distribution, for 'n' dimensions.
+
+![](/img/mle/bivariate3d.png)
 
 $$
 p(y) = \vert 2\pi\Sigma \vert^{-1/2}e^{-1/2(y-\mu)^T\Sigma^{-1}(y-\mu)}
