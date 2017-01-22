@@ -22,7 +22,7 @@ A probability distribution is a function that provides us the probabilities of a
 </iframe>
 
 
-That was fun to watch but how is this relevant to linear regression or machine learning? The data points in the training set, do not accurately represent the original data generating distribution/process. Hence we consider the process stochastic and build our model to accomodate a certain level of uncertainty. Every data point can be considered a random variable sampled from the data generating distribution which we assume to be gaussian.
+That was fun to watch but how is this relevant to linear regression or machine learning? The data points in the training set, do not accurately represent the original data generating distribution or process. Hence we consider the process stochastic and build our model to accomodate a certain level of uncertainty. Every data point can be considered a random variable sampled from the data generating distribution which we assume to be gaussian. By that logic, learning or training is basically recreating the original distribution, that generated the training data.
 
 
 The gaussian distribution is a means to measure the uncertainty of a variable that is continuous between $$ -\infty $$ and $$ +\infty $$. The distribution is centered at mean, $$ \mu $$. The width depends on the parameter $$ \sigma $$, the standard deviation (variance, $$ \sigma^{2} $$). Naturally, area under the curve equals 1.
