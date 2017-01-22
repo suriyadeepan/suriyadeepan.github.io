@@ -17,14 +17,6 @@ MLE is a tool based on probability. There are a few concepts in probability, tha
 
 A probability distribution is a function that provides us the probabilities of all possible outcomes of a stochastic process. It can be thought of as a description of the stochastic process, in terms of the probabilities of events. The most common probability distribution is the Gaussian Distribution or the Normal Distribution. 
 
-
-<iframe height='383' scrolling='no' title='gaussian - coin toss' src='//codepen.io/suriyadeepan/embed/jymmZw/?height=383&theme-id=light&default-tab=result&embed-version=2' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='http://codepen.io/suriyadeepan/pen/jymmZw/'>gaussian - coin toss</a> by Suriyadeepan Ramamoorthy (<a href='http://codepen.io/suriyadeepan'>@suriyadeepan</a>) on <a href='http://codepen.io'>CodePen</a>.
-</iframe>
-
-
-That was fun to watch but how is this relevant to linear regression or machine learning? The data points in the training set, do not accurately represent the original data generating distribution or process. Hence we consider the process stochastic and build our model to accomodate a certain level of uncertainty. Every data point can be considered a random variable sampled from the data generating distribution which we assume to be gaussian. By that logic, learning or training is basically recreating the original distribution, that generated the training data.
-
-
 The gaussian distribution is a means to measure the uncertainty of a variable that is continuous between $$ -\infty $$ and $$ +\infty $$. The distribution is centered at mean, $$ \mu $$. The width depends on the parameter $$ \sigma $$, the standard deviation (variance, $$ \sigma^{2} $$). Naturally, area under the curve equals 1.
 
 ![](/img/mle/normal1.png)
@@ -33,6 +25,18 @@ $$
 p(x) = \frac{1}{\sigma\sqrt{2\pi}}e^{-(x-\mu)^2/2\sigma^2}\\
 \int_{-\infty}^{+\infty} p(x) dx = 1\\
 $$
+
+Let us take the example of coin toss, to understand the normal distribution. We take an unbiased coin and flip it 'n' times. We calculate the probability of occurance of 1 to 'n' heads for each 'n' value. In the animation below, each frame is an experiment and the number on right top corner denotes the number of flip in that experiment. Each experiment involves flipping the coin 'n' times. We observer the probability of getting 1, 2,...'n' heads for each experiment, and plot it.
+
+
+<iframe height='383' scrolling='no' title='gaussian - coin toss' src='//codepen.io/suriyadeepan/embed/jymmZw/?height=383&theme-id=light&default-tab=result&embed-version=2' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='http://codepen.io/suriyadeepan/pen/jymmZw/'>gaussian - coin toss</a> by Suriyadeepan Ramamoorthy (<a href='http://codepen.io/suriyadeepan'>@suriyadeepan</a>) on <a href='http://codepen.io'>CodePen</a>.
+</iframe>
+
+As you can see, with increase in number of flips (experiments), the curve of probability distributions tends to assume the shape of a normal distribution, represented by the equation above. In each of the experiments, the peak probability happens at half the number of flips and the probability density tends to decay on both sides. This is basically due to the fact that, there are more possible ways for the results to be close to half heads and half tails.
+
+
+That was fun to watch but how is this relevant to linear regression or machine learning? The data points in the training set, do not accurately represent the original data generating distribution or process. Hence we consider the process stochastic and build our model to accomodate a certain level of uncertainty. Every data point can be considered a random variable sampled from the data generating distribution which we assume to be gaussian. By that logic, learning or training is basically recreating the original distribution, that generated the training data.
+
 
 
 ### Random Sampling
