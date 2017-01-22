@@ -1,9 +1,7 @@
 ---
-layout: post
+layout: page
 title: "The Principle of Maximum Likelihood"
 subtitle: "Linear Regression : The Probabilistic Perspective"
-tags: ["machine learning", "probability", "maximum likelihood", "theory", "mle"] 
-published: true
 ---
 
 TODO : Motivation
