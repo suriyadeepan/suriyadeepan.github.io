@@ -98,10 +98,9 @@ The individual probabilities in the equation above, are equal to the heights of 
 
 We are ready to apply MLE to linear regression, where we will find the best line that fits the data points. But first, let us make some assumptions.
 
-1. Each data point in the training set, is of form (x,y)
-2. Each label in the dataset, $$y_i$$ is drawn from a gaussian distribution, with mean $$x_{i}^{T}\theta$$ and variance $$\sigma^{2}$$
-3. The data points are all independent
+We assume that there exists an original distribution that generated, each label $$y_i$$. This distribution is parameterized by mean, $$\theta$$ and variance, $$\sigma^2$$.
 
+The expression below captures the relationship between $$y_i$$ and $$x_i$$, where each $$x_i$$ is a vector [$$x_1=1, x_2$$].
 
 $$ y_i = \mathcal{N}(x_i^{T}\theta, \sigma^{2}) = x_i^{T}\theta + \mathcal{N}(0, \sigma^{2}) $$
 
