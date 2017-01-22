@@ -96,11 +96,12 @@ The individual probabilities in the equation above, are equal to the heights of 
 
 ## Linear Regression
 
-Consider the case of Univariate Linear Regression. Let us make some assumptions. 
+We are ready to apply MLE to linear regression, where we will find the best line that fits the data points. But first, let us make some assumptions.
 
-1. Each example in the data is of form (**x**,y), where **x** is a vector and y is a scalar
+1. Each data point in the training set, is of form (x,y)
 2. Each label in the dataset, $$y_i$$ is drawn from a gaussian distribution, with mean $$x_{i}^{T}\theta$$ and variance $$\sigma^{2}$$
 3. The data points are all independent
+
 
 $$ y_i = \mathcal{N}(x_i^{T}\theta, \sigma^{2}) = x_i^{T}\theta + \mathcal{N}(0, \sigma^{2}) $$
 
