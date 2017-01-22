@@ -96,19 +96,37 @@ The individual probabilities in the equation above, are equal to the heights of 
 
 ## Linear Regression
 
-We are ready to apply MLE to linear regression, where we will find the best line that fits the data points. But first, let us make some assumptions. We assume that there exists an original distribution that generated each label, $$y_i$$. This distribution is parameterized by mean, $$\theta$$ and variance, $$\sigma^2$$.
+We are ready to apply MLE to linear regression, where we will find the best line that fits the data points. But first, let us make some assumptions. We assume each label, $$y_i$$, is gaussian distributed with mean, $$x_i^T\theta$$ and variance, $$\sigma^2$$, given by
 
-The expression below captures the relationship between $$y_i$$ and $$x_i$$, where each $$x_i$$ is a vector [$$x_i^1=1, x_i^2$$].
+$$ 
+y_i = \mathcal{N}(x_i^{T}\theta, \sigma^{2}) = x_i^{T}\theta + \mathcal{N}(0, \sigma^{2})\\
+prediction, \hat{y_i} = x_i^T\theta
+$$
+where each $$x_i$$ is a vector of form ($$x_i^1=1, x_i^2$$).
 
-$$ y_i = \mathcal{N}(x_i^{T}\theta, \sigma^{2}) = x_i^{T}\theta + \mathcal{N}(0, \sigma^{2}) $$
+The mean, $$x_i^{T}\theta$$ represents the best fit line. The data point will vary about the line, and the second term, captures this variance, $$\mathcal{N}(0, \sigma^{2})$$ (see figure below).
 
 ![](/img/mle/lr1.png)
-
 
 As the data points are independent, we can write the joint probability distribution of $$y, \theta, \sigma$$ as,
 
 $$
 p(y \vert X, \theta, \sigma) = \prod_{i=1}^{n} p(y_i \vert x_i, \theta, \sigma)\\
+= \prod_{i=1}^{n} (2\pi\sigma^2)^{-1/2} e^{-frac{1}{2\sigma^2}(y_i - x_i^T\theta)^2}
+
+rewriting in vector form,
+
+= (2\pi\sigma^2)^{-n/2} e^{-frac{1}{2\sigma^2}(y - X\theta)^T(y - X\theta)}
+
+Log likelihood, l(\theta) = -frac{n}{2}log(2\pi\sigma^2) -frac{1}{2\sigma^2}(Y-X\theta)^T(Y-X\theta)
+
+Equating first derivative to zero, we get,
+
+frac{dl(\theta)}{d\theta} = 0 = -frac{1}{2\sigma^2}(0 - 2X^TY + X^TX\theta)
+
+we get,
+
+\hat{\theta_{ML}} = (X^TX)^{-1}X^TY
 $$
 
 
