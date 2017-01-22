@@ -108,6 +108,16 @@ The mean, $$x_i^{T}\theta$$ represents the best fit line. The data point will va
 
 ![](/img/mle/lr1.png)
 
+
+
+### Learning
+
+
+Each point $$y_i$$ is gaussian distributed, the process of learning becomes the process of maximizing the product of the individual probabilities, which is equivalent to maximizing the log likelihood. We switch to log space, as it is more convenient and it removes the exponential in the gaussian distribution.
+
+![](/img/mle/lr2.png)
+
+
 As the data points are independent, we can write the joint probability distribution of $$y, \theta, \sigma$$ as,
 
 $$
@@ -129,43 +139,22 @@ $$
 Equating first derivative to zero, we get,
 
 $$
-frac{dl(\theta)}{d\theta} = 0 = -\frac{1}{2\sigma^2}(0 - 2X^TY + X^TX\theta)
+\frac{dl(\theta)}{d\theta} = 0 = -\frac{1}{2\sigma^2}(0 - 2X^TY + X^TX\theta)
 $$
 
 we get, $$\hat{\theta_{ML}} = (X^TX)^{-1}X^TY$$
 
-
-### Learning
-
-![](/img/mle/lr2.png)
-
-Each point $$y_i$$ is gaussian distributed, the process of learning is the process of maximizing the product of the green bars.
-
-Typically in MLE, we maximize the log of maximum likelihood. 
-
-Log Likelihood is given by,
-
-$$
-l(\theta) = 
-$$
-TODO : complete this
-
-Observe that the first term does not depend on $\theta$. And the second term is a quadratic function of $$\theta$$, which can be drawn as a parabola.
-
 The maxima can be found by equating the derivative of $$l(\theta)$$ to zero. 
 
-$$
-dl(\theta)/d\theta = 0\\
-\hat{\theta_{ML}} = (X^TX)^{-1}X^Ty\\
-$$
-TODO : complete this
 
 Similarly, we can get the maximum likelihood of $$\sigma$$ (measure of uncertainty).
 
 $$
-\sigma^2 = \frac{1}{n} 
+\hat{\sigma^2_{ML}} = \frac{1}{n} (Y-X\theta)^T(Y-X\theta) = \frac{1}{n}\sum_{i=1}{n}(y_i - x_i\theta)^2
 $$
-TODO : complete this
+
+This gives us the standard estimate of variance in the training data.
+
 
 ## Inference
 
