@@ -113,7 +113,7 @@ The mean, $$x_i^{T}\theta$$ represents the best fit line. The data point will va
 ### Learning
 
 
-Each point $$y_i$$ is gaussian distributed, the process of learning becomes the process of maximizing the product of the individual probabilities, which is equivalent to maximizing the log likelihood. We switch to log space, as it is more convenient and it removes the exponential in the gaussian distribution.
+If we assume that each point $$y_i$$ is gaussian distributed, the process of learning becomes the process of maximizing the product of the individual probabilities, which is equivalent to maximizing the log likelihood. We switch to log space, as it is more convenient and it removes the exponential in the gaussian distribution.
 
 ![](/img/mle/lr2.png)
 
@@ -137,7 +137,7 @@ $$
 l(\theta) = -\frac{n}{2}log(2\pi\sigma^2) -\frac{1}{2\sigma^2}(Y-X\theta)^T(Y-X\theta)
 $$
 
-Equating first derivative to zero, we get,
+The first term is a constant and the second term is a parabola, the peak (maxima) of which can be found by equating by equating the derivative of $$l(\theta)$$ to zero. Equating first derivative to zero, we get,
 
 $$
 \frac{dl(\theta)}{d\theta} = 0 = -\frac{1}{2\sigma^2}(0 - 2X^TY + X^TX\theta)
@@ -149,10 +149,9 @@ $$
 \hat{\theta_{ML}} = (X^TX)^{-1}X^TY
 $$
 
-The maxima can be found by equating the derivative of $$l(\theta)$$ to zero. 
+Finally, we reach the goal of finding the best model for linear regression. This equation is commonly known as the normal equation. The same equation can be derived using the least squares method (perhaps in another post).
 
-
-Similarly, we can get the maximum likelihood of $$\sigma$$ (measure of uncertainty).
+Similarly, we can get the maximum likelihood of variance, $$\sigma^2$$, by differentiating log likelihood with respect to $$\sigma$$ and equating to zero.
 
 $$
 \hat{\sigma}^2_{ML} = \frac{1}{n} (Y-X\theta)^T(Y-X\theta) = \frac{1}{n}\sum_{i=1}{n}(y_i - x_i\theta)^2
