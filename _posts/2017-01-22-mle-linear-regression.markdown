@@ -16,7 +16,7 @@ MLE is a tool based on probability. There are a few concepts in probability, tha
 
 ## Gaussian Distribution
 
-A probability distribution is a function that provides us the probabilities of all possible outcomes of a stochastic process. It can be thought of as a description of the stochastic process, in terms of the probabilities of events. The most common probability distribution is the Gaussian Distribution or the Normal Distribution.
+A probability distribution is a function that provides us the probabilities of all possible outcomes of a stochastic process. It can be thought of, as a description of the stochastic process, in terms of the probabilities of events. The most commonly occurring distribution is the Gaussian Distribution or the Normal Distribution.
 
 The gaussian distribution is a means to measure the uncertainty of a variable that is continuous between $$ -\infty $$ and $$ +\infty $$. The distribution is centered at mean, $$ \mu $$. The width depends on the parameter $$ \sigma $$, the standard deviation (variance, $$ \sigma^{2} $$). Naturally, area under the curve equals 1.
 
@@ -27,13 +27,13 @@ p(x) = \frac{1}{\sigma\sqrt{2\pi}}e^{-(x-\mu)^2/2\sigma^2}\\
 \int_{-\infty}^{+\infty} p(x) dx = 1\\
 $$
 
-Let us take the example of coin toss, to understand the normal distribution. We take an unbiased coin and flip it 'n' times. We calculate the probability of occurance of 1 to 'n' heads for each 'n' value. In the animation below, each frame is an experiment and the number on right top corner denotes the number of flip in that experiment. Each experiment involves flipping the coin 'n' times. We observe the probability of getting 1, 2,...'n' heads for each experiment, and plot it.
+Let us take the example of coin toss, to understand the normal distribution. We take an unbiased coin and flip it 'n' times. We calculate the probability of occurance of 1 to 'n' heads for each 'n' value. In the animation below, each frame is an experiment and the number on right top corner denotes the number of flips in that experiment. Each experiment involves flipping the coin 'n' times. We observe the probability of getting 1, 2,...'n' heads for each experiment, and plot it.
 
 
 <iframe height='383' scrolling='no' title='gaussian - coin toss' src='//codepen.io/suriyadeepan/embed/jymmZw/?height=383&theme-id=light&default-tab=result&embed-version=2' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='http://codepen.io/suriyadeepan/pen/jymmZw/'>gaussian - coin toss</a> by Suriyadeepan Ramamoorthy (<a href='http://codepen.io/suriyadeepan'>@suriyadeepan</a>) on <a href='http://codepen.io'>CodePen</a>.
 </iframe>
 
-As you can see, with increase in number of flips (experiments), the curve of probability distribution tends to assume the shape of a normal distribution, represented by the equation above. In each of the experiments, the peak probability happens at half the number of flips and the probability density tends to decay on both sides. This is basically due to the fact that, there are more possible ways for the results to be close to half heads and half tails, compared to number of heads dominating the number of tail or vice versa.
+As you can see, with increase in number of flips (experiments), the curve of probability distribution tends to assume the shape of a normal distribution, represented by the equation above. In each of the experiments, the peak probability happens at half the number of heads and the probability density tends to decay on both sides. This is basically due to the fact that, there are more possible ways for the results to be close to half heads and half tails, compared to number of heads dominating the number of tail or vice versa.
 
 
 That was fun to watch but how is this relevant to linear regression or machine learning? The data points in the training set, do not accurately represent the original data generating distribution or process. Hence we consider the process stochastic and build our model to accomodate a certain level of uncertainty. Every data point can be considered a random variable sampled from the data generating distribution which we assume to be gaussian. By that logic, learning or training is basically recreating the original distribution, that generated the training data.
@@ -79,20 +79,19 @@ $$\theta$$, the mean, shifts the center of the standard normal distribution ($$\
 
 The likelihood of data ($$y_1, y_2, y_3$$) having been drawn from $$\mathcal{N}(\theta,1)$$, can be defined as,
 
-$$P(y1,y2,y3 \vert \theta) = P(y1 \vert \theta) P(y1 \vert \theta) P(y1 \vert \theta) $$
+$$P(y1,y2,y3 \vert \theta) = P(y1 \vert \theta) P(y2 \vert \theta) P(y3 \vert \theta) $$
 
 as $$y_1, y_2, y_3$$ are independent.
 
 Now, we have two normal distributions defined by $$\theta$$ = 1 and $$\theta$$ = 2.5. Let us draw both and plot the data points. In the figure below, notice the dotted lines that connect the bell curve to the data points. Consider the point $$y_2=0.5$$ in the first distribution($$\mathcal{N}(\mu=1, \sigma^2=1)$$). The length of the dotted line gives the probability of the $$y_2=0.5$$ being drawn from $$\mathcal{N}(\mu=1, \sigma^2=1)$$.
 
-The likelihood of data ($$y_1, y_2, y_3$$) having been drawn from $$\mathcal{N}(\theta=1,1)$$, is given by,
-
-$$P(y1,y2,y3 \vert \theta=1) = P(y1 \vert \theta=1) P(y1 \vert \theta=1) P(y1 \vert \theta=1) $$
-
-The individual probabilities in the equation above, are equal to the heights of corresponding dotted lines in the figure. We see that the likelihood, product of probabilities of data given model, is basically the product of lengths of dotted lines. It is obvious that the likelihood of model $$\theta = 1$$ is higher. We choose the model ($$ \theta $$), that maximizes the likelihood.
-
 ![](/img/mle/toy-eg.png)
 
+The likelihood of data ($$y_1, y_2, y_3$$) having been drawn from $$\mathcal{N}(\mu=1,\sigma^2=1)$$, is given by,
+
+$$P(y1,y2,y3 \vert \theta=1) = P(y1 \vert \theta=1) P(y2 \vert \theta=1) P(y3 \vert \theta=1) $$
+
+The individual probabilities in the equation above, are equal to the heights of corresponding dotted lines in the figure. We see that the likelihood, given by the product of individual probabilities of data points given model, is basically the product of lengths of dotted lines. It is obvious that the likelihood of model $$\theta = 1$$ is higher. We choose the model ($$ \theta = 1$$), that maximizes the likelihood.
 
 
 ## Linear Regression
@@ -106,7 +105,7 @@ $$
 
 where each $$x_i$$ is a vector of form ($$x_i^1=1, x_i^2$$).
 
-The mean, $$x_i^{T}\theta$$ represents the best fit line. The data point will vary about the line, and the second term, captures this variance, $$\mathcal{N}(0, \sigma^{2})$$ (see figure below).
+The mean, $$x_i^{T}\theta$$ represents the best fit line. The data points will vary about the line, and the second term, captures this variance, $$\mathcal{N}(0, \sigma^{2})$$ (see figure below).
 
 ![](/img/mle/lr1.png)
 
@@ -151,7 +150,7 @@ $$
 \hat{\theta_{ML}} = (X^TX)^{-1}X^TY
 $$
 
-Finally, we reach the goal of finding the best model for linear regression. This equation is commonly known as the normal equation. The same equation can be derived using the least squares method (perhaps in another post).
+Finally, we reach our goal of finding the best model for linear regression. This equation is commonly known as the normal equation. The same equation can be derived using the least squares method (perhaps in another post).
 
 Similarly, we can get the maximum likelihood of variance, $$\sigma^2$$, by differentiating log likelihood with respect to $$\sigma$$ and equating to zero.
 
