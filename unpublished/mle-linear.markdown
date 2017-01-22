@@ -32,7 +32,7 @@ Let us take the example of coin toss, to understand the normal distribution. We 
 <iframe height='383' scrolling='no' title='gaussian - coin toss' src='//codepen.io/suriyadeepan/embed/jymmZw/?height=383&theme-id=light&default-tab=result&embed-version=2' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='http://codepen.io/suriyadeepan/pen/jymmZw/'>gaussian - coin toss</a> by Suriyadeepan Ramamoorthy (<a href='http://codepen.io/suriyadeepan'>@suriyadeepan</a>) on <a href='http://codepen.io'>CodePen</a>.
 </iframe>
 
-As you can see, with increase in number of flips (experiments), the curve of probability distributions tends to assume the shape of a normal distribution, represented by the equation above. In each of the experiments, the peak probability happens at half the number of flips and the probability density tends to decay on both sides. This is basically due to the fact that, there are more possible ways for the results to be close to half heads and half tails.
+As you can see, with increase in number of flips (experiments), the curve of probability distribution tends to assume the shape of a normal distribution, represented by the equation above. In each of the experiments, the peak probability happens at half the number of flips and the probability density tends to decay on both sides. This is basically due to the fact that, there are more possible ways for the results to be close to half heads and half tails, compared to number of heads dominating the number of tail or vice versa.
 
 
 That was fun to watch but how is this relevant to linear regression or machine learning? The data points in the training set, do not accurately represent the original data generating distribution or process. Hence we consider the process stochastic and build our model to accomodate a certain level of uncertainty. Every data point can be considered a random variable sampled from the data generating distribution which we assume to be gaussian. By that logic, learning or training is basically recreating the original distribution, that generated the training data.
@@ -41,7 +41,7 @@ That was fun to watch but how is this relevant to linear regression or machine l
 
 ### Random Sampling
 
-We can sample from this distribution. It can be written as, $$x \sim \mathcal{N}(\mu, \sigma^{2}) $$. 'x' is a value sampled or generated or simulated from the guassian distribution. As we sample from this distribution, most samples will fall around the center, near the mean, because of higher probability density in the center.
+We can sample from from the normal distribution. It can be expressed as, $$x \sim \mathcal{N}(\mu, \sigma^{2}) $$. 'x' is a random variable sampled or generated or simulated from the guassian distribution. As we sample from this distribution, most samples will fall around the center, near the mean, because of higher probability density in the center.
 
 ![](/img/mle/sampling1.png)
 
@@ -50,7 +50,7 @@ We can sample from this distribution. It can be written as, $$x \sim \mathcal{N}
 
 ![](/img/mle/bivariate3d.png)
 
-The 2D gaussian distribution or bivariate distribution, consists of 2 random variables x1 and x2. It can have many different shapes. The shape depends on the covariance matrix, $$\Sigma$$. The Multivariate Gaussian Distribution is a generalization of bivariate distribution, for 'n' dimensions.
+The 2D gaussian distribution or bivariate distribution, consists of 2 random variables $$x_1$$ and $$x_2$$. It can have many different shapes. The shape depends on the covariance matrix, $$\Sigma$$. The Multivariate Gaussian Distribution is a generalization of bivariate distribution, for 'n' dimensions.
 
 $$
 p(y) = \vert 2\pi\Sigma \vert^{-1/2}e^{-1/2(y-\mu)^T\Sigma^{-1}(y-\mu)}
@@ -60,7 +60,7 @@ $$
 In the above expression, **y** and **$$ \mu $$** are vectors of 'n' dimensions, and $$ \Sigma $$ is a matrix of shape 'nxn'.
 
 
-The figure below presents the top view of bivariate gaussian. The circles denote the data points sampled from the distribution. Notice the variation in the shape of the gaussian with $$\Sigma$$. The mean of x1 and x2 ($$\mu_1$$ and $$\mu_2$$) determine the center of the gaussian, while $$\Sigma$$ determines the shape.
+The figure below presents the top view of bivariate gaussian. The smaller circles denote the data points sampled from the distribution. Notice the variation in the shape of the gaussian with $$\Sigma$$. The mean, given by $$x_1$$ and $$x_2$$ ($$\mu_1$$ and $$\mu_2$$) determine the center of the gaussian, while $$\Sigma$$ determines the shape.
 
 ![](/img/mle/bivariate-shapes.png)
 
@@ -68,21 +68,30 @@ The figure below presents the top view of bivariate gaussian. The circles denote
 
 ## Maximum Likelihood
 
-I am borrowing this amazing toy example from Nando de Fretais's [lecture](https://www.youtube.com/watch?v=voN8omBe2r4), to illustrate MLE. Consider 3 data points, y1=1, y2=0.5, y3=1.5, which are independent and drawn from a guassian with unknown mean $$\theta$$ and variance 1. Let's say we have two choices for $$\theta$$ : {1, 2.5}. Which would you choose? Which model ($$\theta$$) would explain the data better?
+I am borrowing this amazing toy example from Nando de Fretais's [lecture](https://www.youtube.com/watch?v=voN8omBe2r4), to illustrate the principle of maximum likelihood. Consider 3 data points, $$y_1=1, y_2=0.5, y_3=1.5$$, which are independent and drawn from a guassian with unknown mean $$\theta$$ and variance 1. Let's say we have two choices for $$\theta$$ : {1, 2.5}. Which would you choose? Which model ($$\theta$$) would explain the data better?
 
 In general, any data point drawn from a gaussian with mean $$\theta$$ and and variance 1, can be written as,
 
 $$ y_i \sim \mathcal{N}(\theta, 1) = \theta + \mathcal{N}(0,1) $$
 
-The likelihood of data (y1,y2,y3) having been drawn from $$\mathcal{N}(\theta,1)$$, can be defined as,
+$$\theta$$, the mean, shifts the center of the standard normal distribution ($$\mu=0 and \sigma^2=1$$).
+
+The likelihood of data ($$y_1, y_2, y_3$$) having been drawn from $$\mathcal{N}(\theta,1)$$, can be defined as,
 
 $$P(y1,y2,y3 \vert \theta) = P(y1 \vert \theta) P(y1 \vert \theta) P(y1 \vert \theta) $$
 
-as y1, y2, y3 are independent.
+as $$y_1, y_2, y_3$$ are independent.
+
+Now, we have two normal distributions defined by $$\theta$$ = 1 and $$\theta$$ = 2.5. Let us draw both and plot the data points. In the figure below, notice the dotted lines that connect the bell curve to the data points. Consider the point $$y_2=0.5$$ in the first distribution($$\mathcal{N}(\theta=1, 1)$$). The length of the dotted line gives the probability of the $$y_2=0.5$$ being drawn from $$\mathcal{N}(\theta=1, 1)$$.
+
+The likelihood of data ($$y_1, y_2, y_3$$) having been drawn from $$\mathcal{N}(\theta=1,1)$$, is given by,
+
+$$P(y1,y2,y3 \vert \theta=1) = P(y1 \vert \theta=1) P(y1 \vert \theta=1) P(y1 \vert \theta=1) $$
+
+The individual probabilities in the equation above, are equal to the heights of corresponding dotted lines in the figure. We see that the likelihood, product of probabilities of data given model, is basically the product of lengths of dotted lines. It is obvious that the likelihood of model $$\theta = 1$$ is higher. We choose the model ($$ \theta $$), that maximizes the likelihood.
 
 ![](/img/mle/toy-eg.png)
 
-From the figure, we see that the likelihood, product of probabilities of data given model, is basically the product of heights of dotted lines. It is obvious that the likelihood of model $$\theta = 1$$ is higher. We choose the model ($$ \theta $$), that maximizes the likelihood.
 
 
 ## Linear Regression
