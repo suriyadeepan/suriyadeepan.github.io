@@ -112,20 +112,28 @@ As the data points are independent, we can write the joint probability distribut
 
 $$
 p(y \vert X, \theta, \sigma) = \prod_{i=1}^{n} p(y_i \vert x_i, \theta, \sigma)\\
-= \prod_{i=1}^{n} (2\pi\sigma^2)^{-1/2} e^{-frac{1}{2\sigma^2}(y_i - x_i^T\theta)^2}\\
+= \prod_{i=1}^{n} (2\pi\sigma^2)^{-1/2} e^{-\frac{1}{2\sigma^2}(y_i - x_i^T\theta)^2}\\
+$$
 
-rewriting in vector form,\\
+rewriting in vector form,
 
-= (2\pi\sigma^2)^{-n/2} e^{-frac{1}{2\sigma^2}(y - X\theta)^T(y - X\theta)}\\
+$$
+= (2\pi\sigma^2)^{-n/2} e^{-\frac{1}{2\sigma^2}(y - X\theta)^T(y - X\theta)}\\
+$$
 
-Log likelihood, l(\theta) = -frac{n}{2}log(2\pi\sigma^2) -frac{1}{2\sigma^2}(Y-X\theta)^T(Y-X\theta)\\
+$$
+Log likelihood, l(\theta) = -\frac{n}{2}log(2\pi\sigma^2) -\frac{1}{2\sigma^2}(Y-X\theta)^T(Y-X\theta)\\
+$$
 
-Equating first derivative to zero, we get,\\
+Equating first derivative to zero, we get,
 
-frac{dl(\theta)}{d\theta} = 0 = -frac{1}{2\sigma^2}(0 - 2X^TY + X^TX\theta)\\
+$$
+frac{dl(\theta)}{d\theta} = 0 = -\frac{1}{2\sigma^2}(0 - 2X^TY + X^TX\theta)\\
+$$
 
-we get,\\
+we get,
 
+$$
 \hat{\theta_{ML}} = (X^TX)^{-1}X^TY\\
 $$
 
