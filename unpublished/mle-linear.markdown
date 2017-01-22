@@ -132,8 +132,9 @@ p(y \vert X, \theta, \sigma) = (2\pi\sigma^2)^{-n/2} e^{-\frac{1}{2\sigma^2}(y -
 $$
 
 Log likelihood,
+
 $$
-\\l(\theta) = -\frac{n}{2}log(2\pi\sigma^2) -\frac{1}{2\sigma^2}(Y-X\theta)^T(Y-X\theta)
+l(\theta) = -\frac{n}{2}log(2\pi\sigma^2) -\frac{1}{2\sigma^2}(Y-X\theta)^T(Y-X\theta)
 $$
 
 Equating first derivative to zero, we get,
@@ -143,9 +144,10 @@ $$
 $$
 
 we get,
- $$
- \\\hat{\theta_{ML}} = (X^TX)^{-1}X^TY
- $$
+
+$$
+\hat{\theta_{ML}} = (X^TX)^{-1}X^TY
+$$
 
 The maxima can be found by equating the derivative of $$l(\theta)$$ to zero. 
 
