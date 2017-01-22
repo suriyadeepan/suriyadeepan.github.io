@@ -96,15 +96,14 @@ The individual probabilities in the equation above, are equal to the heights of 
 
 ## Linear Regression
 
-We are ready to apply MLE to linear regression, where we will find the best line that fits the data points. But first, let us make some assumptions.
+We are ready to apply MLE to linear regression, where we will find the best line that fits the data points. But first, let us make some assumptions. We assume that there exists an original distribution that generated each label, $$y_i$$. This distribution is parameterized by mean, $$\theta$$ and variance, $$\sigma^2$$.
 
-We assume that there exists an original distribution that generated, each label $$y_i$$. This distribution is parameterized by mean, $$\theta$$ and variance, $$\sigma^2$$.
-
-The expression below captures the relationship between $$y_i$$ and $$x_i$$, where each $$x_i$$ is a vector [$$x_1=1, x_2$$].
+The expression below captures the relationship between $$y_i$$ and $$x_i$$, where each $$x_i$$ is a vector [$$x_i^1=1, x_i^2$$].
 
 $$ y_i = \mathcal{N}(x_i^{T}\theta, \sigma^{2}) = x_i^{T}\theta + \mathcal{N}(0, \sigma^{2}) $$
 
 ![](/img/mle/lr1.png)
+
 
 As the data points are independent, we can write the joint probability distribution of $$y, \theta, \sigma$$ as,
 
@@ -112,7 +111,8 @@ $$
 p(y \vert X, \theta, \sigma) = \prod_{i=1}^{n} p(y_i \vert x_i, \theta, \sigma)\\
 $$
 
-TODO : complete this
+
+### Learning
 
 ![](/img/mle/lr2.png)
 
