@@ -112,13 +112,13 @@ As the data points are independent, we can write the joint probability distribut
 
 $$
 p(y \vert X, \theta, \sigma) = \prod_{i=1}^{n} p(y_i \vert x_i, \theta, \sigma)\\
-= \prod_{i=1}^{n} (2\pi\sigma^2)^{-1/2} e^{-\frac{1}{2\sigma^2}(y_i - x_i^T\theta)^2}
+p(y \vert X, \theta, \sigma) = \prod_{i=1}^{n} (2\pi\sigma^2)^{-1/2} e^{-\frac{1}{2\sigma^2}(y_i - x_i^T\theta)^2}
 $$
 
 rewriting in vector form,
 
 $$
-= (2\pi\sigma^2)^{-n/2} e^{-\frac{1}{2\sigma^2}(y - X\theta)^T(y - X\theta)}
+p(y \vert X, \theta, \sigma) = (2\pi\sigma^2)^{-n/2} e^{-\frac{1}{2\sigma^2}(y - X\theta)^T(y - X\theta)}
 $$
 
 Log likelihood,
