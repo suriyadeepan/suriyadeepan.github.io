@@ -133,7 +133,7 @@ $$
 
 Log likelihood,
 $$
- l(\theta) = -\frac{n}{2}log(2\pi\sigma^2) -\frac{1}{2\sigma^2}(Y-X\theta)^T(Y-X\theta)
+\\l(\theta) = -\frac{n}{2}log(2\pi\sigma^2) -\frac{1}{2\sigma^2}(Y-X\theta)^T(Y-X\theta)
 $$
 
 Equating first derivative to zero, we get,
@@ -142,7 +142,10 @@ $$
 \frac{dl(\theta)}{d\theta} = 0 = -\frac{1}{2\sigma^2}(0 - 2X^TY + X^TX\theta)
 $$
 
-we get, $$\hat{\theta_{ML}} = (X^TX)^{-1}X^TY$$
+we get,
+ $$
+ \\\hat{\theta_{ML}} = (X^TX)^{-1}X^TY
+ $$
 
 The maxima can be found by equating the derivative of $$l(\theta)$$ to zero. 
 
@@ -150,7 +153,7 @@ The maxima can be found by equating the derivative of $$l(\theta)$$ to zero.
 Similarly, we can get the maximum likelihood of $$\sigma$$ (measure of uncertainty).
 
 $$
-\hat{\sigma^2_{ML}} = \frac{1}{n} (Y-X\theta)^T(Y-X\theta) = \frac{1}{n}\sum_{i=1}{n}(y_i - x_i\theta)^2
+\hat{\sigma}^2_{ML} = \frac{1}{n} (Y-X\theta)^T(Y-X\theta) = \frac{1}{n}\sum_{i=1}{n}(y_i - x_i\theta)^2
 $$
 
 This gives us the standard estimate of variance in the training data.
