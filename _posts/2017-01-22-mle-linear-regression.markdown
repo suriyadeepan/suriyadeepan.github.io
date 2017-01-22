@@ -138,7 +138,7 @@ $$
 l(\theta) = -\frac{n}{2}log(2\pi\sigma^2) -\frac{1}{2\sigma^2}(Y-X\theta)^T(Y-X\theta)
 $$
 
-The first term is a constant and the second term is a parabola, the peak (maxima) of which can be found by equating by equating the derivative of $$l(\theta)$$ to zero. Equating first derivative to zero, we get,
+The first term is a constant and the second term is a parabola, the peak (maxima) of which can be found by equating the derivative of $$l(\theta)$$ to zero. Equating first derivative to zero, we get,
 
 $$
 \frac{dl(\theta)}{d\theta} = 0 = -\frac{1}{2\sigma^2}(0 - 2X^TY + X^TX\theta)
