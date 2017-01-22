@@ -4,9 +4,8 @@ title: "The Principle of Maximum Likelihood"
 subtitle: "Linear Regression : The Probabilistic Perspective"
 ---
 
-> *I wrote this article a week ago and kept it as a draft till today. It felt like I've presented a series of unrelated concepts without binding them together. I am publishing it anyway, as a work in progress. I would really appreciate your help in completing this.*
 
-We can go a long way in Machine Learning without having to deal with the scary probabilistic expressions. In order to be able to read the bleeding edge research as soon as it is published, not from a blog months later, we need to able to speak the language of probability. Probability is a great way to express the relationship between the data and the model, concisely. We are familiar with how Linear Regression works from Andrew Ng's [course](#). We know the loss function just tries to minimize the quadratic distance between data points and the model (line). In this post, we will revisit Linear Regression from a probabilistic perspective, using a method known as the Maximum Likelihood estimation. We could apply this knowledge to any Neural Network based architecture.
+We can go a long way in Machine Learning without having to deal with the scary probabilistic expressions. In order to be able to read the bleeding edge research as soon as it is published, not from a blog months later, we need to able to speak the language of probability. Probability is a great way to express the relationship between the data and the model, concisely. We are familiar with how Linear Regression works from Andrew Ng's [course](https://www.coursera.org/learn/machine-learning). We know the loss function just tries to minimize the quadratic distance between data points and the model (line). In this post, we will revisit Linear Regression from a probabilistic perspective, using a method known as the Maximum Likelihood estimation. We could apply this knowledge to any Neural Network based architecture.
 
 The principle of Maximum Likelihood is at the heart of Machine Learning. It guides us to find the best model in a search space of all models. In simple terms, Maximum Likelihood Estimation or MLE lets us choose a model (parameters) that explains the data (training set) better than all other models. For any given neural network architecture, the objective function can be derived based on the principle of Maximum Likelihood.
 
@@ -163,6 +162,26 @@ This gives us the standard estimate of variance in the training data.
 
 ## Inference
 
-So, we have learned the parameters of our model, $$\hat{\theta}_{ML} and \hat{\sigma}^2_{ML}$$. Based on 
+So, we have learned the parameters of our model, $$\hat{\theta}_{ML}$$ and $$\hat{\sigma}^2_{ML}$$. Based on these learned parameters, we make inferences for new unseen data. For a new data point $$$x_j$$, our best estimate based is given by,
+
+$$ estimate, \hat{y_j} = x_j^T\hat{\theta}_{ML} $$
+
+The degree of uncertainty in our estimate, is given by the variance, $$\hat{\sigma}^2_{ML}$$.
 
 ![](/img/mle/inference.png)
+
+
+
+## Reference
+
+1. [Andrew Ng's Machine Learning course](https://www.coursera.org/learn/machine-learning)
+2. [Nando de Freitas's Machine Learning course](https://www.youtube.com/playlist?list=PLE6Wd9FR--EdyJ5lbFl8UuGjecvVw66F6)
+3. [Maximum Likelihood and Linear Regression](https://www.youtube.com/watch?v=voN8omBe2r4&index=3&list=PLE6Wd9FR--EdyJ5lbFl8UuGjecvVw66F6)
+4. [Coin Toss Experiment](https://www.fourmilab.ch/rpkp/experiments/statistics.html)
+5. [Bivariate Gaussian in matplotlib](http://mpastell.com/2013/05/02/matplotlib_colormaps/)
+
+
+
+I hope to do a follow up post very soon, applying maximum likelihood to more complex neural networks, and also introduce the concept of Bayesian Learning and compare it with the Frequentist approach.
+
+Feel free to drop a comment.
