@@ -100,8 +100,9 @@ We are ready to apply MLE to linear regression, where we will find the best line
 
 $$ 
 y_i = \mathcal{N}(x_i^{T}\theta, \sigma^{2}) = x_i^{T}\theta + \mathcal{N}(0, \sigma^{2})\\
-prediction, \hat{y_i} = x_i^T\theta
+prediction, \hat{y_i} = x_i^T\theta\\
 $$
+
 where each $$x_i$$ is a vector of form ($$x_i^1=1, x_i^2$$).
 
 The mean, $$x_i^{T}\theta$$ represents the best fit line. The data point will vary about the line, and the second term, captures this variance, $$\mathcal{N}(0, \sigma^{2})$$ (see figure below).
@@ -161,5 +162,7 @@ This gives us the standard estimate of variance in the training data.
 
 
 ## Inference
+
+So, we have learned the parameters of our model, $$\hat{\theta}_{ML} and \hat{\sigma}^2_{ML}$$. Based on 
 
 ![](/img/mle/inference.png)
