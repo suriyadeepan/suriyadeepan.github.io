@@ -13,6 +13,11 @@ In this article, we will understand and implement the 3 most famous flavors of R
 
 ## Vanilla RNN
 
-state at 't', $$s_t = Ux_t + Ws_{t-1}$$
+At each time step, the current state is the sum of linear transformations of current input and the previous state, parameterized by weight matrices **U** and **W** respectively, followed by a non-linearity (hyperbolic tangent). The output at 't', is a similar linear transformation of current state $$s_t$$, followed by a softmax, which converts logits into normalized class probabilities. The class prediction at each time step, $$\hat{y_t}$$, assuming that we are dealing with a classification problem (sequence labeling), is calculated with the argmax function operates over $$o_t$$.
 
+At time step 't',
+
+state, $$s_t = tanh(Ux_t + Ws_{t-1})$$
+ouput, $$o_t = softmax(Vs_t)$$
+estimated class, $$\hat{y_t} = argmax(o_t)$$
 
