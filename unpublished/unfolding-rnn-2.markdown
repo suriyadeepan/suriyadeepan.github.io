@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "Unfolding RNNs 2"
+title: "Unfolding RNN 2"
 subtitle: "Vanilla/GRU/LSTM RNNs from scratch, using Tensorflow"
 ---
 
