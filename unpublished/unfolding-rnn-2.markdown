@@ -18,6 +18,7 @@ At each time step, the current state is the sum of linear transformations of cur
 At time step 't',
 
 state, $$s_t = tanh(Ux_t + Ws_{t-1})$$
-ouput, $$o_t = softmax(Vs_t)$$
-estimated class, $$\hat{y_t} = argmax(o_t)$$
 
+ouput, $$o_t = softmax(Vs_t)$$
+
+estimated class, $$\hat{y_t} = argmax(o_t)$$
