@@ -17,11 +17,11 @@ At each time step, the current state is the sum of linear transformations of cur
 
 At time step 't',
 
-state, $$s_t = tanh(Ux_t + Ws_{t-1})$$
-
-ouput, $$o_t = softmax(Vs_t)$$
-
-estimated class, $$\hat{y_t} = argmax(o_t)$$
+$$
+s_t = tanh(Ux_t + Ws_{t-1})\\
+o_t = softmax(Vs_t)\\
+\hat{y_t} = argmax(o_t)\\
+$$
 
 
 ## Recurrence in Tensorflow
@@ -37,4 +37,4 @@ def fn(st_1, xt):
     return st
 ```
 
-The usage is fairly simple. *fn* is the recurrent function that runs 'T' times. *elems* is the list of elements of length 'T'- the input sequence, over which *fn* is applied. During each iteration, the state of the system is calculated as a function of current input, *xt* and the previous state, *st_1*. This state, *st* is passed to the next recurrent operation at 't+1'. *initializer* is a parameter that sets the initial state of the system. The states and the inputs discussed here, are basically just vectors of fixed length.
+The usage is fairly simple. **fn** is the recurrent function that runs 'T' times. **elems** is the list of elements of length 'T'- the input sequence, over which *fn* is applied. During each iteration, the state of the system is calculated as a function of current input, *xt* and the previous state, *st_1*. This state, *st* is passed to the next recurrent operation at 't+1'. **initializer** is a parameter that sets the initial state of the system. The states and the inputs discussed here, are basically just vectors of fixed length.
