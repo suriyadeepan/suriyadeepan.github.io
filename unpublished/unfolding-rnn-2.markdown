@@ -42,6 +42,7 @@ The usage is fairly simple. *fn* is the recurrent function that runs 'T' times. 
 Before jumping into the code, let me introduce the task of language modeling (RNNLM). The objective is capture the statistical relationship among words in a corpus, by learning to predict the next word, given a word. Based on which we will generate text one word at a time. I've used the term "word" here, but we will work with characters, simply because it is easier to work with data that way. The vocabulary will be fixed and small, and we don't have to deal with rare words. The table below contains input and output sequences from the dataset.
 
 *TODO*
+
 1. insert table here
 2. symbol to index, vocabulary
 3. intro to embedding
@@ -79,7 +80,7 @@ states = tf.scan(step,
 
 The scan function builds a loop that dynamically unfolds, to recursively apply the function *step*,  over **rnn_inputs**. The dimensions of tensor *rnn_inputs* are shuffled, to expose the sequence length dimension as the 0th dimension, to enable iteration over the elements of sequence. The tensor of form \[*batch_size, seqlen, state_size*\], is transposed to \[*seqlen, batch_size, state_size*\]. **states** returned by *scan* is an array of states from all the time steps, using which we will predict the output probabilities at each step.
 
-## Recurrence
+### Recurrence
 
 {% highlight python %}
 xav_init = tf.contrib.layers.xavier_initializer
@@ -91,7 +92,7 @@ b = tf.get_variable('b', shape=[state_size],
      initializer=tf.constant_initializer(0.))
 {% endhighlight %}
 
-We define the weight matrices **W**, **U** and **b**, which parameterize the affine transformation given by $$Ux_t + Ws_{t-1}$$.
+We define the weight matrices **W**, **U** and **b**, which parameterize the affine transformation given by $$Ux_t + Ws_{t-1} + b$$.
 
 TODO : insert image that illustrates state transformation
 
@@ -104,7 +105,7 @@ def step(hprev, x):
 
 At time step 't', state given by $$s_t = tanh(Ux_t + Ws_{t-1})$$, is calculated and passed to the next step.
 
-## Output
+### Output
 
 {% highlight python %}
 V = tf.get_variable('V', shape=[state_size, num_classes], 
@@ -118,7 +119,7 @@ predictions = tf.nn.softmax(logits)
 
 The parameters of output transformation, **V** and **bo** are created. The **states** variable returned by *scan*, is of shape \[*seqlen, batch_size, state_size*\], which is squeezed into \[*seqlen\*batch_size, state_size*\], suitable for the matrix multiplication operation to follow. The reshaped states tensor is transformed into an array of logits, through matrix multiplication with *V*, given by, $$o_t = Vs_t + bo$$. The logits are transformed into class probabilities using the softmax function.
 
-## Optimization
+### Optimization
 
 {% highlight python %}
 losses = tf.nn.sparse_softmax_cross_entropy_with_logits(logits, ys_)
@@ -127,3 +128,70 @@ train_op = tf.train.AdamOptimizer(learning_rate=0.1).minimize(loss)
 {% endhighlight %}
 
 Cross entropy losses are calculated for each time step. The overall sequence loss is given by the mean of losses at each step. Note that [*sparse_softmax_cross_entropy_with_logits*](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/g3doc/api_docs/python/functions_and_classes/shard4/tf.nn.sparse_softmax_cross_entropy_with_logits.md) function requires logits as inputs instead of probabilities.
+
+### Training
+
+{% highlight python %}
+with tf.Session() as sess:
+    sess.run(tf.global_variables_initializer())
+    train_loss = 0
+    for i in range(epochs):
+        for j in range(100):
+            xs, ys = train_set.__next__()
+            _, train_loss_ = sess.run([train_op, loss], feed_dict = {
+                    xs_ : xs,
+                    ys_ : ys.reshape([batch_size*seqlen]),
+                    init_state : np.zeros([batch_size, state_size])
+                })
+            train_loss += train_loss_
+        print('[{}] loss : {}'.format(i,train_loss/100))
+        train_loss = 0
+{% endhighlight %}
+
+There isn't much to explain in the training code. We create a tensorflow session and initialize the shared variables. **train_op** does forward and backward propagation. Data is fed to *train_op* in small batches. The initial state of zeros, is explicitly fed as input to the *scan* function in the graph. 
+
+
+### Checkpoint
+
+{% highlight python %}
+saver = tf.train.Saver()
+saver.save(sess, ckpt_path + 'vanilla1.ckpt', global_step=i)
+{% endhighlight %}
+
+The session is saved to disk at the end of training.
+
+### Text Generation
+
+{% highlight python %}
+with tf.Session() as sess:
+    sess.run(tf.global_variables_initializer())
+    ckpt = tf.train.get_checkpoint_state(ckpt_path)
+    saver = tf.train.Saver()
+    if ckpt and ckpt.model_checkpoint_path:
+        saver.restore(sess, ckpt.model_checkpoint_path)
+    chars = [current_char]
+    state = None
+    batch_size = 1
+    num_words = args['num_words'] if args['num_words'] else 111
+    for i in range(num_words):
+        if state:
+            feed_dict = { 
+                xs_ : np.array(current_char).reshape([1, 1]), 
+                init_state : state_
+                }
+        else:
+            feed_dict = { 
+                xs_ : np.array(current_char).reshape([1,1]),
+                init_state : np.zeros([batch_size, state_size])
+                }
+        preds, state_ = sess.run([predictions, last_state],
+            feed_dict=feed_dict)
+        state = True
+        current_char = np.random.choice(preds.shape[-1], 1, 
+            p=np.squeeze(preds))[0]
+        chars.append(current_char)
+{% endhighlight %}
+
+
+I have ignored a few lines of code, that deals with the data. Check out the whole code at [vanilla.py](https://github.com/suriyadeepan/rnn-from-scratch/blob/master/vanilla.py).
+
