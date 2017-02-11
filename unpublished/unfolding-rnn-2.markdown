@@ -4,7 +4,6 @@ title: "Unfolding RNN 2"
 subtitle: "Vanilla/GRU/LSTM RNNs from scratch, using Tensorflow"
 ---
 
-
 The first article in this series focused on the general mechanism of RNN, architectures, variants and applications. The objective was to abstract away the details and illustrate the high-level concepts in RNN. Naturally, the next step is to dive into the details. In this article, we will follow a bottom-up approach, starting with the basic recurrent operation,  building up to a complete neural network which performs language modeling.
 
 As we have seen in the previous article, the RNNs consist of states, which are updated every time step. The state, at time step 't', is essentially a summary of the information in the sequence till 't'. At each 't', information flows from the current input and the previous state, to the current state. This flow of information can be controlled. This is called the **gating** mechanism. Conceptually, a gate is a structure that selectively allows the flow of information from one point to another. In this context, we can employ multiple gates, to control information flow from the input to the current state, previous state to current state and from current state to output. Based on how gates are employed to control the information flow, we have multiple variants of RNNs. 
@@ -55,7 +54,8 @@ import tensorflow as tf
 import numpy as np
 xs_ = tf.placeholder(shape=[None, None], dtype=tf.int32)
 ys_ = tf.placeholder(shape=[None], dtype=tf.int32)
-init_state = tf.placeholder(shape=[None, state_size], dtype=tf.float32, name='initial_state')
+init_state = tf.placeholder(shape=[None, state_size],
+    dtype=tf.float32, name='initial_state')
 {% endhighlight %}
 
 Placeholders are entry points through which data can be fed to the graph, during execution. The inputs xs_ and outputs ys_ are arrays of indices of symbols in vocabulary as discussed in the last section.
@@ -77,4 +77,53 @@ states = tf.scan(step,
         initializer=init_state)
 {% endhighlight %}
 
-The scan function builds a loop that dynamically unfolds, to recursively apply the function *step*,  over *rnn_inputs*. The dimensions of tensor *rnn_inputs* are shuffled, to expose the sequence length dimension as the 0th dimension, to enable iteration over the elements of sequence. The tensor of form \[batch_size, seqlen, state_size\], is transposed to \[seqlen, batch_size, state_size\].
+The scan function builds a loop that dynamically unfolds, to recursively apply the function *step*,  over **rnn_inputs**. The dimensions of tensor *rnn_inputs* are shuffled, to expose the sequence length dimension as the 0th dimension, to enable iteration over the elements of sequence. The tensor of form \[*batch_size, seqlen, state_size*\], is transposed to \[*seqlen, batch_size, state_size*\]. **states** returned by *scan* is an array of states from all the time steps, using which we will predict the output probabilities at each step.
+
+## Recurrence
+
+{% highlight python %}
+xav_init = tf.contrib.layers.xavier_initializer
+W = tf.get_variable('W', shape=[state_size, state_size],
+     initializer=xav_init())
+U = tf.get_variable('U', shape=[state_size, state_size],
+     initializer=xav_init())
+b = tf.get_variable('b', shape=[state_size],
+     initializer=tf.constant_initializer(0.))
+{% endhighlight %}
+
+We define the weight matrices **W**, **U** and **b**, which parameterize the affine transformation given by $$Ux_t + Ws_{t-1}$$.
+
+TODO : insert image that illustrates state transformation
+
+{% highlight python %}
+def step(hprev, x):
+    return tf.tanh(
+        tf.matmul(hprev, W) +
+         tf.matmul(x,U) + b)
+{% endhighlight %}
+
+At time step 't', state given by $$s_t = tanh(Ux_t + Ws_{t-1})$$, is calculated and passed to the next step.
+
+## Output
+
+{% highlight python %}
+V = tf.get_variable('V', shape=[state_size, num_classes], 
+                    initializer=xav_init())
+bo = tf.get_variable('bo', shape=[num_classes], 
+                        initializer=tf.constant_initializer(0.))
+states_reshaped = tf.reshape(states, [-1, state_size])
+logits = tf.matmul(states_reshaped, V) + bo
+predictions = tf.nn.softmax(logits)
+{% endhighlight %}
+
+The parameters of output transformation, **V** and **bo** are created. The **states** variable returned by *scan*, is of shape \[*seqlen, batch_size, state_size*\], which is squeezed into \[*seqlen\*batch_size, state_size*\], suitable for the matrix multiplication operation to follow. The reshaped states tensor is transformed into an array of logits, through matrix multiplication with *V*, given by, $$o_t = Vs_t + bo$$. The logits are transformed into class probabilities using the softmax function.
+
+## Optimization
+
+{% highlight python %}
+losses = tf.nn.sparse_softmax_cross_entropy_with_logits(logits, ys_)
+loss = tf.reduce_mean(losses)
+train_op = tf.train.AdamOptimizer(learning_rate=0.1).minimize(loss)
+{% endhighlight %}
+
+Cross entropy losses are calculated for each time step. The overall sequence loss is given by the mean of losses at each step. Note that [*sparse_softmax_cross_entropy_with_logits*](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/g3doc/api_docs/python/functions_and_classes/shard4/tf.nn.sparse_softmax_cross_entropy_with_logits.md) function requires logits as inputs instead of probabilities.
