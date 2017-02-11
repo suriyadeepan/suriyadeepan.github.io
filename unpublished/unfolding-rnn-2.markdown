@@ -22,3 +22,19 @@ state, $$s_t = tanh(Ux_t + Ws_{t-1})$$
 ouput, $$o_t = softmax(Vs_t)$$
 
 estimated class, $$\hat{y_t} = argmax(o_t)$$
+
+
+## Recurrence in Tensorflow
+
+We now know what happens during each time step in a vanilla RNN. How do we implement this in tensorflow? The length of the input sequence varies for each example. The graph defined in tensorflow runs the recurrence operation over each item in the input sequence, one step at a time. The is graph should be capable of handling variable length sequences. In other words, it should dynamically unfold the recurrent operation 'T' times for each 'T' lengths of input sequences. This requires a loop in the computational graph. Tensorflow provides **scan** operation precisely for this purpose. Let us take a look at [*tf.scan*](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/g3doc/api_docs/python/functions_and_classes/shard9/tf.scan.md).
+
+```python
+# scan operation
+tf.scan(fn, elems, initializer)
+# recurrent function
+def fn(st_1, xt):
+    st = f(st_1, xt)
+    return st
+```
+
+The usage is fairly simple. *fn* is the recurrent function that runs 'T' times. *elems* is the list of elements of length 'T'- the input sequence, over which *fn* is applied. During each iteration, the state of the system is calculated as a function of current input, *xt* and the previous state, *st_1*. This state, *st* is passed to the next recurrent operation at 't+1'. *initializer* is a parameter that sets the initial state of the system. The states and the inputs discussed here, are basically just vectors of fixed length.
