@@ -191,3 +191,20 @@ We restore the saved session from the checkpoint. We choose a random character f
 
 
 I have ignored a few lines of code, that deals with the data. Check out the whole code at [vanilla.py](https://github.com/suriyadeepan/rnn-from-scratch/blob/master/vanilla.py).
+
+
+| X (indices)  | Y (indices) |
+| ------------- | ------------- |
+| \[ 21, 51, 73, 74, 25, 14, 74,  4, 33,  8, 38, 16,  7, 57, 83, 33, 22, 51, 12, 29 \] | \[ 51, 73, 74, 25, 14, 74,  4, 33,  8, 38, 16,  7, 57, 83, 33, 22, 51, 12, 29,  4 \] |
+| \[ 4, 74, 33, 58, 33, 23, 58,  2, 24, 83, 51,  4, 97, 24, 58, 33, 73, 51, 52, 74 \] | \[ 74, 33, 58, 33, 23, 58,  2, 24, 83, 51,  4, 97, 24, 58, 33, 73, 51, 52, 74,  4 \] |
+| \[ 4 80 33 52 63 74  4 74 33 24 59 33 58 97 33 24 25 15 51  4] | \[80 33 52 63 74  4 74 33 24 59 33 58 97 33 24 25 15 51  4 52] |
+| \[52 58 97 52 33 15  4 51 15 51 59 24 52 24 51 97 32 51 97 33] | \[58 97 52 33 15  4 51 15 51 59 24 52 24 51 97 32 51 97 33 22] |
+| \[22 51 12  4 33 14 58  2  2 51 52 33 52 63 24 59 33 22 74 58] | \[51 12  4 33 14 58  2  2 51 52 33 52 63 24 59 33 22 74 58  4] |
+
+| X (string)  | Y (string) |
+| ------------- | ------------- |
+| November 2016If you' | ovember 2016If you'r |
+| re a California vote | e a California voter |
+| r, there is an impor | , there is an import |
+| tant proposition  on | ant proposition on y |
+| your ballot this yea | our ballot this year |
