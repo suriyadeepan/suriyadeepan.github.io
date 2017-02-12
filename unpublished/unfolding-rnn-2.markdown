@@ -46,6 +46,9 @@ Before jumping into the code, let me introduce the task of language modeling (RN
 2. symbol to index, vocabulary
 3. intro to embedding
 
+> November 2016If you're a California voter, there is an important proposition
+> on your ballot this year: Proposition 62, which bans the death
+
 
 ### Placeholders
 
