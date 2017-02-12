@@ -39,15 +39,66 @@ The usage is fairly simple. *fn* is the recurrent function that runs 'T' times. 
 
 ## Language Modeling
 
-Before jumping into the code, let me introduce the task of language modeling (RNNLM). The objective is capture the statistical relationship among words in a corpus, by learning to predict the next word, given a word. Based on which we will generate text one word at a time. I've used the term "word" here, but we will work with characters, simply because it is easier to work with data that way. The vocabulary will be fixed and small, and we don't have to deal with rare words. The table below contains input and output sequences from the dataset.
-
-*TODO*
-1. insert table here
-2. symbol to index, vocabulary
-3. intro to embedding
+Before jumping into the code, let me introduce the task of language modeling (RNNLM). The objective is capture the statistical relationship among words in a corpus, by learning to predict the next word, given a word. Based on which we will generate text one word at a time. I've used the term "word" here, but we will work with characters, simply because it is easier to work with data that way. The vocabulary will be fixed and small, and we don't have to deal with rare words. Consider the small piece of text below, extracted from Paul Graham's blog.
 
 > November 2016If you're a California voter, there is an important proposition
 > on your ballot this year: Proposition 62, which bans the death
+
+During preprocessing, we convert the raw text into a structured form. Consider each row in the following table. The objective of the network is to observe the input *x*, one character at a time and produce the output sentence *y*, one character at a time.
+
+| X (string)  | Y (string) |
+| ------------- | ------------- |
+| November 2016If you' | ovember 2016If you'r |
+| re a California vote | e a California voter |
+| r, there is an impor | , there is an import |
+| tant proposition  on | ant proposition on y |
+| your ballot this yea | our ballot this year |
+
+
+Based on the text corpus, we build a vocabulary of all the characters. We randomly assign an index to each of the character. 
+
+| id | ch | id | ch | id | ch | id | ch |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| 0 | " | 25 | m | 50 | & | 75 | J |
+| 1 | ≈ | 26 | - | 51 | o | 76 | / |
+| 2 | l | 27 | < | 52 | t | 77 | — |
+| 3 | ? | 28 | G | 53 | ) | 78 | Q |
+| 4 | r | 29 | ' | 54 | 4 | 79 | ( |
+| 5 | é | 30 | } | 55 | T | 80 | , |
+| 6 | w | 31 | k | 56 | X | 81 | c |
+| 7 | 6 | 32 | \\n | 57 | I | 82 | x |
+| 8 | 2 | 33 |   | 58 | a | 83 | f |
+| 9 | z | 34 | { | 59 | s | 84 | j |
+| 10 | \` | 35 | ^ | 60 | V | 85 | M |
+| 11 | U | 36 | F | 61 | E | 86 | R |
+| 12 | u | 37 | * | 62 | 3 | 87 | : |
+| 13 | + | 38 | 0 | 63 | h | 88 | % |
+| 14 | b | 39 | ] | 64 | [ | 89 | O |
+| 15 | p | 40 | 8 | 65 | L | 90 | Z |
+| 16 | 1 | 41 | d | 66 | . | 91 | 7 |
+| 17 | P | 42 | D | 67 | # | 92 | _ |
+| 18 | ! | 43 | @ | 68 | S | 93 | g |
+| 19 | W | 44 | B | 69 | \| | 94 | q |
+| 20 | 9 | 45 | K | 70 | ² | 95 | ; |
+| 21 | N | 46 | 5 | 71 | A | 96 | H |
+| 22 | y | 47 | $ | 72 | > | 97 | n |
+| 23 | C | 48 | Y | 73 | v | 98 | = |
+| 24 | i | 49 | xa0 | 74 | e | 
+
+
+Using the vocabulary we built, we will now map the data (X,Y) in raw string format, to corresponding indices.
+
+| X (indices)  | Y (indices) |
+| ------------- | ------------- |
+| \[ 21, 51, 73, 74, 25, 14, 74,  4, 33,  8, 38, 16,  7, 57, 83, 33, 22, 51, 12, 29 \] | \[ 51, 73, 74, 25, 14, 74,  4, 33,  8, 38, 16,  7, 57, 83, 33, 22, 51, 12, 29,  4 \] |
+| \[ 4, 74, 33, 58, 33, 23, 58,  2, 24, 83, 51,  4, 97, 24, 58, 33, 73, 51, 52, 74 \] | \[ 74, 33, 58, 33, 23, 58,  2, 24, 83, 51,  4, 97, 24, 58, 33, 73, 51, 52, 74,  4 \] |
+| \[ 4 80 33 52 63 74  4 74 33 24 59 33 58 97 33 24 25 15 51  4] | \[80 33 52 63 74  4 74 33 24 59 33 58 97 33 24 25 15 51  4 52] |
+| \[52 58 97 52 33 15  4 51 15 51 59 24 52 24 51 97 32 51 97 33] | \[58 97 52 33 15  4 51 15 51 59 24 52 24 51 97 32 51 97 33 22] |
+| \[22 51 12  4 33 14 58  2  2 51 52 33 52 63 24 59 33 22 74 58] | \[51 12  4 33 14 58  2  2 51 52 33 52 63 24 59 33 22 74 58  4] |
+
+
+We understand that the network reads inputs in the form of an array of indices. But the indices by themselves, carry no semantic meaning and hence the network will have a hard time mapping input sentences to output sentences. This is where embedding comes in, more commonly known as *word vector* or *word embedding*. In this case, we will map characters to low dimensional vectors of size *state_size*. This is done by creating an embedding matrix of shape \[ *vocab_size, state_size* \] and selecting a row of the matrix by index of character. This matrix is initialized randomly and hence the embeddings are useless before training. But, as the training process goes on minimizing the loss (ie.) maximizing the objective - predicting next character, the network learns useful task-relevant embeddings. If you find the topic of  Word Embedding fascinating, you will love Sebastian Ruder's blog. In the article [*On Word Embeddings*](), he provides a comprehensive guide to understanding Word Embeddings.
+
 
 
 ### Placeholders
@@ -98,12 +149,12 @@ We define the weight matrices **W**, **U** and **b**, which parameterize the aff
 
 TODO : insert image that illustrates state transformation
 
-    {% highlight python %}
-    def step(hprev, x):
-        return tf.tanh(
-            tf.matmul(hprev, W) +
-            tf.matmul(x,U) + b)
-    {% endhighlight %}
+{% highlight python %}
+def step(hprev, x):
+    return tf.tanh(
+        tf.matmul(hprev, W) +
+        tf.matmul(x,U) + b)
+{% endhighlight %}
 
 At time step 't', state given by $$s_t = tanh(Ux_t + Ws_{t-1})$$, is calculated and passed to the next step.
 
@@ -190,54 +241,8 @@ with tf.Session() as sess:
         chars.append(current_char)
 {% endhighlight %}
 
-We restore the saved session from the checkpoint. We choose a random character from vocabulary and feed it to the graph, along with a intial state array, filled with zeros. We fetch the class probabilities generated by forward propagation and use it as a probability distribution over the vocabulary of characters, with most probable next character given the previous character(s) having higher probability values. The output character generated by sampling from this distribution (*np.random.choice*), is fed as input to the graph, along with the last_state generated, fed as initial state. This process is repeated *num_chars* times and we end up with a a few lines of text generated by the network, like below.
+We restore the saved session from the checkpoint. We choose a random character from vocabulary and feed it to the graph, along with a intial state array, filled with zeros. We fetch the class probabilities generated by forward propagation and use it as a probability distribution over the vocabulary of characters, with most probable next character given the previous character(s) having higher probability values. The output character generated by sampling from this distribution (*np.random.choice*), is fed as input to the graph, along with *last_state* generated, fed as initial state. This process is repeated *num_chars* times and we end up with a a few lines of text generated by the network, like below.
 
 
-I have ignored a few lines of code, that deals with the data. Check out the whole code at [vanilla.py](https://github.com/suriyadeepan/rnn-from-scratch/blob/master/vanilla.py).
-
-
-| X (indices)  | Y (indices) |
-| ------------- | ------------- |
-| \[ 21, 51, 73, 74, 25, 14, 74,  4, 33,  8, 38, 16,  7, 57, 83, 33, 22, 51, 12, 29 \] | \[ 51, 73, 74, 25, 14, 74,  4, 33,  8, 38, 16,  7, 57, 83, 33, 22, 51, 12, 29,  4 \] |
-| \[ 4, 74, 33, 58, 33, 23, 58,  2, 24, 83, 51,  4, 97, 24, 58, 33, 73, 51, 52, 74 \] | \[ 74, 33, 58, 33, 23, 58,  2, 24, 83, 51,  4, 97, 24, 58, 33, 73, 51, 52, 74,  4 \] |
-| \[ 4 80 33 52 63 74  4 74 33 24 59 33 58 97 33 24 25 15 51  4] | \[80 33 52 63 74  4 74 33 24 59 33 58 97 33 24 25 15 51  4 52] |
-| \[52 58 97 52 33 15  4 51 15 51 59 24 52 24 51 97 32 51 97 33] | \[58 97 52 33 15  4 51 15 51 59 24 52 24 51 97 32 51 97 33 22] |
-| \[22 51 12  4 33 14 58  2  2 51 52 33 52 63 24 59 33 22 74 58] | \[51 12  4 33 14 58  2  2 51 52 33 52 63 24 59 33 22 74 58  4] |
-
-| X (string)  | Y (string) |
-| ------------- | ------------- |
-| November 2016If you' | ovember 2016If you'r |
-| re a California vote | e a California voter |
-| r, there is an impor | , there is an import |
-| tant proposition  on | ant proposition on y |
-| your ballot this yea | our ballot this year |
-
-| id | ch | id | ch | id | ch | id | ch |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| 0 | " | 25 | m | 50 | & | 75 | J |
-| 1 | ≈ | 26 | - | 51 | o | 76 | / |
-| 2 | l | 27 | < | 52 | t | 77 | — |
-| 3 | ? | 28 | G | 53 | ) | 78 | Q |
-| 4 | r | 29 | ' | 54 | 4 | 79 | ( |
-| 5 | é | 30 | } | 55 | T | 80 | , |
-| 6 | w | 31 | k | 56 | X | 81 | c |
-| 7 | 6 | 32 | \\n | 57 | I | 82 | x |
-| 8 | 2 | 33 |   | 58 | a | 83 | f |
-| 9 | z | 34 | { | 59 | s | 84 | j |
-| 10 | \` | 35 | ^ | 60 | V | 85 | M |
-| 11 | U | 36 | F | 61 | E | 86 | R |
-| 12 | u | 37 | * | 62 | 3 | 87 | : |
-| 13 | + | 38 | 0 | 63 | h | 88 | % |
-| 14 | b | 39 | ] | 64 | [ | 89 | O |
-| 15 | p | 40 | 8 | 65 | L | 90 | Z |
-| 16 | 1 | 41 | d | 66 | . | 91 | 7 |
-| 17 | P | 42 | D | 67 | # | 92 | _ |
-| 18 | ! | 43 | @ | 68 | S | 93 | g |
-| 19 | W | 44 | B | 69 | \| | 94 | q |
-| 20 | 9 | 45 | K | 70 | ² | 95 | ; |
-| 21 | N | 46 | 5 | 71 | A | 96 | H |
-| 22 | y | 47 | $ | 72 | > | 97 | n |
-| 23 | C | 48 | Y | 73 | v | 98 | = |
-| 24 | i | 49 | xa0 | 74 | e | 
-
+I have ignored a few lines of code, that deal with data preprocessing, batching and index to character, and character to index conversion. Check out the whole code at [vanilla.py](https://github.com/suriyadeepan/rnn-from-scratch/blob/master/vanilla.py).
 
