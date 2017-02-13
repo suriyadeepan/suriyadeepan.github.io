@@ -6,6 +6,9 @@ tags: ["machine learning", "deep learning", "rnn", "theory"]
 published: true
 ---
 
+**Update** : Part 2 is now available at [**Unfolding RNNs II** : *Vanilla, GRU, LSTM RNNs from scratch in Tensorflow*](http://suriyadeepan.github.io/2017-02-13-unfolding-rnn-2/).
+
+
 RNN is one of those toys that eluded me for a long time. I just couldn't figure out how to make it work. Ever since I read Andrej Karpathy's blog post on the [Unreasonable Effectiveness of RNNs](http://karpathy.github.io/2015/05/21/rnn-effectiveness/), I have been fascinated by what RNNs are capable of, and at the same time confused by how they actually worked. I couldn't follow his code for text generation (Language Modeling). Then, I came across Denny Britz's [blog](http://www.wildml.com/2015/09/recurrent-neural-networks-tutorial-part-1-introduction-to-rnns/), from which I understood how exactly they worked and how to build them. This blog post is addressed to my past self that was confused about the internals of RNN. Through this post, I hope to help people interested in RNNs, develop a basic understanding of what they are, how they work, different variants of RNN and applications.
 
 
