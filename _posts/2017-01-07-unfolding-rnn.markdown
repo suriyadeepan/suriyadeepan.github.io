@@ -164,10 +164,12 @@ We can make computation at each time step, deeper by introducing more hidden lay
 
 That's it for now. I have covered the basics of RNN, selectively omitting a few important sections, like attention mechanism and teacher forcing, which we'll visit in the future posts. In the next post, I will try to focus on the following:
 
-- Sequence Loss
+- ~~Sequence Loss~~
 - Backpropagation through time
 - Computing the gradient
-- LSTM and GRU units
+- ~~LSTM and GRU units~~
 - Memory Networks
 
 Don't think twice about leaving a comment! Just do! 
+
+**Update** : Part 2 is now available at [**Unfolding RNNs II** : *Vanilla, GRU, LSTM RNNs from scratch in Tensorflow*].
