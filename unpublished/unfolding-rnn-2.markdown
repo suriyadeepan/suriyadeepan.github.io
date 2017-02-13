@@ -403,6 +403,8 @@ Looks pretty decent right? Such is the power of RNN. The full list of results is
 4. [Chris Olah's *Understanding LSTMs*](http://colah.github.io/posts/2015-08-Understanding-LSTMs/)
 
 
-The networks we just built, are not quite optimal. Tensorflow uses an optimized implementation of RNN beneath the abstraction. It does not use *tf.scan*. But we are not concerned about optimized code here; it is beyond the scope of this article. To summarise, we have discussed different variants of RNN based on the control of information flow, through gating mechanisms. We implemented these networks and trained them for language modeling. I hope this article was useful to you, in understanding the architecture of GRU and LSTM RNNs. In the next article of this series, I will make use of tensorflow's wrappers for creating a dynamic RNN and train it for sentiment classification on IMDB reviews dataset. 
+The networks we just built, are not quite optimal. Tensorflow uses an optimized implementation of RNN beneath the abstraction. It does not use *tf.scan*. But we are not concerned about optimized code here; it is beyond the scope of this article. To summarise, we have discussed different variants of RNN based on the control of information flow, through gating mechanisms. We implemented these networks and trained them for language modeling. I hope this article was useful to you, in understanding the architecture of GRU and LSTM RNNs. 
+
+In the next article of this series, I will make use of tensorflow's wrappers for creating a dynamic RNN and train it for sentiment classification on IMDB reviews dataset. 
 
 Feel free to leave a comment below!
