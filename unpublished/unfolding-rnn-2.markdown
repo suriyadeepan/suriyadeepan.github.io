@@ -304,12 +304,9 @@ The performance and the network capacity can be radically improved by stacking m
 
 ## Stacked GRU
 
-TODO : 
+![](/img/rnn/stacking.png)
 
-1. insert figure that explains stacking
-2. explain stacking with figure
-
-As we have more layers, we need more parameters for transformations. This means we need to arrange the weight matrices in *U* and *W*, to support natural access by id. Hence, the shape of *W* and *U* becomes, \[ *num_layers, 3, state_size, state_size* \].
+Increasing the number of layers (not to be confused with time steps) at each time step, increases the representation power of the network. This enables the network to capture higher level information in the sequence and maintain them in the state. The increase in depth radically increases the performance of the network. At each step, we need to maintain *num_layers* states. As we have more layers, we need more parameters for transformations. This means we need to arrange the weight matrices in *U* and *W*, to support natural access by index. Hence, the shape of *W* and *U* becomes, \[ *num_layers, 3, state_size, state_size* \].
 
 {% highlight python %}
 W = tf.get_variable('W', 
