@@ -147,7 +147,7 @@ b = tf.get_variable('b', shape=[state_size],
 
 We define the weight matrices **W**, **U** and **b**, which parameterize the affine transformation given by $$Ux_t + Ws_{t-1} + b$$.
 
-TODO : insert image that illustrates state transformation
+![](/img/rnn/vanilla.png)
 
 {% highlight python %}
 def step(hprev, x):
@@ -269,6 +269,8 @@ h = tanh(x_tU^h + (s_{t-1} \odot r)W^h)\\
 s_t = (1-z) \odot h + z \odot s_{t-1}\\
 $$ 
 
+![](/img/rnn/gru.png)
+
 We have two categories of weight matrices - *U* parameterizes the transformation of input *X* and *W*, the transformation of previous state. We define tensors *U* and *W* that contain $$U^z, U^r, U^h$$ and $$W^z, W^r, W^h$$ respectively, along with a bias *b*. Notice the $$\odot$$ operator in the equations. It represents elementwise multiplication. Whenever you notice information flow through a gate, an elementwise multiplication is happening underneath.
 
 {% highlight python %}
@@ -361,6 +363,8 @@ g = tanh(x_t U^g + s_{t-1} W^g)\\
 c_t = c_{t-1} \odot f + g \odot i\\
 s_t = tanh(c_t) \odot o\\
 $$
+
+![](/img/rnn/lstm.png)
 
 The parameters *U* and *W* are defined below. Again, the shapes of parameter tensors are adjusted to accommodate all the parameters.
 
