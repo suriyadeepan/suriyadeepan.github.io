@@ -172,4 +172,4 @@ That's it for now. I have covered the basics of RNN, selectively omitting a few 
 
 Don't think twice about leaving a comment! Just do! 
 
-**Update** : Part 2 is now available at [**Unfolding RNNs II** : *Vanilla, GRU, LSTM RNNs from scratch in Tensorflow*].
+**Update** : Part 2 is now available at [**Unfolding RNNs II** : *Vanilla, GRU, LSTM RNNs from scratch in Tensorflow*](http://suriyadeepan.github.io/2017-02-13-unfolding-rnn-2/).
