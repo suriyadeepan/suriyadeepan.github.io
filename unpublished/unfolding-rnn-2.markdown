@@ -6,16 +6,16 @@ subtitle: "Vanilla/GRU/LSTM RNNs from scratch, using Tensorflow"
 
 The [first article](http://suriyadeepan.github.io/2017-01-07-unfolding-rnn/) in this series focused on the general mechanism of RNN, architectures, variants and applications. The objective was to abstract away the details and illustrate the high-level concepts in RNN. Naturally, the next step is to dive into the details. In this article, we will follow a bottom-up approach, starting with the basic recurrent operation,  building up to a complete neural network which performs language modeling.
 
-As we have seen in the previous article, the RNNs consist of states, which are updated every time step. The state, at time step *t*, is essentially a summary of the information in the sequence till *t*. At each *t*, information flows from the current input and the previous state, to the current state. This flow of information can be controlled. This is called the **gating** mechanism. Conceptually, a gate is a structure that selectively allows the flow of information from one point to another. In this context, we can employ multiple gates, to control information flow from the input to the current state, previous state to current state and from current state to output. Based on how gates are employed to control the information flow, we have multiple variants of RNNs. 
+As we have seen in the previous article, the RNNs consist of states, which are updated every time step. The state, at time step *t*, is essentially a summary of the information in the input sequence till *t*. At each *t*, information flows from the current input and the previous state, to the current state. This flow of information can be controlled. This is called the **gating** mechanism. Conceptually, a gate is a structure that selectively allows the flow of information from one point to another. In this context, we can employ multiple gates, to control information flow from the input to the current state, previous state to current state and from current state to output. Based on how gates are employed to control the information flow, we have multiple variants of RNNs. 
 
 
-In this article, we will understand and implement the 3 most famous flavors of RNN - Vanilla, GRU and LSTM. The vanilla RNN is the most basic type of RNN. It has no gates, which means, information flow isn't controlled. Information that is critical to the task at hand, could be overwritten by redudant or irrelevant information. Hence, vanilla RNNs aren't used in practice. Though, they are very useful in learning RNNs. GRU and LSTMs consist of multiple gates that enable selective forgetting or remembering information from sequence. Let's start with vanilla RNN. 
+In this article, we will understand and implement the 3 most famous flavors of RNN - **Vanilla**, **GRU** and **LSTM**. The vanilla RNN is the most basic form of RNN. It has no gates, which means, information flow isn't controlled. Information that is critical to the task at hand, could be overwritten by redudant or irrelevant information. Hence, vanilla RNNs aren't used in practice. Though, they are very useful in learning RNNs. GRU and LSTMs consist of multiple gates that enable selective forgetting or remembering information from sequence. Let's start with vanilla RNN. 
 
 ## Vanilla RNN
 
-At each time step, the current state is the sum of linear transformations of current input and the previous state, parameterized by weight matrices **U** and **W** respectively, followed by a non-linearity (hyperbolic tangent). The output at *t*, is a similar linear transformation of current state $$s_t$$, followed by a softmax, which converts logits into normalized class probabilities. The class prediction at each time step, $$\hat{y_t}$$, assuming that we are dealing with a classification problem (sequence labeling), is calculated with the argmax function operates over $$o_t$$.
+At each time step, the current state is the sum of linear transformations of current input and the previous state, parameterized by weight matrices **U** and **W** respectively, followed by a non-linearity (hyperbolic tangent). The output at *t*, is a similar linear transformation of current state $$s_t$$, followed by a softmax, which converts logits into normalized class probabilities. The class prediction at each time step, $$\hat{y_t}$$, assuming that we are dealing with a classification problem (sequence labeling), is calculated with the *argmax* function applied on $$o_t$$.
 
-At time step 't',
+At time step *t*,
 
 $$
 s_t = tanh(Ux_t + Ws_{t-1})\\
@@ -26,7 +26,7 @@ $$
 
 ## Recurrence in Tensorflow
 
-We now know what happens during each time step in a vanilla RNN. How do we implement this in tensorflow? The length of the input sequence varies for each example. The graph defined in tensorflow runs the recurrence operation over each item in the input sequence, one step at a time. The graph should be capable of handling variable length sequences. In other words, it should dynamically unfold the recurrent operation *T* times for each *T* lengths of input sequences. This requires a loop in the computational graph. Tensorflow provides **scan** operation, precisely for this purpose. Let us take a look at [*tf.scan*](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/g3doc/api_docs/python/functions_and_classes/shard9/tf.scan.md).
+We now know what happens during each time step in a vanilla RNN. How do we implement this in tensorflow? The length of the input sequence varies for each example. A computational graph defined in tensorflow should run the recurrence operation over each item in the input sequence, one step at a time. It should be able to handle variable length sequences. In other words, it should dynamically unfold the recurrent operation *T* times for each *T* lengths of input sequences. This requires a loop in the computational graph. Tensorflow provides **scan** operation, precisely for this purpose. Let us take a look at [*tf.scan*](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/g3doc/api_docs/python/functions_and_classes/shard9/tf.scan.md).
 
 {% highlight python %}
 tf.scan(fn, elems, initializer) # scan operation
@@ -42,7 +42,7 @@ The usage is fairly simple. *fn* is the recurrent function that runs *T* times. 
 Before jumping into the code, let me introduce the task of language modeling (RNNLM). The objective of language modeling is to capture the statistical relationship among words in a corpus, by learning to predict the next word, given a word. Based on which we will generate text one word at a time. I've used the term "word" here, but we will work with characters, simply because it is easier to work with data that way. The vocabulary will be fixed and small, and we don't have to deal with rare words. Consider the small piece of text below, extracted from Paul Graham's blog.
 
 > November 2016If you're a California voter, there is an important proposition
-> on your ballot this year: Proposition 62, which bans the death
+> on your ballot this year
 
 During preprocessing, we convert the raw text into a structured form (See table below). The objective of the network is to observe the input *x*, one character at a time and produce the output sentence *y*, one character at a time.
 
@@ -86,7 +86,7 @@ Based on the text corpus, we build a vocabulary of all the characters. We random
 | 24 | i | 49 | xa0 | 74 | e | 
 
 
-Using the vocabulary we built, we will now map the data (X,Y) in raw string format, to corresponding indices.
+Using the vocabulary we built, we will now map the data (X,Y) from raw string format, to corresponding indices.
 
 | X (indices)  | Y (indices) |
 | ------------- | ------------- |
@@ -97,7 +97,7 @@ Using the vocabulary we built, we will now map the data (X,Y) in raw string form
 | \[22 51 12  4 33 14 58  2  2 51 52 33 52 63 24 59 33 22 74 58] | \[51 12  4 33 14 58  2  2 51 52 33 52 63 24 59 33 22 74 58  4] |
 
 
-We understand that the network reads inputs in the form of an array of indices. But the indices by themselves, carry no semantic meaning and hence, the network will have a hard time mapping input sentences to output sentences. This is where embedding comes in; more commonly known as *word vector* or *word embedding*. In this case, we will map the characters to low dimensional vectors of size *state_size*. This is done by creating an embedding matrix of shape \[ *vocab_size, state_size* \] and selecting a row of the matrix by index of character. This matrix is initialized randomly and hence the embeddings are useless before training. But, as the training process goes on minimizing the loss (ie.) maximizing the objective - predicting next character, the network learns useful task-relevant embeddings. If you find the topic of  Word Embedding fascinating, you will love Sebastian Ruder's blog. In the article [*On Word Embeddings*](http://sebastianruder.com/word-embeddings-1/), he provides a comprehensive guide to understanding Word Embeddings.
+We understand that the network reads inputs in the form of an array of indices. But the indices by themselves, carry no semantic meaning and hence, the network will have a hard time mapping input sentences to output sentences. This is where embedding comes in; more commonly known as *word vector* or *word embedding*. In this case, we will map the characters to low dimensional vectors of size *state_size*. This is done by creating an embedding matrix of shape \[ *vocab_size, state_size* \] and selecting a row of the matrix by index of character. This matrix is initialized randomly and hence the embeddings are useless before training. But, as the training progresses, loss is gradually minimized, maximizing the objective (predicting next character correctly), the network learns useful task-relevant embeddings. If you find the topic of  Word Embedding fascinating, you will love Sebastian Ruder's blog. In the article [*On Word Embeddings*](http://sebastianruder.com/word-embeddings-1/), he provides a comprehensive guide to understanding Word Embeddings.
 
 [*data.py*](https://github.com/suriyadeepan/rnn-from-scratch/blob/master/data.py) reads raw text extracted from Paul Graham's blog. If you are interested in how I extracted text from his blog, check out [*scraper.py*](https://github.com/suriyadeepan/datasets/blob/master/lm/paul_graham/scraper.py). The steps mentioned above are followed in creating the dataset. Let us move on to building the model as a graph in tensorflow.
 
@@ -112,7 +112,7 @@ init_state = tf.placeholder(shape=[None, state_size],
     dtype=tf.float32, name='initial_state')
 {% endhighlight %}
 
-Placeholders are entry points through which data can be fed to the graph, during execution. The inputs *xs_* and outputs *ys_* are arrays of indices, of symbols in vocabulary as discussed in the last section.
+Placeholders are entry points through which data can be fed to the graph, during execution. The inputs *xs_* and outputs *ys_* are arrays of indices, of symbols in vocabulary as discussed in the last section. The initial state of the network is created as a placeholder, *init_state*, which should be set during execution of graph. The shape of initial state is of form \[ *batch_size, state_size* \].
 
 ### Embedding
 
@@ -131,7 +131,7 @@ states = tf.scan(step,
         initializer=init_state)
 {% endhighlight %}
 
-The scan function builds a loop that dynamically unfolds, to recursively apply the function *step*,  over *rnn_inputs*. The dimensions of tensor *rnn_inputs*, are shuffled, to expose the sequence length dimension as the 0th dimension, to enable iteration over the elements of sequence. The tensor of form \[*batch_size, seqlen, state_size*\], is transposed to \[*seqlen, batch_size, state_size*\]. *states* returned by *scan* is an array of states from all the time steps, using which we will predict the output probabilities at each step.
+The scan function builds a loop that dynamically unfolds, to recursively apply the function *step*,  over *rnn_inputs*. The dimensions of tensor *rnn_inputs*, are shuffled, to expose the sequence length dimension as the 0th dimension, to enable iteration over the elements of the sequence. The tensor of form \[*batch_size, seqlen, state_size*\], is transposed to \[*seqlen, batch_size, state_size*\]. *states* returned by *scan* is an array of states from all the time steps, using which we will predict the output probabilities at each step.
 
 ### Recurrence
 
@@ -145,7 +145,7 @@ b = tf.get_variable('b', shape=[state_size],
      initializer=tf.constant_initializer(0.))
 {% endhighlight %}
 
-We define the weight matrices **W**, **U** and bias, **b**, which parameterize the affine transformation given by $$Ux_t + Ws_{t-1} + b$$. Note that bias is optional.
+We define the weight matrices *W*, *U* and bias *b*, which parameterize the affine transformation given by $$Ux_t + Ws_{t-1} + b$$. Note that bias is optional.
 
 ![](/img/rnn/vanilla.png)
 
@@ -241,10 +241,10 @@ with tf.Session() as sess:
         chars.append(current_char)
 {% endhighlight %}
 
-We restore the saved session from the checkpoint. We choose a random character from vocabulary and feed it to the graph, along with an intial state array, filled with zeros. We fetch the class probabilities generated by forward propagation and use it as a probability distribution over the vocabulary of characters, with most probable next character given the previous character(s), having higher probability values. The output character generated by sampling from this distribution (*np.random.choice*), is fed as input to the graph, along with *last_state* generated, fed as initial state. This process is repeated *num_chars* times and we end up with a a few lines of text generated by the network.
+We restore the saved session from the checkpoint. We choose a random character from vocabulary and feed it to the graph, along with an intial state array, filled with zeros. We fetch the class probabilities generated by forward propagation and use it as a probability distribution over the vocabulary of characters, with the most probable candidates for the next character, having higher probability values. The output character generated by sampling from this distribution (*np.random.choice*), is fed as input to the graph, along with *last_state* generated, fed as initial state. This process is repeated *num_chars* times and we end up with a a few lines of text generated by the network.
 
 
-I have ignored a few lines of code, that deal with data fetching, batching and index to character, and character to index conversion. Check out the whole code at [vanilla.py](https://github.com/suriyadeepan/rnn-from-scratch/blob/master/vanilla.py). You can train the model and generate text, as follows.
+I have ignored a few lines of code, that deal with data fetching, batching and index to character, and character to index conversions. Check out the whole code at [vanilla.py](https://github.com/suriyadeepan/rnn-from-scratch/blob/master/vanilla.py). You can train the model and generate text, as follows.
 
 {% highlight bash %}
 python3 vanilla.py -t # train
