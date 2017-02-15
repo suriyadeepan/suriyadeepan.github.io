@@ -613,3 +613,7 @@ table tr td :last-child {
 .tag:hover::after {
   border-left-color: #f05422;
 }
+
+.gitter-chat-embed {
+    z-index: 2000;
+}
