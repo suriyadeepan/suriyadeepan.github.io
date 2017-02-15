@@ -615,5 +615,5 @@ table tr td :last-child {
 }
 
 .gitter-chat-embed {
-    z-index: 2000;
+    z-index: 1500;
 }
