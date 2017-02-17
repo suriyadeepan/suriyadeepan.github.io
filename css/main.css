@@ -614,6 +614,3 @@ table tr td :last-child {
   border-left-color: #f05422;
 }
 
-.gitter-chat-embed {
-    z-index: 1500;
-}
