@@ -20,6 +20,8 @@ I am Suriyadeepan Ramamoorthy, from Puducherry, India. An Independent Researcher
 
 - (*incomplete*) Generative Dialog Systems based on seq2seq, memory networks and reinforcement.
 
+- (*incomplete*) [Enhancing Sequence to Sequence architecture](https://github.com/suriyadeepan/augmented_seq2seq)
+
 - [Language Modeling or RNN Hallucinations with tensorflow](https://github.com/suriyadeepan/language-modeling)
 
 
