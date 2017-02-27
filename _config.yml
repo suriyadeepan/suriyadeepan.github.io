@@ -23,9 +23,9 @@ description: My personal blog!
 
 # List of links in the navigation bar
 navbar-links:
-  Walden: "pages/walden"
+  #Walden: "pages/walden"
   About Me: "aboutme"
-  Proposals : "pages/proposals"
+  #Proposals : "pages/proposals"
   Slides:
     - Mesh Network : "http://pymeshnet.gitlab.io/slides/bangpypermeet/software/"
     - Python 3 : "https://suriyadeepan.github.io/python3"
