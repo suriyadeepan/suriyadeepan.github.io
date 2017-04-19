@@ -4,6 +4,13 @@ title: Open-domain Generative Dialogue System
 subtitle: Outline of Implementation of VHRED and Improvements
 ---
 
+## Objective
+
+Chatbots are becoming increasing popular. More and more social media and IM platforms are starting to provide bot APIs to developers for building and hosting chatbots. Most of the existing bots are closed-domain rule-based systems and are severely restricted to a predefined set of responses. Although some of the projects like Google's Allo, which are built on generative models, and provide interesting responses, are not open to public, for experimentation. The objective of this project, is **to build an open-domain generative dialogue system based on VHRED**, which is well-documented and available to public for experimentation.
+
+
+## Introduction
+
 I have been fascinated with the [sequence to sequence](https://arxiv.org/abs/1406.1078) models and their applications. Despite the architectural limitations, seq2seq performs surprisingly well in sequence to sequence mapping tasks like Machine Translation. Perhaps the most fascinating application of seq2seq, is Generative Conversational Modeling. Introduced in [A Neural Conversational Model](https://arxiv.org/abs/1506.05869), conversational models or virtual agents or chatbots, which are strictly data-driven, have produced some interesting responses.
 
 **Human:** *what is the purpose of life ?*
@@ -68,7 +75,7 @@ A authors of VHRED, have made the [Twitter Dialogue Corpus](http://www.iulianser
 
 ## Proposal
 
-Based on intuition, I have segmented the proposal into 3 phases.
+Based on intuition, I have segmented the project into 3 phases.
 
 - Implementation of HRED
     - Express HRED architecture as a tensorflow graph
@@ -83,7 +90,14 @@ Based on intuition, I have segmented the proposal into 3 phases.
     - Update model parameters, using Policy Gradients (Gradient ascent/descent)
 
 
-Phase 1 involves implementation of HRED in tensorflow, data preprocessing and training. The evaluation metrics generally used in Natural Language Processing, are not applicable here. It is impossible to capture the objective of an open-domain dialog system, in an objective function. The true objective of an open-domain dialogue system, can only be represented through high-level concepts, like diversity, variability, consistency and the quality of being "engaging". Hence, evaluation should be done manually, by reading the responses and comparing them with original responses.
+Phase I involves implementation of HRED in tensorflow, data preprocessing and training. The evaluation metrics generally used in Natural Language Processing, are not applicable here. It is impossible to capture the objective of an open-domain dialog system, in an objective function. The true objective of an open-domain dialogue system, can only be represented through high-level concepts, like diversity, variability, consistency and the quality of being "engaging". Hence, evaluation should be done manually, by reading the responses and comparing them with original responses.
+
+
+In Phase II, we edit the tensorflow graph, to upgrade HRED, to include a latent variable sampling step(VHRED). A normal distribution ($$\mu$$, $$\Sigma$$) is obtained by transforming the hidden state of the context RNN, at turn 'i', through a 2-layer feed-forward neural network. Another transformation is performed on the output of this network, to get the covariance matrix, $$\Sigma$$. The high-dimensional latent variable is conditioned on this normal distribution. The decoder is conditioned on this stochastic variable, while generating the response. This network is trained by maximising the variational lower-bound, as mentioned in the paper. 
+
+
+In the final phase, we build a web interface, based on Flask, that allows multiple users to interact with the system. Reinforcement Learning is used here, to let the system to continue to learn autonomously. At the end of each session, the system receives a return (reward), either manually provided by the user or inferred from the quality of interaction. There are multiple ways to receive feedbacks from users. We could use like/dislike buttons, emoji's, ratings, etc,. We use policy gradients, which considers the HRED as a stochastic policy, which maps utterances to actions (responses). Based on the return, the model parameters are updated to adapt the model, to provide engaging, meaninful, coherent conversations with the user.
+
 
 ## Reference
 
