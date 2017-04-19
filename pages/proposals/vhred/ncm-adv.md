@@ -31,7 +31,7 @@ My priliminary attempt to build a generative chatbot by repurposing tensorflow's
 </center>
 
 
-In my [second attempt](https://github.com/suriyadeepan/practical_seq2seq), I've made use of tensorflow's seq2seq module, to create a more cleaner and simpler approach to this problem. I have documented every step of this process in this blog, [Practical seq2seq](http://suriyadeepan.github.io/2016-12-31-practical-seq2seq/). This approach yielded more interesting and meaningful responses. The model was trained on twitter chat corpus and open subtitles corpus. The results are available in the repository.
+In my [second attempt](https://github.com/suriyadeepan/practical_seq2seq), I've made use of tensorflow's seq2seq module, to create a more cleaner and simpler approach to this problem. I have documented every step of this process in this blog, [*Practical seq2seq*](http://suriyadeepan.github.io/2016-12-31-practical-seq2seq/). This approach yielded more interesting and meaningful responses. The model was trained on twitter chat corpus and open subtitles corpus. The results are available in the repository.
 
 
 | Query					| Reply					|
