@@ -66,8 +66,27 @@ VHRED attempts to solve this problem, by introducing an intermediate step betwee
 A authors of VHRED, have made the [Twitter Dialogue Corpus](http://www.iulianserban.com/Files/TwitterDialogueCorpus.zip) and preprocessed [Ubuntu Dialog Corpus](http://www.iulianserban.com/Files/UbuntuDialogueCorpus.zip), available for public use. The MovieTriples dataset is also available for research purposes only upon request, but the authors have strongly recommended readers to benchmark the model, on Twitter and Ubuntu datasets, as they are substantially larger. Apart from these, 1.7 billion [reddit comments](https://www.reddit.com/r/datasets/comments/3bxlg7/i_have_every_publicly_available_reddit_comment/)  and 2.8 million [OpenSubtitles](https://www.nr.no/~plison/pdfs/cl/slt2016.pdf) dataset, are available for research.
 
 
+## Proposal
 
-## References
+Based on intuition, I have segmented the proposal into 3 phases.
+
+- Implementation of HRED
+    - Express HRED architecture as a tensorflow graph
+    - Preprocess datasets (Twitter, Ubuntu dialog)
+    - Train model on datasets with periodic interruptions, for human evaluation
+- Upgrade HRED graph to VHRED
+    - Update training procedure (variational lower bound maximisation for latent variable)
+    - Training with evaluation
+- Real-time Reinforcement Learning
+    - Create a web interface for multiple users to interact with the chatbot
+    - Infer rewards from conversations
+    - Update model parameters, using Policy Gradients (Gradient ascent/descent)
+
+
+Phase 1 involves implementation of HRED in tensorflow, data preprocessing and training. The evaluation metrics generally used in Natural Language Processing, are not applicable here. It is impossible to capture the objective of an open-domain dialog system, in an objective function. The true objective of an open-domain dialogue system, can only be represented through high-level concepts, like diversity, variability, consistency and the quality of being "engaging". Hence, evaluation should be done manually, by reading the responses and comparing them with original responses.
+
+## Reference
+
 
 - [Learning Phrase Representations using RNN Encoder-Decoder for Statistical Machine Translation](https://arxiv.org/abs/1406.1078)
 - [A Neural Conversational Model](https://arxiv.org/abs/1506.05869)
