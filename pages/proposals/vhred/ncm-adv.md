@@ -19,10 +19,26 @@ I've been experimenting with open-domain generative chatbots, ever since I read 
 
 My priliminary attempt to build a generative chatbot by repurposing tensorflow's [Neural Machine Translation](https://www.tensorflow.org/tutorials/seq2seq) code, can be found [here](https://github.com/suriyadeepan/easy_seq2seq). I made use of Cornell Moview Dialogue Corpus for training. The model was difficult to train and did not converge most of the time. It provided a few meaningful responses, when it did converge.
 
-![](http://i.imgur.com/6jRMYYl.gif)
+<center>
+<img src="http://i.imgur.com/6jRMYYl.gif" height="800" width="600">
+</center>
 
 
 In my [second attempt](https://github.com/suriyadeepan/practical_seq2seq), I've made use of tensorflow's seq2seq module, to create a more cleaner and simpler approach to this problem. I have documented every step of this process in this blog, [Practical seq2seq](http://suriyadeepan.github.io/2016-12-31-practical-seq2seq/). This approach yielded more interesting and meaningful responses. The model was trained on twitter chat corpus and open subtitles corpus. The results are available in the repository.
+
+
+| Query					| Reply					|
+| ------------- | ------------- |
+| donald trump won last nights presidential debate according to snap online polls | thought he was a joke |
+| s new scoop is unk the castro connection how trumps company violated the us embargo against cuba | trump is a disgrace to the debate and the media is not a liar |
+| just wanna live in unk everything is 10x better there | i was just on the same side and i was like it was a good time |
+| question of the day who do you think won last nights debate weigh in using | hillary is a trump supporter and a woman who has a better job than a woman |
+| trump is a total embarrassment hes like a child who happens to be a professional liar and con man | trump is a lot of money to get a great country |
+| chill the fuck out | thats what i said |
+| so fun to see what the special effects team created for | wow that is the best thing ive ever seen |
+| been drinking pumpkin spice protein shake every morning for a week and now i literally cannot even | me too i just got it |
+| lmao i just lost my job and i cant even leave early to be in the unk video today | literally the same thing |
+| hey happy birthday have a nice day | thank you |
 
 
 In February, I started exploring more advanced models built on top of seq2seq. My survey on augmented seq2seq models is available [here](http://suriyadeepan.github.io/pages/proposals/vhred/survey.pdf). In an attempt to build these models, I've learned to use tensorflow low level abstraction `raw_rnn`. This [repository](https://github.com/suriyadeepan/augmented_seq2seq) that contains implementations of some of these newer architectures.
