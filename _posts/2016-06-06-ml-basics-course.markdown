@@ -86,11 +86,11 @@ $$
 # Muliplication with identity
 a = np.array([[1,2,3],[4,5,6],[7,8,9]])
 i = np.eye(3)
-print a*i
-print i*a
+print(np.dot(a,i))
+print(np.dot(i,a))
 # Multiplication a.b
 b = np.array([[6, 5, 7],[2, 8, 8],[0, 3, 9]])
-print np.dot(a,b)
+print(np.dot(a,b))
 {% endhighlight %}
 
 ### More Operations
@@ -98,11 +98,11 @@ print np.dot(a,b)
 {% highlight python %}
 # Transpose of matrix
 x = np.arange(1,10).reshape([3,3])
-print x
-print x.T
+print(x)
+print(x.T)
 # Inverse of a matrix
 y = np.linalg.inv(x)
-print y
+print(y)
 {% endhighlight %}<a name="numpy"></a>
 
 <br>
@@ -195,7 +195,7 @@ By measuring the error in the hypothesis we can adjust the parameters a and b to
 def cost(x,y,theta):
     m = y.shape[0]
     h = np.dot(theta,x.reshape([2,m]))
-    #print h.shape,x.shape,y.shape,theta.shape
+    #print(h.shape,x.shape,y.shape,theta.shape)
     return np.sum(np.square(y-h))/(2.0*m)
 {% endhighlight %}
 
@@ -223,8 +223,8 @@ def gd(x,y,theta,alpha = 0.005,iter=10000):
         update = np.dot(x,error)
         theta = theta - ( (alpha*update)/m )
 
-    print 'theta',theta
-    print 'cost',cost(x,y,theta)
+    print('theta',theta)
+    print('cost',cost(x,y,theta))
 {% endhighlight %}
 
 ## Multivariable Linear Regression
@@ -254,7 +254,7 @@ $$
 def cost(x,y,theta):
     m = y.shape[0]
     h = np.dot(theta,x.reshape([3,m]))
-    #print h.shape,x.shape,y.shape,theta.shape
+    #print(h.shape,x.shape,y.shape,theta.shape)
     return np.sum(np.square(y-h))/(2.0*m)
 {% endhighlight %}
 
@@ -279,8 +279,8 @@ def gd(x,y,theta,alpha = 0.005,iter=1000000):
         update = np.dot(x,error)
         theta = theta - ( (alpha*update)/m )
 
-    print 'theta',theta
-    print 'cost',cost(x,y,theta)
+    print('theta',theta)
+    print('cost',cost(x,y,theta))
 
 {% endhighlight %}
 
@@ -338,8 +338,8 @@ def gd(x,y,theta,alpha = 0.005,iter=1000000):
         update = np.dot(x,error)
         theta = theta - ( (alpha*update)/m )
 
-    print 'theta',theta
-    print 'cost',cost(x,y,theta)
+    print('theta',theta)
+    print('cost',cost(x,y,theta))
 {% endhighlight %}
 <br>
 
@@ -404,8 +404,8 @@ X_train = X_train.astype('float32')
 X_test = X_test.astype('float32')
 X_train /= 255
 X_test /= 255
-print X_train.shape[0], 'train samples')
-print X_test.shape[0], 'test samples'
+print(X_train.shape[0], 'train samples')
+print(X_test.shape[0], 'test samples')
 
 # convert class vectors to binary class matrices
 Y_train = np_utils.to_categorical(y_train, nb_classes)
@@ -427,8 +427,8 @@ history = model.fit(X_train, Y_train,
                     batch_size=batch_size, nb_epoch=nb_epoch,
                     verbose=1, validation_data=(X_test, Y_test))
 score = model.evaluate(X_test, Y_test, verbose=0)
-print 'Test score:', score[0]
-print 'Test accuracy:', score[1]
+print('Test score:', score[0])
+print('Test accuracy:', score[1])
 {% endhighlight %} <br />
 
 ![](/img/screenshot/keras_mlp_mnist.png)
