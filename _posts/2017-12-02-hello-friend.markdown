@@ -45,8 +45,6 @@ Ah yes. We are building a community of A.I. practitioners in Chennai. Our fearle
 
 So many interesting things happened ever since. Last week, I listened to [Dr. Ravindran](https://www.cse.iitm.ac.in/~ravi/)'s talk on Reinforcement Learning at [Nvidia Developers Connect](https://www.nvidia.com/en-in/developer-connect/home/) (22 nov). Gave a talk on [Neural Question Answering](https://slides.com/suriyadeepanr/neuralqa/) to academics as part of [Faculty Development Programme](https://aicte-fdp-2017.ssn.edu.in/) on Deep Learning for Image and Text Analysis, at [SSN College of Engineering](http://www.ssn.edu.in/) (24 nov). 
 
-![](/img/hellofriend/ssn.jpg)
-
 And last Sunday, I met with a bunch of Computer Vision practitioners, at [Mad Street Den](https://www.madstreetden.com/) (thanks to my good friend, [Syed](https://twitter.com/SyedMoinudeen)), to discuss the architecture and impact of Hinton's [Capsule Net](https://twitter.com/MadStreetDen/status/934702210776047616). Slides are available [here](http://slides.com/suriyadeepanr/capsulenet). Normally I try to stay away from Computer Vision (I can be easily distracted by shiny things), but after reading about Capsule Net, I just couldn't resist. 
 
 ![](/img/hellofriend/madstreetden.jpg)
