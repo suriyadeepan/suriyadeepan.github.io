@@ -2,7 +2,7 @@
 layout: post
 title: "Hello Friend!"
 subtitle: "Review of 2016, 2017"
-tags: ["qa", "reading comprehension", "neural network"]
+tags: ["review", "life", "self"]
 published: true
 
 ---
