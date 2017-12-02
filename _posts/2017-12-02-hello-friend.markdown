@@ -11,8 +11,6 @@ Hi Folks! It's been 10 months since my last blog. 2017 has been a good year for 
 
 2016 was not that bad. Throughout 2016, I met so many interesting people in the Free Software circle. I met activists (FSMK) and developers from Bengaluru (BangPypers). I interacted with KariGLUG members who are actively working on establishing a decentralized resource sharing network at [Alagappa university](http://alagappauniversity.ac.in/).
 
- ![](/img/hellofriend/libre_digi_lib_1.jpg)
-
 I had so much free time (emphasis on free). I would wake up in the morning and decide how to spend my day; which course to learn that day. I enjoyed Melanie Mitchell's course at complexity explorer. I enjoyed Charles and Michael's Machine Learning courses at Udacity. I loved experimenting with p5.js while watching the ever-so-charming [Dan Shiffman](https://www.youtube.com/user/shiffman/featured)'s youtube videos on Creative Coding. Consumed every popular anime out there - Code Geass, NGE, Parasyte, AoT, Tokyo Ghoul, Boku dake ga inai machi, Mirai Nikki, Shiki, ... I may have wasted a good part of 2016.
 
 ![](/img/hellofriend/shinji.jpg)
