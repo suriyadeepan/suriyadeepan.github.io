@@ -30,6 +30,8 @@ navbar-links:
     - Mesh Network : "http://pymeshnet.gitlab.io/slides/bangpypermeet/software/"
     - Python 3 : "https://suriyadeepan.github.io/python3"
     - Machine Learning (4ccon) : "https://suriyadeepan.github.io/4ccon"
+    - Neural Question Answering : "http://slides.com/suriyadeepanr/neuralqa"
+    - Capsule Network : "http://slides.com/suriyadeepanr/capsulenet"
   Profile: "http://suriya.strikingly.com"
 #  Links:
 #    - Neural Network Basics: "https://github.com/ChatAI/_nn_"
