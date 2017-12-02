@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Hello Friend!"
-subtitle: "Review of 2016, 2017"
+subtitle: "Review of 2017"
 tags: ["review", "life", "self"]
 published: true
 
