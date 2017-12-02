@@ -53,7 +53,7 @@ And last Sunday, I met with a bunch of Computer Vision practitioners, at [Mad St
 
 Solving [SQuAD](https://rajpurkar.github.io/SQuAD-explorer/) (Stanford Question Answering Dataset) is still left unchecked in my TODO list, among other things. I feel like this is something that I MUST do, before moving on with my life. A few days ago, I started implementing Dynamic Co-attention Network. The architecture diagram would have scared me away if I had seen it last year. It's a good thing that I'm now equipped to implement and play with this network. 
 
-![](/img/hellofriend/todo_.png)
+![](/img/hellofriend/todo_img.png)
 
 I am writing a blog on Neural Question Answering based on my literature survey and experiments. In fact, as I started writing it, the events of this year bled into it, and it slowly turned into this blog entry. I do have a 6000-word draft of Neural QA blog that I've been too scared to publish for a while now. Let me tweak it a bit and share it with you, hopefully tomorrow.
 
