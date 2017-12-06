@@ -1,0 +1,28 @@
+---
+layout: post
+title: "Neural Question Answering"
+subtitle: "Reading Comprehension with Neural Networks"
+tags: ["QA", "reading comprehension", "NLU", "deep learning"]
+published: false
+---
+
+
+
+Hi there! 
+
+
+
+In my last [blog post](#), I talked about my obsession with the reading comprehension problem. Now you get to read about it in detail. This blog is an introduction to the reading comprehension problem. I try to explain in detail, the crucial concepts in understanding and solving it. 
+
+
+
+There is a subtle difference between Reading Comprehension and Question Answering. Reading Comprehension informs us of the presence of some kind of text that should be read and understood, followed by a test of understanding. We couldn't help but imagine there being different categories of text and questions. The text could be general, like a summary of a historical event or it could be something very specific, like [Sophism](https://en.wikipedia.org/wiki/Sophist). It is more interesting is to imagine the nature of questions. We answer questions based on our interpretation of the text.
+
+Interpretation is analogous to **representation** in neural networks. Let us call the process of interpreting the raw text, **Understanding**. The depth of understanding depends entirely on the nature of the question. Trivial questions elicit shallow understanding. Consider an example - given the text from a wiki article on [List of Roman Emperors](https://en.wikipedia.org/wiki/List_of_Roman_emperors), answer the question "Who is the first Roman emperor?". Answering this question requires the following sequence of actions - "identify, parse and locate pattern". **Identify** the answer type - "Who" refers to a person. **Parse** the text. **Locate** the **pattern** "the first roman emperor". Thankfully, the following phrase is present in the wiki article (to support my point). 
+
+>  Augustus (Octavian), the first Roman Emperor of the Principate Era whose ascension ended republic rule at Rome.
+
+The answering process follows the "identify, parse and locate pattern" algorithm. It is obvious that the answering process requires shallow or no understanding, depending on your definition of understanding.  Can we answer any question using this algorithm? We got lucky with this question. We found the answer by searching for the pattern "the first roman emperor". But what if the phrases in the question are not found in the text? Could we search for possible paraphrases? Can we solve this by just parsing and matching text? Now let's consider a different question. 
+
+
+
