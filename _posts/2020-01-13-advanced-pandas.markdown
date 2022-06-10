@@ -11,13 +11,13 @@ published: true
 
 # Why should you read this post?
 
-I've been using pandas for working with structured data like Electronic Health Records (EHR), insurance claims, sensory data from wearables, etc. Pandas is a powerful data manipulation library which I've been consistently under-utilizing. In this post, I describe a list of pandas functions that I wish I knew about when I started with Data Science. If you are someone who works with data for a living you might find this useful.
+I've been using pandas for working with structured data like Electronic Health Records (EHR), insurance claims, sensory data from wearables, etc. Pandas is a powerful data manipulation library that I've been consistently under-utilizing. In this post, I describe a list of pandas functions that I wish I knew about when I started with Data Science. If you are someone who works with data for a living you might find this useful.
 
 ## Select features from file
 
 Sometimes csv files contain too much information. Too many irrelevant columns.
 I used to read the whole file into memory and then get rid of the irrelevant columns.
-Instead we could read only the useful columns from the file.
+Instead, we could read only the useful columns from the file.
 
 Consider the example of Melbourne housing prices data.
 Say we are interested in the following features:
@@ -58,11 +58,11 @@ df.dtypes
 
 ## Dealing with Missing values
 
-You may have noticed a number of NaN (missing) values in the data frame.
+You may have noticed several NaN (missing) values in the data frame.
 We can decide to remove the rows with missing data or fill them in depending on the situation.
-There are a number of ways to fill in the missing values.
+There are many ways to fill in the missing values.
 We could fill in with average (mean, median) or most likely values (mode).
-Or we could use the values from the neigboring rows.
+Or we could use the values from the neighboring rows.
 Back-fill `bfill` fills in using the value from the next rows.
 Forward-fill `ffill` fills in using the value from the previous rows.
 
@@ -83,7 +83,7 @@ df.BuildingArea.fillna(df.BuildingArea.mean().item())
 
 ## Filtering data
 
-Almost everytime I perform data analysis I use conditions to filter out rows.
+Almost every time I perform data analysis, I use conditions to filter out rows.
 Often I end up having to use multiple conditions leading to long, awkward lines of code.
 
 
@@ -92,7 +92,7 @@ df[(df.BuildingArea < 150) & (df.YearBuilt > 2000.) & (df.Rooms == 1)]
 {% endhighlight %}
 
 
-Alternatively we could use `df.query` and enter our conditions as a string.
+Alternatively, we could use `df.query` and enter our conditions as a string.
 
 {% highlight python %}
 df.query("BuildingArea < 150. & YearBuilt > 2000. & Rooms == 1")
@@ -133,7 +133,7 @@ df[df.Suburb.str.startswith("A")]
 
 pandas allows you to work with Date type objects using the `dt` accessor.
 `pandas.Series.dt` can be used to access date, hour, day, month, year, etc, from a Datetime object.
-It also supports a number of operations on Datetime objects like `floor`, `ceil`, `normalize` etc,.
+It also supports many operations on Datetime objects like `floor`, `ceil`, `normalize` etc,.
 
 
 {% highlight python %}
@@ -145,7 +145,7 @@ df[df.Date.dt.year == 2016]
 
 Groupby splits the data into different groups given a column.
 Using multiple columns to group will create a hierarchy of groups.
-The example belows groups the data by "Regionname" and "Suburb" and summarizes the "Landsize" values within these groups.
+The example below groups the data by "Regionname" and "Suburb" and summarizes the "Landsize" values within these groups.
 
 {% highlight python %}
 df.groupby(["Regionname", "Suburb", ])[["Landsize"]].sum()
@@ -154,7 +154,7 @@ df.groupby(["Regionname", "Suburb", ])[["Landsize"]].sum()
 
 ## Ranking and Sorting
 
-During data analysis we'll be interested in ranking entries in the data frame based on a variable of our choice.
+During data analysis, we'll be interested in ranking entries in the data frame based on a variable of our choice.
 Looking at the extremes in the housing market might reveal interesting patterns.
 In the example below, we rank the housing entries based on their market price.
 
@@ -163,7 +163,7 @@ df["RankByPrice"] = df["Price"].rank(method="max")
 {% endhighlight %}
 ![](/img/pandas/rank.png)
 
-Instead we could just sort the entries based on one or more columns.
+Instead, we could just sort the entries based on one or more columns.
 
 {% highlight python %}
 df_sane.sort_values(by=["BuildingArea", "Landsize"], ascending=False)
@@ -173,7 +173,7 @@ df_sane.sort_values(by=["BuildingArea", "Landsize"], ascending=False)
 
 ## Correlation 
 
-pandas has a handy function to calculate pair-wise correlation between variables. Correlation matrix is a good indicator of which features are useful (strong correlation with target variable) and which features are correlated with each other. 
+pandas has a handy function to calculate pair-wise correlation between variables. The correlation matrix is a good indicator of which features are useful (strong correlation with target variable) and which features are correlated with each other. 
 
 {% highlight python %}
 import seaborn as sns
@@ -187,7 +187,7 @@ sns.heatmap(corr, cmap="Blues", annot=True);
 
 When working with data from multiple sources, there is a need to combine them after cleaning and transformation.
 Pandas has functions to merge, join, append and concat data.
-merge and join are different way of doing the same thing.
+merge and join are different ways of doing the same thing.
 merge performs a database-style join on data frames.
 concat and append perform concatenation of data frames along a particular axis.
 
@@ -200,7 +200,7 @@ pd.merge(land_size, building_area, left_index=True, right_index=True)
 ![](/img/pandas/merge_index-index.png)
 
 `reset_index` removes "Regionname" and "Suburb" as indices. 
-Now in order to perform merge we need to explicitly include column names.
+Now to perform merge we need to explicitly include column names.
 The merge operation removes the indexes from the resulting data frame.
 Doing a merge on two unindexed data frames gives the same result.
 
@@ -292,11 +292,11 @@ prof.to_file(output_file='output.html')
 ![](/img/pandas/profiling/5.png)
 
 
-`pandas` is an incredibly powerful, flexible and intuitive tool for working with structured data.
-I'm thikining of writing a follow-up blog that covers SQL-like functions in pandas and compares SQL queries with pandas functions.
+`pandas` is an incredibly powerful, flexible, and intuitive tool for working with structured data.
+I'm thinking of writing a follow-up blog that covers SQL-like functions in pandas and compares SQL queries with pandas functions.
 
 That's it for now. 
-I hope one of these tricks helps you improve you workflow.
+I hope one of these tricks helps you improve your workflow.
 See you soon with more.
 
 If you got something to say leave a comment below.
