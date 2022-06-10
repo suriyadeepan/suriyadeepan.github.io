@@ -29,7 +29,7 @@ Say we are interested in the following features:
 - YearBuilt
 - Price
 
-![](img/pandas/excel-screenshot.png)
+![](/img/pandas/excel-screenshot.png)
 
 `usecols` option `read_csv` allows us to specify which columns we are interested in.
 
@@ -39,7 +39,7 @@ pd.read_csv("melb_data.csv",
             usecols=["Suburb", "Rooms", "Landsize", "BuildingArea", "YearBuilt", "Date", "Price"])
 {% endhighlight %}
 
-![](img/pandas/read_csv.png)
+![](/img/pandas/read_csv.png)
 
 
 ### Parse Date as datetime data type
@@ -54,7 +54,7 @@ df = pd.read_csv("melb_data.csv",
 df.dtypes                    
 {% endhighlight %}
 
-![](img/pandas/parse_date.png)
+![](/img/pandas/parse_date.png)
 
 ### Dealing with Missing values
 
@@ -69,17 +69,17 @@ Forward-fill `ffill` fills in using the value from the previous rows.
 {% highlight python %}
 df.BuildingArea.fillna(method="ffill")  
 {% endhighlight %}
-![](img/pandas/ffill.png)
+![](/img/pandas/ffill.png)
 
 {% highlight python %}
 df.BuildingArea.fillna(method="bfill")
 {% endhighlight %}
-![](img/pandas/bfill.png)
+![](/img/pandas/bfill.png)
 
 {% highlight python %}
 df.BuildingArea.fillna(df.BuildingArea.mean().item())
 {% endhighlight %}
-![](img/pandas/meanfill.png)
+![](/img/pandas/meanfill.png)
 
 ### Filtering data
 
@@ -97,12 +97,12 @@ Alternatively we could use `df.query` and enter our conditions as a string.
 {% highlight python %}
 df.query("BuildingArea < 150. & YearBuilt > 2000. & Rooms == 1")
 {% endhighlight %}
-![](img/pandas/query.png)
+![](/img/pandas/query.png)
 
 {% highlight python %}
 df.query("BuildingArea == Landsize").head()
 {% endhighlight %}
-![](img/pandas/query1.png)
+![](/img/pandas/query1.png)
 
 ### Is it in my list?
 
@@ -114,7 +114,7 @@ How do we filter out the rest of the suburbs?
 {% highlight python %}
 df[df.Suburb.isin(["Ashwood", "Altona North", "Coburg"])]
 {% endhighlight %}
-![](img/pandas/isin.png)
+![](/img/pandas/isin.png)
 
 
 ### String Operations
@@ -127,7 +127,7 @@ You can find a lit of string methods supported by pandas [here](https://pandas.p
 {% highlight python %}
 df[df.Suburb.str.startswith("A")]
 {% endhighlight %}
-![](img/pandas/str.png)
+![](/img/pandas/str.png)
 
 ### Date operations
 
@@ -139,7 +139,7 @@ It also supports a number of operations on Datetime objects like `floor`, `ceil`
 {% highlight python %}
 df[df.Date.dt.year == 2016]
 {% endhighlight %}
-![](img/pandas/dt.png)
+![](/img/pandas/dt.png)
 
 ### Group and Summarize
 
@@ -150,7 +150,7 @@ The example belows groups the data by "Regionname" and "Suburb" and summarizes t
 {% highlight python %}
 df.groupby(["Regionname", "Suburb", ])[["Landsize"]].sum()
 {% endhighlight %}
-![](img/pandas/gb.png)
+![](/img/pandas/gb.png)
 
 ### Ranking and Sorting
 
@@ -161,14 +161,14 @@ In the example below, we rank the housing entries based on their market price.
 {% highlight python %}
 df["RankByPrice"] = df["Price"].rank(method="max")
 {% endhighlight %}
-![](img/pandas/rank.png)
+![](/img/pandas/rank.png)
 
 Instead we could just sort the entries based on one or more columns.
 
 {% highlight python %}
 df_sane.sort_values(by=["BuildingArea", "Landsize"], ascending=False)
 {% endhighlight %}
-![](img/pandas/sort.png)
+![](/img/pandas/sort.png)
 
 
 ### Correlation 
@@ -181,7 +181,7 @@ import seaborn as sns
 corr = df.corr()
 sns.heatmap(corr, cmap="Blues", annot=True);
 {% endhighlight %}
-![](img/pandas/corr.png)
+![](/img/pandas/corr.png)
 
 ### Combining data
 
@@ -197,7 +197,7 @@ land_size = df.groupby(["Regionname", "Suburb", ])[["Landsize"]].sum()
 building_area = df.groupby(["Regionname", "Suburb",])[["BuildingArea"]].sum()
 pd.merge(land_size, building_area, left_index=True, right_index=True)
 {% endhighlight %}
-![](img/pandas/merge_index-index.png)
+![](/img/pandas/merge_index-index.png)
 
 `reset_index` removes "Regionname" and "Suburb" as indices. 
 Now in order to perform merge we need to explicitly include column names.
@@ -211,7 +211,7 @@ pd.merge(land_size, building_area.reset_index(),
 pd.merge(land_size.reset_index(), building_area.reset_index(),
          on=["Regionname", "Suburb"])         
 {% endhighlight %}
-![](img/pandas/merge_index-on.png)
+![](/img/pandas/merge_index-on.png)
 
 We can do sql-like merges using left, right, inner and outer methods.
 
@@ -220,7 +220,7 @@ pd.merge(land_size.reset_index(),
          building_area.reset_index().head(),
          how="left")
 {% endhighlight %}
-![](img/pandas/merge-left.png)
+![](/img/pandas/merge-left.png)
 
 
 {% highlight python %}
@@ -228,7 +228,7 @@ pd.merge(land_size.reset_index().head(),
          building_area.reset_index(),
          how="inner")
 {% endhighlight %}
-![](img/pandas/merge-inner.png)
+![](/img/pandas/merge-inner.png)
 
 Setting `indicator=True` lets us know how each row was merged.
 {% highlight python %}
@@ -236,21 +236,21 @@ pd.merge(land_size.reset_index().head(),
          building_area.reset_index().tail(),
          how="outer", indicator=True)
 {% endhighlight %}
-![](img/pandas/merge-outer_indicator.png)
+![](/img/pandas/merge-outer_indicator.png)
 
 Concatenation is a simpler operation that combines two or more data frames row-wise or column-wise.
 
 {% highlight python %}
 pd.concat([land_size, building_area])
 {% endhighlight %}
-![](img/pandas/concat.png)
+![](/img/pandas/concat.png)
 
 Concatenation work along the column axis using `axis=1`.
 
 {% highlight python %}
 pd.concat([land_size, building_area], axis=1)
 {% endhighlight %}
-![](img/pandas/concat1.png)
+![](/img/pandas/concat1.png)
 
 ### Contigency Tables
 
@@ -261,7 +261,7 @@ The frequency can be replaced by a different kind of summary by specifying a sum
 {% highlight python %}
 pd.crosstab(df.Suburb, [df.Rooms])
 {% endhighlight %}
-![](img/pandas/crosstab.png)
+![](/img/pandas/crosstab.png)
 
 ### Multi-level data frames
 
@@ -272,7 +272,7 @@ Grouping like that creates a multi-level data frame.
 pd.concat([land_size.reset_index(), building_area.reset_index()],
         keys=["land", "building"])
 {% endhighlight %}
-![](img/pandas/mlm.png)
+![](/img/pandas/mlm.png)
 
 ### Profiling
 
@@ -285,11 +285,11 @@ prof = ProfileReport(df)
 prof.to_file(output_file='output.html')
 {% endhighlight %}
 
-![](img/pandas/profiling/1.png)
-![](img/pandas/profiling/2.png)
-![](img/pandas/profiling/3.png)
-![](img/pandas/profiling/4.png)
-![](img/pandas/profiling/5.png)
+![](/img/pandas/profiling/1.png)
+![](/img/pandas/profiling/2.png)
+![](/img/pandas/profiling/3.png)
+![](/img/pandas/profiling/4.png)
+![](/img/pandas/profiling/5.png)
 
 
 `pandas` is an incredibly powerful, flexible and intuitive tool for working with structured data.
