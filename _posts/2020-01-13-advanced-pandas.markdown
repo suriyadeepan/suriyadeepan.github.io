@@ -9,11 +9,11 @@ published: true
 > Pandas is a data manipulation and analysis library for python.
 > It is heavily used by the Machine Learning community to clean, transform, and analyze structured data.
 
-## Why should you read this post?
+# Why should you read this post?
 
 I've been using pandas for working with structured data like Electronic Health Records (EHR), insurance claims, sensory data from wearables, etc. Pandas is a powerful data manipulation library which I've been consistently under-utilizing. In this post, I describe a list of pandas functions that I wish I knew about when I started with Data Science. If you are someone who works with data for a living you might find this useful.
 
-### Select features from file
+## Select features from file
 
 Sometimes csv files contain too much information. Too many irrelevant columns.
 I used to read the whole file into memory and then get rid of the irrelevant columns.
@@ -42,7 +42,7 @@ pd.read_csv("melb_data.csv",
 ![](/img/pandas/read_csv.png)
 
 
-### Parse Date as datetime data type
+## Parse Date as datetime data type
 
 pandas by default parses columns containing date as the generic "object" type.
 We could take control of how it is parsed by using the `parse_date` option in `read_csv`.
@@ -56,7 +56,7 @@ df.dtypes
 
 ![](/img/pandas/parse_date.png)
 
-### Dealing with Missing values
+## Dealing with Missing values
 
 You may have noticed a number of NaN (missing) values in the data frame.
 We can decide to remove the rows with missing data or fill them in depending on the situation.
@@ -81,7 +81,7 @@ df.BuildingArea.fillna(df.BuildingArea.mean().item())
 {% endhighlight %}
 ![](/img/pandas/meanfill.png)
 
-### Filtering data
+## Filtering data
 
 Almost everytime I perform data analysis I use conditions to filter out rows.
 Often I end up having to use multiple conditions leading to long, awkward lines of code.
@@ -104,7 +104,7 @@ df.query("BuildingArea == Landsize").head()
 {% endhighlight %}
 ![](/img/pandas/query1.png)
 
-### Is it in my list?
+## Is it in my list?
 
 Here is another one that I use a lot.
 Let us say we are interested in a limited list of suburbs.
@@ -117,7 +117,7 @@ df[df.Suburb.isin(["Ashwood", "Altona North", "Coburg"])]
 ![](/img/pandas/isin.png)
 
 
-### String Operations
+## String Operations
 
 pandas offers string-specific functionalities using a `str` accessor.
 There are methods equivalent to python's string manipulation methods like lower, upper, strip, isalpha, find, index, split, and regex-based functions like match, search, and extractall (equivalent to `re.findall`).
@@ -129,7 +129,7 @@ df[df.Suburb.str.startswith("A")]
 {% endhighlight %}
 ![](/img/pandas/str.png)
 
-### Date operations
+## Date operations
 
 pandas allows you to work with Date type objects using the `dt` accessor.
 `pandas.Series.dt` can be used to access date, hour, day, month, year, etc, from a Datetime object.
@@ -141,7 +141,7 @@ df[df.Date.dt.year == 2016]
 {% endhighlight %}
 ![](/img/pandas/dt.png)
 
-### Group and Summarize
+## Group and Summarize
 
 Groupby splits the data into different groups given a column.
 Using multiple columns to group will create a hierarchy of groups.
@@ -152,7 +152,7 @@ df.groupby(["Regionname", "Suburb", ])[["Landsize"]].sum()
 {% endhighlight %}
 ![](/img/pandas/gb.png)
 
-### Ranking and Sorting
+## Ranking and Sorting
 
 During data analysis we'll be interested in ranking entries in the data frame based on a variable of our choice.
 Looking at the extremes in the housing market might reveal interesting patterns.
@@ -171,7 +171,7 @@ df_sane.sort_values(by=["BuildingArea", "Landsize"], ascending=False)
 ![](/img/pandas/sort.png)
 
 
-### Correlation 
+## Correlation 
 
 pandas has a handy function to calculate pair-wise correlation between variables. Correlation matrix is a good indicator of which features are useful (strong correlation with target variable) and which features are correlated with each other. 
 
@@ -183,7 +183,7 @@ sns.heatmap(corr, cmap="Blues", annot=True);
 {% endhighlight %}
 ![](/img/pandas/corr.png)
 
-### Combining data
+## Combining data
 
 When working with data from multiple sources, there is a need to combine them after cleaning and transformation.
 Pandas has functions to merge, join, append and concat data.
@@ -252,7 +252,7 @@ pd.concat([land_size, building_area], axis=1)
 {% endhighlight %}
 ![](/img/pandas/concat1.png)
 
-### Contigency Tables
+## Contigency Tables
 
 `pd.crosstab` takes an index and a list of columns as inputs and creates a simple cross tabulation between two or more factors.
 It creates a frequency table of factors.
@@ -263,7 +263,7 @@ pd.crosstab(df.Suburb, [df.Rooms])
 {% endhighlight %}
 ![](/img/pandas/crosstab.png)
 
-### Multi-level data frames
+## Multi-level data frames
 
 It might be useful to group our entries based on, say the source of the data if we are acquiring and integrating data from different sources.
 Grouping like that creates a multi-level data frame.
@@ -274,7 +274,7 @@ pd.concat([land_size.reset_index(), building_area.reset_index()],
 {% endhighlight %}
 ![](/img/pandas/mlm.png)
 
-### Profiling
+## Profiling
 
 `pandas_profiling` is an external package that generates a detailed report on a pandas data frame. It generates a html report which includes tons of useful information such as global data statistics, variable statistics, missing value count, interaction between variables, correlation between variables, etc. 
 
